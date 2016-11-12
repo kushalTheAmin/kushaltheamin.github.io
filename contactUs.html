@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <meta charset="UTF-8">
+    <title>Kushal The Amin</title>
+  
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="ihover/src/ihover.css">
+    <link rel="stylesheet" href="ihover/src/ihover.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://use.fontawesome.com/b430502df9.js"></script>
+
+    <!--custom library -->
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/contactus.js"></script>
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+
+<body>
+   <div class="container">
+      <header id="headerId" class="navbar navbar-inverse row"></header>
+
+      <form id="contact" class="well form-horizontal" method="post" action="aboutSite.html">
+        <legend>Contact Me Today !!!</legend>
+        <!--name-->
+        <div class="form-group">
+          <label for="contact_name" class="col-md-4 control-label">Name:</label>
+            <div class="col-md-4 inputgroupContainer">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" id="contact_name" class="form-control" placeholder="Full Name" name="name"></input>
+         
+              </div>
+            </div>
+        </div>
+    
+        <!-- Email -->
+        <div class="form-group">
+         <label class="col-md-4 control-label" for="contact_email">Email:</label>
+          <div class="col-md-4 inputgroupContainer">
+           <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+            <input type="email" class="form-control" id="contact_email" placeholder="name@domain.com" name="email"></input>
+           </div>
+          </div>
+        </div>            
+  
+        <!--Phone Number is required... -->
+        <div class="form-group">
+         <label for="contact_phone" class="col-md-4 control-label">Phone No:</label>
+          <div class="col-md-4 inputgroupContainer">
+           <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+            <input type="phone" id="contact_phone" placeholder="(845)-500-6147" name="phone" class="form-control"></input>
+           </div>
+          </div>
+        </div>            
+  
+        <!-- Message -->
+        <div class="form-group">
+         <label for="contact_message" class="col-md-4 control-label">Message:</label>
+          <div class="col-md-4 inputgroupContainer">
+           <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+            <textarea id="contact_message" placeholder="Leave the message..." class="form-control" name="message"></textarea>
+           </div>  
+          </div>
+        </div>        
+  
+        <!-- Submit Button -->
+        <div id="contact_submit" class="form-group">
+         <label class="col-md-4 control-label"></label>      
+          <div class="col-md-4">
+           <button type="submit" class="btn btn-warning">Send<span class="glyphicon glyphicon-send"></span> </button>
+          </div>
+        </div>
+       
+        <div id="errorFieldBefore"></div><div id="errorField"></div>
+    </form>
+   
+   <footer id="footerId" class="navbar navbar-inverse row" role="navigation"></footer>    
+  </div>
+
+</body>
+</html>

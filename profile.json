@@ -1,0 +1,34 @@
+{
+	"profile":[
+                {
+       	            "name": "kushal Dhirendrakumar Amin"
+                },
+
+                {
+                	"contact":{"adress":"239,Beacon Avenue, APT 5, NJ 07306","phone":"(845)-400-6147","email":"kamin03@nyit.edu"}
+
+                },
+
+                {
+                    "education":[
+                                   {
+                                    	"school": [
+                                    		        {"bachelor": "Saradar Vallabhbhai Institute Of Technology, vasad"},{"masters" : "New York Institute Of Technology,manhattan"}
+                                    		      ]
+                                   },
+                                   {
+                                   	   "projects": ["College Management System","Medical Clinic/ Hospital Appointment Scheduler","Home Security Assistant System"]
+                                   },
+                                   {
+                                   	   "certification": ["Java Professional Developing Program in 2015","Official Ethical Hacking Certification Program Level 1.0"]
+                                   },
+                                   {
+                                   	   "language": ["HTML5","CSS3","JavaScript","JQuery","BootStrap","C#","Java"]
+                                   },
+                                   {
+                                        "course" : [{ "bachelor" : "Computer Engineering"},{"masters" : "Computer and Information Science"}]
+                                   }
+                                ]
+                }
+              ]
+}

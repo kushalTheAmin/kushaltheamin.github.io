@@ -1,2 +1,4 @@
-# kushaltheamin.github.io
-this is a profile site.
+# profileSite
+my profile site
+
+run this on local host or mozilla browser...

@@ -1,0 +1,204 @@
+
+
+.navbar-text > a
+{
+	color: inherit;
+	text-decoration: none; 
+}
+
+#logoImg
+{
+	position: absolute;
+	top:10px;
+}
+
+#nameLogo
+{
+	text-decoration: none;
+	font-size: 25px;
+	color: white;
+	position: absolute;
+	top:5px;
+}
+/*
+.navbar navbar-inverse row, .navbar-header  
+{
+	width: 314px;
+	position: absolute;
+	top: 10px;
+	background-color: back; 
+}
+/*.navbar li > a
+{
+ color: white;
+
+}*/
+#myCarousel, #nameInfo
+{
+	position: relative;
+	top:10px;
+}
+body
+{
+		font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+
+
+.navbar li a:hover
+{
+ color: red !important;
+}
+
+header
+{
+	background: black;
+}
+
+div .row .col-xs-6 
+{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 120px;
+}
+
+
+@media screen and (max-width: 350px) {
+  div .row .col-xs-6 
+{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+
+} }
+
+/*@media screen and (max-width: 350px)
+{
+	footer
+	{
+		padding-top: 10px;
+	}
+}*/
+
+.b1, #writer
+{
+	color: black;
+	font-weight: bold;
+	font-size: 25px;
+	font-style: cursive;
+	text-align: right;
+}
+.b2, #writer2
+{
+	font-weight: bold;
+	color: black;
+	font-size: 20px;
+	font-style: cursive;
+	text-align: right;
+}
+
+#quote
+{
+	font-size: 30px;
+    font-style: cursive;
+    padding-top: 40px;
+}
+
+#quote2
+{
+	font-size: 20px;
+    font-style: cursive;
+    padding-top: 90px;
+}
+
+@media screen and (max-width: 350px)
+{
+  #quote
+  {
+  	padding-top: 40px;
+  }	
+}
+
+#footerCreator
+{
+  padding-top: 25px;
+
+}
+
+#footerSymbol
+{
+ padding-top: 15px;
+}
+
+footer
+{
+	padding-bottom: 20px;
+}
+
+div .navbar-text a
+{
+	padding-left: 20px;
+}
+/* Start contact css */
+
+.error{
+	display: show;
+   	margin-left: 10px;
+}		
+
+.error_show{
+	color: red;
+	margin-left: 10px;
+}
+
+input.invalid, textarea.invalid{
+	border: 2px solid red;
+}
+
+input.valid, textarea.valid{
+	border: 2px solid green;
+}
+
+#errorFieldBefore, #errorField
+{
+	font-size: 15px;
+	color: red;
+}
+/* contact completed */
+
+.desc section {
+    display: inline-block;
+    width: 58%;
+    padding: 4em 4.5em;
+    letter-spacing: 1px;
+}
+
+section.abouthead {
+    letter-spacing: 1px;
+    text-align: left;
+    padding: 4em 4.5em;
+    padding-bottom: 0em;
+}
+
+.desc section h2 {
+    font-weight: 900;
+    font-size: 2em;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}	
+
+.desc section p {
+    font-weight: 300;
+    font-size: 1.2em;
+    padding: 10px 0px;
+}
+
+.desc section .logos {
+    margin-top: 10px;
+}
+
+.desc section .logos .logs {
+    display: inline-block;
+    max-width: 25%;
+    padding-left: 10px;
+}
