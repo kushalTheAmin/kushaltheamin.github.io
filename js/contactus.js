@@ -37,6 +37,7 @@ $('#contact_message').keyup(function(event) {
 });
 
 // After Form Submitted Validation
+
 $("#contact_submit button").click(function(event){
 	var form_data=$("#contact").serializeArray();
 	var error_free=true;
@@ -46,8 +47,9 @@ $("#contact_submit button").click(function(event){
 		var error_element=$("span", element.parent());
 		if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false; 
           
-		document.getElementById("errorFieldBefore").innerHTML =" Error in value of : ";
-		document.getElementById("errorField").innerHTML += "  "+ form_data[input]['name'];}
+	//	document.getElementById("errorFieldBefore").innerHTML =" Error in value of : ";
+	//	document.getElementById("errorField").innerHTML += "  "+ form_data[input]['name'];
+        }
 		else{error_element.removeClass("error_show").addClass("error");}
 	}
 	if (!error_free){

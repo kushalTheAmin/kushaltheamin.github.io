@@ -6,11 +6,7 @@
 	text-decoration: none; 
 }
 
-#logoImg
-{
-	position: absolute;
-	top:10px;
-}
+
 
 #nameLogo
 {
@@ -80,6 +76,39 @@ div .row .col-xs-6
 	}
 }*/
 
+@media screen and (max-width: 435px)
+{
+	#setlogo, #setupperlogo
+	{
+		padding-left: 0px !important;
+	}
+}
+
+
+@media (min-width: 435px) and (max-width: 615px) 
+{ 
+   #setupperlogo
+	{
+	  padding-left: 0px !important; 	
+	}
+   #setlogo
+   { 
+      padding-left: 65px !important;
+   }
+
+}
+
+@media (min-width: 992px) and (max-width: 1200px)
+{
+    #setupperlogo
+	{
+	  padding-left: 80px !important; 	
+	}
+   #setlogo
+   { 
+      padding-left: 145px !important;
+   }	
+}
 .b1, #writer
 {
 	color: black;
@@ -159,6 +188,7 @@ input.valid, textarea.valid{
 	border: 2px solid green;
 }
 
+
 #errorFieldBefore, #errorField
 {
 	font-size: 15px;
@@ -166,9 +196,9 @@ input.valid, textarea.valid{
 }
 /* contact completed */
 
+/* about me  started */
 .desc section {
     display: inline-block;
-    width: 58%;
     padding: 4em 4.5em;
     letter-spacing: 1px;
 }
@@ -199,6 +229,16 @@ section.abouthead {
 
 .desc section .logos .logs {
     display: inline-block;
-    max-width: 25%;
     padding-left: 10px;
 }
+
+#setlogo
+{
+	padding-left: 265px;
+}
+
+#setupperlogo
+{
+	padding-left: 190px;
+}
+/* about me ended */
