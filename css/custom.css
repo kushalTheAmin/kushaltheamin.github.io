@@ -188,7 +188,7 @@ input.valid, textarea.valid{
 	border: 2px solid green;
 }
 
-
+/*
 #errorFieldBefore, #errorField
 {
 	font-size: 15px;
