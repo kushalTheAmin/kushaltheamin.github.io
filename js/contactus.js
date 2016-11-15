@@ -38,19 +38,25 @@ $('#contact_message').keyup(function(event) {
 
 // After Form Submitted Validation
 
+
 $("#contact_submit button").click(function(event){
+	
 	var form_data=$("#contact").serializeArray();
 	var error_free=true;
 	for (var input in form_data){
 		var element=$("#contact_"+form_data[input]['name']);
 		var valid=element.hasClass("valid");
 		var error_element=$("span", element.parent());
-		if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false; 
-          
+		if (!valid){error_element.removeClass("error").addClass("error_show"); error_free=false;   
+//		document.getElementById("test").innerHTML += "error_" + form_data[input]['name'];
 	//	document.getElementById("errorFieldBefore").innerHTML =" Error in value of : ";
-	//	document.getElementById("errorField").innerHTML += "  "+ form_data[input]['name'];
+	//document.getElementById("errorField").innerHTML +=  form_data[input]['name'];
+        document.getElementById("error_"+form_data[input]['name']).style.display ="block";
+	    document.getElementById("error_"+form_data[input]['name']).style.color = "red";
         }
-		else{error_element.removeClass("error_show").addClass("error");}
+		else{error_element.removeClass("error_show1").addClass("error1");
+           document.getElementById("error_message").style.display= "none";
+	  }
 	}
 	if (!error_free){
 		event.preventDefault(); 

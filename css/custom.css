@@ -170,15 +170,21 @@ div .navbar-text a
 }
 /* Start contact css */
 
-.error{
+.error
+{
 	display: show;
    	margin-left: 10px;
 }		
 
 .error_show{
+
 	color: red;
 	margin-left: 10px;
 }
+
+
+
+
 
 input.invalid, textarea.invalid{
 	border: 2px solid red;
@@ -195,7 +201,7 @@ input.valid, textarea.valid{
 	color: red;
 }
 /* contact completed */
-
+x
 /* about me  started */
 .desc section {
     display: inline-block;
@@ -206,7 +212,6 @@ input.valid, textarea.valid{
 section.abouthead {
     letter-spacing: 1px;
     text-align: left;
-    padding: 4em 4.5em;
     padding-bottom: 0em;
 }
 
