@@ -1,112 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	 <meta charset="UTF-8">
-   <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Kushal The Amin</title>
   
-   <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-   <!-- jQuery library -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
-   <!-- Latest compiled JavaScript -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <link rel="stylesheet" href="ihover/src/ihover.css">
-   <link rel="stylesheet" href="ihover/src/ihover.min.css">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="ihover/src/ihover.css">
+  <link rel="stylesheet" href="ihover/src/ihover.min.css">
 
-   <!-- jQuery library -->
-   <script src="https://use.fontawesome.com/b430502df9.js"></script>
-   
-   <!--custom library -->
-   <script type="text/javascript" src="js/custom.js"></script>
-   <link rel="stylesheet" href="css/custom.css">
+  <!-- jQuery library -->
+  <script src="https://use.fontawesome.com/b430502df9.js"></script>
+
+  <!--custom library -->
+  <script type="text/javascript" src="js/custom.js"></script>
+  <link rel="stylesheet" href="css/custom.css">
 
 </head>
 
-<body onload="loadInfo();">
+<body>
 
    <div class="container">
-    <header id="headerId" class="navbar navbar-inverse row"></header>
-
-    <!--body part-->
-    <div class="row" id="nameInfo">   
-      <div class="col-md-2"><b>Name</b> </div>
-        <b><div class="col-md-10" id="about_name"></div></b>
-    </div>
-    
-    <div class="row">
-      <div class="col-md-3" style="padding-top: 20px;" ><b>Contact<b></div>
-       <div class="col-md-9">
-        <div class="row">
-         <div col="col-md-3" id="about_email" style="padding-top: 20px;">Email : </div>
-            
+     <!-- header with logo -->
+     <header id="headerId" class="navbar navbar-inverse row"></header>
+         <section class="abouthead">
+    <h1>About Me !!!</h1>
+    <h2>Front End Developer</h2>
+  </section>
+  <div class="desc">
+    <section>
+      <h2>Skills</h2>
+      <p>I completed graduation with <strong>1 year</strong> commercial experience in CSS3, HTML5, JavaScript, and design to produce creative and effective websites for clients over the world.</p>
+      <p>I am able to work on a project with the full scope in mind. Clients find this approach to be extremely valuable as I am able to easily integrate with and provide experience and advice on all aspects of a project.</p>
+      <h2>Front End Development</h2>
+      <div class="row">
+        <div class="col-md-6">
+         <p>I create websites that allow the user to experience your website in the best and most appropriate way suited to the device they are using. By working using <strong>progressive enhancement</strong>, a website is delivered with a <strong>responsive layout</strong> that can best make use of the space available on the smallest to largest devices. <strong>Cross browser</strong> compatibility is ensured by using feature detection so older browsers still in use today provide a solid experience, whilst modern browsers can go the next step and enhance the users time spent on your site.</p>
+      <p>Writing <strong>semantic markup</strong> that is documented and easy to read means it can be maintained and scaled in the future, and allows co-workers to quickly pick it up.</p>
         </div>
-        <div class="row">
-          <div col="col-md-3" id="about_phone">phone :</div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="row">
-       <div class="col-md-3" style="padding-top: 20px;"><b>Bachelor</b></div>
-       <div class="col-md-9">
+        <div class="col-md-6">
           <div class="row">
-            <div col="col-md-3" id="about_bcourse" style="padding-top: 20px;" >Course :</div>
+              <div class="logos">
+                <div  id="setupperlogo" class="logs">
+                 <img src="img/css3.png">
+                 <strong>CSS3</strong>
+                </div>
+                <div class="logs">
+                 <img src="img/html5.png">
+                 <strong>HTML5</strong>
+                </div>
+              </div>
           </div>
           <div class="row">
-             <div col="col-md-3" id="about_bschool">School :</div>
-          </div>  
-       </div>
-    </div>
-
-    <div class="row">
-       <div class="col-md-3" style="padding-top: 20px;" ><b>Masters</b></div>
-       <div class="col-md-9">
-          <div class="row">
-            <div col="col-md-3" id="about_mcourse" style="padding-top: 20px;" >Course :</div>
-          </div>
-          <div class="row">
-             <div col="col-md-3" id="about_mschool">School :</div>
-          </div>
-       </div>
-    </div>
-    
-    <div class="row" style="padding-top: 20px;" >
-      <div class="col-md-2"><b>Language Skill </b></div>
-      <div class="col-md-10" id="about_language"></div>
-    </div>
-    
-    <div class="row" style="padding-top: 20px;" >
-      <div class="col-md-2"><b>Projects </b></div>
-      <div class="col-md-10" id="about_project"></div>
-    </div>
-    
-    <div class="row" style="padding-top: 20px;" >
-      <div class="col-md-2"><b>Certification </b></div>
-      <div class="col-md-10" id="about_certification"></div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-6">
-                <p id="quote2"><b class="b2">"</b>Try and fail, but never fail to try.<b class="b2">"</b></p>
-                <p id="writer2"> -Jared Loto</p>
+            <div class="logos">
+             <div id="setlogo" class="logs">
+              <img src="img/js.png">
+              <strong>JavaScript</strong>
              </div>
-      <div class="col-md-6">
-        <!-- normal -->
-        <div class="ih-item circle effect10 bottom_to_top"><a href="#">
-         <div class="img"><img src="img/myImg.jpg" alt="img"></div>
-          <div class="info">
-            <h3>Kushal Amin</h3>
-            <p><--Creator--></p>
-          </div></a></div>
-    <!-- end normal -->
-      </div>
+            </div>
+          </div>
+        </div> 
     </div>
-   <!--body part ends here-->
- <!--footer-->
-    <footer id="footerId" class="navbar navbar-inverse row" role="navigation"></footer>     
+      
+      
+      
+      <h2>Other Skills</h2>
+      <div class="logos">
+        <div class="logs">
+          <img src="img/jquery-small.png">
+          <strong>JQuery</strong>
+        </div>
+        <div class="logs">
+          <img src="img/sass-small.png">
+          <strong>SASS</strong>
+        </div>
+        <div class="logs">
+          <img src="img/git-small.png">
+          <strong>GIT</strong>
+        </div>
+        <div class="logs">
+          <img src="img/ajax-small.png">
+          <strong>AJAX</strong>
+        </div>
+        <div class="logs">
+          <img src="img/json-small.png">
+          <strong>JSON</strong>
+        </div>
+      </div>
+      <p>For many projects I rely on tools and open-source libraries such as jQuery, SASS, Git, and Modernizr.</p>
+    </section>
+    <aside></aside>
   </div>
-
+     <!--footer-->
+     <footer id="footerId" class="navbar navbar-inverse row" role="navigation"></footer>    
+   </div>
+  
 </body>
 </html>
