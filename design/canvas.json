@@ -1,32 +1,28 @@
 {
-  "pages": [
-    { "id": "page-1", "name": "Portfolio" },
-    { "id": "page-2", "name": "Directions" }
-  ],
   "artboards": [
-    { "file": "Main.dc.html",   "page": "page-1", "title": "Home",              "x": 0,    "y": 0, "w": 1440, "h": 6600, "print": "flow" },
-    { "file": "Work.dc.html",   "page": "page-1", "title": "Work index",        "x": 1600, "y": 0, "w": 1440, "h": 4900, "print": "flow" },
-    { "file": "Case.dc.html",   "page": "page-1", "title": "Case study",        "x": 3200, "y": 0, "w": 1440, "h": 3800, "print": "flow" },
-    { "file": "Mobile.dc.html", "page": "page-1", "title": "Home on a phone",   "x": 4800, "y": 0, "w": 390,  "h": 3900, "print": "flow" },
-    { "file": "DirectionB.dc.html", "page": "page-2", "title": "Direction B", "x": 0,    "y": 0, "w": 900, "h": 620 },
-    { "file": "DirectionC.dc.html", "page": "page-2", "title": "Direction C", "x": 1020, "y": 0, "w": 900, "h": 620 }
+    { "file": "Main.dc.html",    "page": "page-1", "title": "Home — drag the timeline", "x": 0,    "y": 0, "w": 1440, "h": 6400, "print": "flow", "is_interactive": true },
+    { "file": "Project.dc.html", "page": "page-1", "title": "Case study — click the layers", "x": 1620, "y": 0, "w": 1440, "h": 3600, "print": "flow", "is_interactive": true },
+    { "file": "Mobile.dc.html",  "page": "page-1", "title": "On a phone", "x": 3240, "y": 0, "w": 390, "h": 4600, "print": "flow", "is_interactive": true }
+  ],
+  "pages": [
+    { "id": "page-1", "name": "Portfolio" }
   ],
   "annotations": [
     {
-      "id": "note-1",
+      "id": "note-live",
       "page": "page-1",
-      "x": -420,
+      "x": -440,
       "y": 0,
-      "w": 340,
-      "text": "Direction A - Engineering dossier.\n\nWarm paper, editorial serif display, monospace for every number, ruled lines instead of cards. The premise: your portfolio doc's own ethos - verified, nothing rounded up - becomes the visual language.\n\nFour artboards: home, the full work index, one case study, and the home page on a phone.\n\nTwo alternate directions are on page 2."
+      "w": 360,
+      "text": "THESE ARE LIVE, NOT PICTURES.\n\nHome: grab the round handle on the track and drag it, or tap any year. Nine stops, 2018 to 2026. The colour of the page changes with the era - teal for healthcare, blue for banking, orange for automotive, violet for the AI years.\n\nCase study: click any of the four stack layers on the left and the panel swaps.\n\nPhone: the same timeline, drag or tap works there too."
     },
     {
-      "id": "note-2",
-      "page": "page-2",
-      "x": -420,
-      "y": 0,
-      "w": 340,
-      "text": "Two other directions, sketched only far enough to judge the look.\n\nEach names its own trade-off at the bottom of the frame. Say which one you want and I'll build the full site into it."
+      "id": "note-check",
+      "page": "page-1",
+      "x": -440,
+      "y": 520,
+      "w": 360,
+      "text": "TWO THINGS FOR YOU TO CORRECT\n\n1. Dates. I have Express Scripts across 2018-19 and Bank of America in 2020, because your record only pins September 2018 and July 2021. Tell me the real months and I'll fix the stops.\n\n2. Your email is a placeholder in the footer - I won't publish an address without you saying so.\n\nThe photo frame in the hero is sized 3:4 for the waterfront shot. Save it to img/kushal.jpg in the repo and I'll drop it in."
     }
   ],
   "launch": { "view": "canvas", "page": "page-1" }
