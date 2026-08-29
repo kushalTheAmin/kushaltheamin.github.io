@@ -27,7 +27,7 @@
     .in3 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .14s both; }
     .in4 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .21s both; }
 
-    /* ═══ SHIPPED — signature: the ribbon draws across the top, the outcome rises ═══ */
+    /* work cards: ribbon draws in on hover, outcome slides out from under the text */
     .ship { position: relative; overflow: hidden; transition: transform .26s cubic-bezier(.22,.9,.3,1), box-shadow .26s ease; }
     .ship:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(21,22,43,.13); }
     .ribbon { position: absolute; top: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transform-origin: left center; transition: transform .42s cubic-bezier(.22,.9,.3,1); }
@@ -35,14 +35,14 @@
     .outcome { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .34s cubic-bezier(.22,.9,.3,1), opacity .28s ease, margin-top .34s ease; }
     .ship:hover .outcome { max-height: 70px; opacity: 1; margin-top: 4px; }
 
-    /* ═══ APPLIED AI — signature: rows unfold, number swells ═══ */
+    /* accordion rows */
     .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
     .fold > div { overflow: hidden; min-height: 0; }
     .foldrow { cursor: pointer; transition: background .24s ease; border-radius: 16px; }
     .foldrow:hover { background: #1E2038; }
     .foldnum { transition: transform .34s cubic-bezier(.22,.9,.3,1), color .3s ease; transform-origin: left center; }
 
-    /* ═══ SIDE PROJECTS — signature: the row slides, an arrow travels in ═══ */
+    /* side project rows */
     .slide { position: relative; transition: transform .3s cubic-bezier(.22,.9,.3,1), background .3s ease; border-radius: 14px; }
     .slide:hover { transform: translateX(12px); background: #FFFFFF; box-shadow: 0 8px 26px rgba(21,22,43,.09); }
     .slide .tail { opacity: 0; transform: translateX(-14px); transition: opacity .3s ease, transform .3s cubic-bezier(.22,.9,.3,1); }
@@ -67,7 +67,7 @@
     .go svg { transition: transform .18s ease; }
     .go:hover svg { transform: translateX(4px); }
 
-    /* ═══ touch: nothing may hide behind :hover, because there is no hover ═══ */
+    /* touch devices never fire :hover, so nothing may hide behind it */
     @media (hover: none) {
       .outcome { max-height: 90px; opacity: 1; margin-top: 4px; }
       .ribbon { transform: scaleX(1); }
@@ -75,7 +75,6 @@
       .ship:hover, .slide:hover, .btn:hover, .chip:hover, .ghost:hover { transform: none; }
     }
 
-    /* ═══ iPad and below ═══ */
     @media (max-width: 1024px) {
       .yearcard { grid-template-columns: 1fr !important; gap: 26px !important; padding: 30px 30px !important; }
       .navwrap { gap: 22px !important; font-size: 14px !important; }
@@ -86,7 +85,6 @@
       .heroimg { max-width: 300px; }
     }
 
-    /* ═══ phone ═══ */
     @media (max-width: 680px) {
       .navwrap { flex-wrap: wrap; justify-content: flex-end; gap: 14px 18px !important; }
       .hero { padding-top: 40px !important; padding-bottom: 46px !important; }
@@ -445,7 +443,7 @@ class Component extends DCLogic {
         awards: cur.awards, hasAward: cur.awards.length > 0,
         links: cur.links, hasLinks: cur.links.length > 0
       },
-      // alternating keyframe names are what make the card actually re-animate
+      // React keeps the element, so flipping the keyframe name is what restarts the animation
       swap: (this.state.n % 2) ? 'kxSwapA' : 'kxSwapB',
       chips: list.map(function (y, k) {
         var on = k === i;
