@@ -79,7 +79,6 @@ which does not mount in a sandbox.
   in 2020. Only Sept 2018 and July 2021 are pinned by the record.
 - Photo: the user's path is on their own Mac and unreachable from a remote
   container. Frame is 4:5, sized for a close head-and-shoulders crop.
-- No phone layout yet.
 
 ## Note on local preview
 
