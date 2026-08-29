@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #0D0F13; }
+    * { box-sizing: border-box; }
+    a { color: #6FD9A4; } a:hover { color: #9BEBC4; }
+    h1, h2, h3 { margin: 0; font-weight: 400; }
+    p { margin: 0; }
+  </style>
+</helmet>
+
+<div style="width: 100%; height: 100%; background: #0D0F13; color: #C8CFD8; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; line-height: 1.6; padding: 30px 34px; display: flex; flex-direction: column; gap: 20px;">
+
+  <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 14px; border-bottom: 1px solid #22272F;">
+    <span style="font-size: 12px; letter-spacing: 0.1em; color: #6FD9A4;">DIRECTION B &mdash; TELEMETRY</span>
+    <span style="font-size: 11px; letter-spacing: 0.1em; color: #4E5865;">DARK &middot; MONOSPACE &middot; DATA-DENSE</span>
+  </div>
+
+  <div style="display: flex; align-items: baseline; gap: 12px;">
+    <span style="color: #6FD9A4; font-size: 15px;">&rsaquo;</span>
+    <span style="font-size: 26px; color: #E8EDF3; letter-spacing: -0.01em;">kushal amin</span>
+    <span style="font-size: 12px; color: #4E5865;">// senior software engineer &mdash; applied ai</span>
+  </div>
+
+  <p style="font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; line-height: 1.65; color: #8D97A5; max-width: 620px;">The whole page reads as a running system: monospace throughout, sparklines instead of prose, every project a row in a table with live-looking status. Leans hard into the engineer identity.</p>
+
+  <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+    <div style="border: 1px solid #22272F; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;">
+      <span style="font-size: 10px; letter-spacing: 0.12em; color: #4E5865;">PRS</span>
+      <span style="font-size: 24px; color: #E8EDF3;">1,074</span>
+      <span style="font-size: 10px; color: #6FD9A4;">&#9650; 91% MERGED</span>
+    </div>
+    <div style="border: 1px solid #22272F; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;">
+      <span style="font-size: 10px; letter-spacing: 0.12em; color: #4E5865;">COMMITS</span>
+      <span style="font-size: 24px; color: #E8EDF3;">2,494</span>
+      <span style="font-size: 10px; color: #6FD9A4;">26 REPOS</span>
+    </div>
+    <div style="border: 1px solid #22272F; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;">
+      <span style="font-size: 10px; letter-spacing: 0.12em; color: #4E5865;">AWARDS</span>
+      <span style="font-size: 24px; color: #E8EDF3;">7</span>
+      <span style="font-size: 10px; color: #6FD9A4;">3 GEN AI</span>
+    </div>
+    <div style="border: 1px solid #22272F; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px;">
+      <span style="font-size: 10px; letter-spacing: 0.12em; color: #4E5865;">ORG RANK</span>
+      <span style="font-size: 24px; color: #E8EDF3;">#37</span>
+      <span style="font-size: 10px; color: #6FD9A4;">TOP 10.3%</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 0; border-top: 1px solid #22272F;">
+    <div style="display: grid; grid-template-columns: 30px 1fr 150px 110px; gap: 16px; padding: 10px 0; border-bottom: 1px solid #1A1F26; font-size: 10px; letter-spacing: 0.1em; color: #4E5865;">
+      <span>#</span><span>PROJECT</span><span>OWNERSHIP</span><span>STATE</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 30px 1fr 150px 110px; gap: 16px; padding: 11px 0; border-bottom: 1px solid #1A1F26; font-size: 12px; color: #C8CFD8;">
+      <span style="color: #6FD9A4;">01</span><span>fritz-ai-service</span><span style="color: #8D97A5;">73% / 8,211</span><span style="color: #6FD9A4;">&#9679; shipped</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 30px 1fr 150px 110px; gap: 16px; padding: 11px 0; border-bottom: 1px solid #1A1F26; font-size: 12px; color: #C8CFD8;">
+      <span style="color: #6FD9A4;">02</span><span>fritz-insights &mdash; llm-as-judge</span><span style="color: #8D97A5;">100% / 6 commits</span><span style="color: #6FD9A4;">&#9679; shipped</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 30px 1fr 150px 110px; gap: 16px; padding: 11px 0; border-bottom: 1px solid #1A1F26; font-size: 12px; color: #C8CFD8;">
+      <span style="color: #6FD9A4;">03</span><span>react19-migrate</span><span style="color: #8D97A5;">100% / 11,180</span><span style="color: #E8B24A;">&#9679; internal</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 30px 1fr 150px 110px; gap: 16px; padding: 11px 0; border-bottom: 1px solid #1A1F26; font-size: 12px; color: #C8CFD8;">
+      <span style="color: #6FD9A4;">04</span><span>autoresearch</span><span style="color: #8D97A5;">100% / 2,416</span><span style="color: #4E5865;">&#9675; personal</span>
+    </div>
+  </div>
+
+  <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid #22272F; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: 0.1em; color: #4E5865;">
+    <span>TRADE-OFF: READS AS A DASHBOARD, NOT A PORTFOLIO. RECRUITERS AND NON-ENGINEERS MAY BOUNCE.</span>
+    <span>LOW-FI SKETCH</span>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"$preview":{"width":900,"height":620}}'>
+class Component extends DCLogic {}
+</script>
+</body>
+</html>

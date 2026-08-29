@@ -1,0 +1,33 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Portfolio" },
+    { "id": "page-2", "name": "Directions" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html",   "page": "page-1", "title": "Home",              "x": 0,    "y": 0, "w": 1440, "h": 6600, "print": "flow" },
+    { "file": "Work.dc.html",   "page": "page-1", "title": "Work index",        "x": 1600, "y": 0, "w": 1440, "h": 4900, "print": "flow" },
+    { "file": "Case.dc.html",   "page": "page-1", "title": "Case study",        "x": 3200, "y": 0, "w": 1440, "h": 3800, "print": "flow" },
+    { "file": "Mobile.dc.html", "page": "page-1", "title": "Home on a phone",   "x": 4800, "y": 0, "w": 390,  "h": 3900, "print": "flow" },
+    { "file": "DirectionB.dc.html", "page": "page-2", "title": "Direction B", "x": 0,    "y": 0, "w": 900, "h": 620 },
+    { "file": "DirectionC.dc.html", "page": "page-2", "title": "Direction C", "x": 1020, "y": 0, "w": 900, "h": 620 }
+  ],
+  "annotations": [
+    {
+      "id": "note-1",
+      "page": "page-1",
+      "x": -420,
+      "y": 0,
+      "w": 340,
+      "text": "Direction A - Engineering dossier.\n\nWarm paper, editorial serif display, monospace for every number, ruled lines instead of cards. The premise: your portfolio doc's own ethos - verified, nothing rounded up - becomes the visual language.\n\nFour artboards: home, the full work index, one case study, and the home page on a phone.\n\nTwo alternate directions are on page 2."
+    },
+    {
+      "id": "note-2",
+      "page": "page-2",
+      "x": -420,
+      "y": 0,
+      "w": 340,
+      "text": "Two other directions, sketched only far enough to judge the look.\n\nEach names its own trade-off at the bottom of the frame. Say which one you want and I'll build the full site into it."
+    }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

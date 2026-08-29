@@ -1,0 +1,264 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+  <style>
+    body { margin: 0; background: #FBF9F5; }
+    * { box-sizing: border-box; }
+    a { color: #B23D22; text-decoration: none; border-bottom: 1px solid rgba(178,61,34,0.35); }
+    a:hover { color: #7E2A15; }
+    h1, h2, h3 { margin: 0; font-weight: 400; }
+    p { margin: 0; }
+  </style>
+</helmet>
+
+<div style="--accent: {{accent}}; width: 100%; background: #FBF9F5; color: #1A1815; font-family: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.55;">
+
+  <header style="display: flex; justify-content: space-between; align-items: center; gap: 40px; padding: 26px 88px; border-bottom: 1px solid #DED8CC;">
+    <div style="display: flex; align-items: baseline; gap: 14px;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 13px; letter-spacing: 0.14em; font-weight: 500;">KUSHAL AMIN</span>
+      <span style="width: 5px; height: 5px; border-radius: 50%; background: var(--accent, #B23D22); display: inline-block;"></span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.1em; color: #8B837A;">WORK INDEX</span>
+    </div>
+    <nav style="display: flex; align-items: center; gap: 34px; font-size: 14px; color: #57514A;">
+      <span style="color: #1A1815; border-bottom: 1px solid #1A1815; padding-bottom: 2px;">Work</span>
+      <span>Approach</span>
+      <span>Recognition</span>
+      <span>In the open</span>
+      <span style="border: 1px solid #1A1815; padding: 9px 18px; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.1em; color: #1A1815;">RESUME</span>
+    </nav>
+  </header>
+
+  <!-- PAGE HEAD -->
+  <section style="display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 48px; padding: 72px 88px 56px; border-bottom: 1px solid #DED8CC;">
+    <div style="grid-column: span 7; display: flex; flex-direction: column; gap: 24px;">
+      <h1 style="font-family: 'Instrument Serif', Georgia, 'Times New Roman', serif; font-size: 68px; line-height: 1.0; letter-spacing: -0.015em;">Fourteen projects,<br>six disciplines.</h1>
+      <p style="font-size: 18px; line-height: 1.6; color: #423C35; max-width: 600px; text-wrap: pretty;">Grouped the way the work actually happened rather than by job title. Ownership percentages are git-blame verified; where a project was prototyped rather than shipped, or where the seam between my code and a colleague&#39;s sits, it says so.</p>
+    </div>
+    <div style="grid-column: span 5; display: flex; flex-direction: column; gap: 0; padding-top: 12px;">
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">GENERATIVE AI</span><span>5 PROJECTS</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">SELF-DIRECTED</span><span>3 PROJECTS</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">PRODUCT ENGINEERING</span><span>2 PROJECTS</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">PLATFORM &amp; TOOLING</span><span>2 PROJECTS</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">BACKEND &amp; DATA</span><span>1 PROJECT</span></div>
+      <div style="display: flex; justify-content: space-between; padding: 13px 0; border-top: 1px solid #DED8CC; border-bottom: 1px solid #DED8CC; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px;"><span style="color: #8B837A; letter-spacing: 0.1em;">INFRA &amp; RELEASE</span><span>1 PROJECT</span></div>
+    </div>
+  </section>
+
+  <!-- GROUP A -->
+  <section style="padding: 64px 88px 0;">
+    <div style="display: flex; align-items: baseline; gap: 20px; padding-bottom: 16px; border-bottom: 2px solid #1A1815;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #B23D22);">&sect; A</span>
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px;">Generative AI</h2>
+      <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #8B837A;">2025 &mdash; PRESENT</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">01</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Fritz AI Service</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">The production generative-AI platform, built out from an empty template. Streaming Vertex inference, response caching, conversation archival, and a separate intent-classification path that degrades on timeout rather than hanging.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">6,059 / 8,211 LINES &middot; 73%<br>305 OF 617 COMMITS<br>.NET &middot; GEMINI &middot; GKE &middot; REDIS</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; SHIPPED &mdash; ALL CUSTOMERS</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">02</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Fritz Insights &mdash; multi-agent pipeline with an LLM-as-judge</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">A context-persona agent, a message agent, and an evaluation service that scores the result against a typed quality contract. QA authors new criteria through a hook rather than a pull request.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">46 FILES &middot; +7,901 LINES<br>4 FILES 100% MINE<br>GEMINI 2.5 PRO</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent, #B23D22);">&#9679; SOLE AUTHOR &mdash; 6/6</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">03</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Fritz Open Chat</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Free-form conversation on the busiest screen in the product &mdash; UI, state, service layer, routing and tests. Started as my own hackathon prototype; the executive panel committed to productizing it and it shipped nine months later.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">52 FILES &middot; 7,179 INSERTIONS<br>57% OF ADDED LINES ARE TESTS<br>REACT &middot; REDUX &middot; VITEST</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; GA JAN 2026</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">04</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Safety, compliance and privacy layer</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Guardrails as code, not prompt suggestions. Per-manufacturer forbidden terms with a two-case protocol &mdash; refuse when the user asked for something prohibited, silently substitute when the model would have said it. PII stripped at the boundary on all four LLM endpoints.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">4 / 4 ENDPOINTS COVERED<br>REGRESSION-TESTED IN PLACE<br>FAIL-CLOSED DEFAULTS</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; IN PRODUCTION</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">05</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Fritz Briefing &mdash; RAG over a customer&#39;s note history</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Proposed, specified and built across five repositories. Eight parallel enrichment sources behind a safe-query wrapper so one failure cannot break the briefing; every fact carries its source note excerpt and an evidence trail.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">44 COMMITS &middot; 5 REPOSITORIES<br>200K-CHARACTER CONTEXT BUDGET<br>ALLOYDB &middot; EF CORE &middot; REDIS</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #8B837A;">&#9675; NONPROD &mdash; ON BRANCH</span>
+    </div>
+  </section>
+
+  <!-- GROUP B -->
+  <section style="padding: 56px 88px 0;">
+    <div style="display: flex; align-items: baseline; gap: 20px; padding-bottom: 16px; border-bottom: 2px solid #1A1815;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #B23D22);">&sect; B</span>
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px;">Self-directed</h2>
+      <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #8B837A;">NO TICKET, NO TEAM, NO MANDATE</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">06</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">autoresearch</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">My own agent framework, engineered so it could not flatter itself. Five specialist agents refine one artifact; a separate auditor with an adversarial system prompt scores it. Four run concurrently with per-agent graceful degradation.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">2,416 LOC &middot; 3 ENGINE GENERATIONS<br>130 SCORED ITERATIONS &middot; ~11 HRS<br>PYTHON &middot; ASYNCIO</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #8B837A;">&#9675; PERSONAL PROJECT</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">07</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Agentic natural language to SQL</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Agent, data layer, safety layer, REST API and React client. Two security layers, the second aimed at the model&#39;s generated SQL rather than the user&#39;s English &mdash; the threat model most implementations get backwards.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">11,440 HAND-WRITTEN LINES<br>5 TOOLS IN AUTO MODE<br>GEMINI &middot; BIGQUERY &middot; FLASK</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #8B837A;">&#9675; PROTOTYPE</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">08</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">AI product strategy portfolio</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Twenty-three ideas validated against live production data and the actual codebase, with effort estimates and dependency gating. Seven were killed in writing &mdash; including one of my own that would have competed with an existing paid product.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">31 DOCUMENTS<br>23 IDEAS &middot; 4-WAVE ROADMAP<br>100+ BIGQUERY QUERIES</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #8B837A;">&#9675; SELF-DIRECTED</span>
+    </div>
+  </section>
+
+  <!-- GROUP C -->
+  <section style="padding: 56px 88px 0;">
+    <div style="display: flex; align-items: baseline; gap: 20px; padding-bottom: 16px; border-bottom: 2px solid #1A1815;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #B23D22);">&sect; C</span>
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px;">Product engineering</h2>
+      <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #8B837A;">2023 &mdash; 2026</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">09</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Turn Portfolio &amp; Turn Details</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">A whole product surface built solo: start from a car in inventory, find the customers ready to trade into it. Every filter option shows how many results it would yield, and options yielding zero disappear &mdash; you cannot click a combination that returns nothing.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">7,385 / 9,022 LINES &middot; 82%<br>CREATED 155 OF 162 FILES<br>LOAD-TESTED AT 3,000 ROWS</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; SHIPPED &mdash; ELT ANNOUNCED</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">10</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Command Center</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">An intelligent dashboard I skeletoned and then rebuilt the same day when the first design proved too rigid &mdash; five hardcoded slices thrown away for one data-driven one. Fixed a badge that promised more rows than the list delivered, with a nine-case regression suite pinning each rule.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">894 / 1,641 NON-AI LINES<br>GA TO ALL STORES MAR 2026<br>Q1 2026 EXCELLENCE AWARD</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; GA &mdash; NADA DEMO</span>
+    </div>
+  </section>
+
+  <!-- GROUP D -->
+  <section style="padding: 56px 88px 0;">
+    <div style="display: flex; align-items: baseline; gap: 20px; padding-bottom: 16px; border-bottom: 2px solid #1A1815;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #B23D22);">&sect; D</span>
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px;">Platform &amp; tooling</h2>
+      <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #8B837A;">WORK OTHER PEOPLE EXECUTE</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">11</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">React 19 migration programme</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">Scoped it, costed it in two options, wrote the leadership brief that would fund it and the eight backlog items other people would execute &mdash; with a dependency graph, per-item QA notes and merge-conflict warnings. Found four latent production bugs on the way.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">2,455 FILES &middot; ~322K LOC TARGET<br>2,038 LINES OF DECISION DOCS<br>2 REACT CRASHES CAUGHT EARLY</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent, #B23D22);">&#9679; TECHNICAL DIRECTION</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">12</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">react19-migrate &mdash; AST codemod engine</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">A two-pass ts-morph engine that resolves JSX tags against a project-wide registry of styled components, barrel re-exports and path aliases. Element-aware attribute classification, scope-aware renaming, cycle detection, and a hand-rolled brace-depth scanner for what the AST cannot see.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">11,180 LOC &middot; 40 SOURCE FILES<br>1,521 TEST LINES &middot; 74 CASES<br>13,034 BLAMED LINES, ONE AUTHOR</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: var(--accent, #B23D22);">&#9679; 100% SOLE AUTHOR</span>
+    </div>
+  </section>
+
+  <!-- GROUP E + F -->
+  <section style="padding: 56px 88px 0;">
+    <div style="display: flex; align-items: baseline; gap: 20px; padding-bottom: 16px; border-bottom: 2px solid #1A1815;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 0.16em; color: var(--accent, #B23D22);">&sect; E</span>
+      <h2 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 34px;">Backend, infrastructure &amp; release</h2>
+      <span style="margin-left: auto; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.12em; color: #8B837A;">2021 &mdash; 2026</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">13</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">FeeSync Partner Fee API</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">A greenfield read-only .NET service publishing the dealer fee catalog to external partners &mdash; consumed by two named third parties. Blame on the main branch returns a single author on every one of forty-seven files.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">42 OF 48 COMMITS<br>1,471 LINES PRODUCTION C#<br>1,901 TEST LINES &middot; 105 CASES</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; PRODUCTION AUG 2026</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 44px 1fr 300px 190px; gap: 32px; align-items: start; padding: 26px 0; border-bottom: 1px solid #DED8CC;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; color: var(--accent, #B23D22);">14</span>
+      <div style="display: flex; flex-direction: column; gap: 7px;">
+        <h3 style="font-family: 'Instrument Serif', Georgia, serif; font-size: 25px; line-height: 1.15;">Terraform, GCP and release engineering</h3>
+        <p style="font-size: 15px; line-height: 1.6; color: #4A443D;">I own the infrastructure my own services run on. Pinned Redis to an exact minor so an apply cannot surprise-upgrade; disabled GCS soft delete alongside the lifecycle rule, because a retention policy without it is a policy on paper. Replaced a hand-maintained cipher list with Google&#39;s restricted profile after a pentest finding.</p>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 12px; line-height: 1.9; color: #57514A;">371 DEPLOY PULL REQUESTS<br>10+ SERVICES &middot; 53 TO PRODUCTION<br>~2,150 / 2,900 IaC LINES</span>
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #4F6F52;">&#9679; ONGOING</span>
+    </div>
+  </section>
+
+  <!-- HONESTY NOTE -->
+  <section style="padding: 62px 88px 82px;">
+    <div style="background: #F2EFE7; border-left: 3px solid var(--accent, #B23D22); padding: 34px 38px; display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--accent, #B23D22);">A NOTE ON ATTRIBUTION</span>
+      <p style="font-size: 16px; line-height: 1.65; color: #423C35; max-width: 860px; text-wrap: pretty;">
+        Several things I could plausibly have listed here are not mine and are not listed. I documented the behavioural prediction model in a 2,773-line reference; I did not build it. I studied another team&#39;s module-federation architecture closely enough to write a deep dive on it; I wrote none of it. Where a colleague owns the code on the other side of a seam I worked against, the project entry says so. Ownership percentages above come from <span style="font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 14px; background: #FBF9F5; padding: 1px 6px;">git blame --line-porcelain</span>, not from memory.
+      </p>
+    </div>
+  </section>
+
+  <footer style="background: #1A1815; color: #FBF9F5; padding: 44px 88px; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 0.1em; color: #7D7568;">
+    <span>KUSHAL AMIN &mdash; SENIOR SOFTWARE ENGINEER</span>
+    <span>KUSHALTHEAMIN.GITHUB.IO</span>
+  </footer>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{"accent":{"editor":"color","default":"#B23D22","options":["#B23D22","#1F4E79","#2F5D3A","#6B3FA0"]},"$preview":{"width":1440,"height":4900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { accent: this.props.accent ?? '#B23D22' };
+  }
+}
+</script>
+</body>
+</html>
