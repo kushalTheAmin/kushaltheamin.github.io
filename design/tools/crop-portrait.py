@@ -22,6 +22,8 @@ def main():
     ap.add_argument("dst")
     ap.add_argument("--box", nargs=4, type=int, metavar=("L", "T", "R", "B"),
                     help="exact crop box in source pixels, skips the defaults")
+    ap.add_argument("--frame", type=float, default=FRAME_H,
+                    help="height of the crop as a fraction of the source; bigger pulls back")
     ap.add_argument("--quality", type=int, default=82)
     args = ap.parse_args()
 
@@ -32,7 +34,7 @@ def main():
     if args.box:
         box = tuple(args.box)
     else:
-        fh = FRAME_H * h
+        fh = args.frame * h
         fw = fh * OUT_W / OUT_H
         top = EYE_Y * h - EYE_FROM_TOP * fh
         left = FACE_X * w - fw / 2
