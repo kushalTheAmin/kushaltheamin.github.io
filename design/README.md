@@ -1,73 +1,76 @@
 # Portfolio redesign — design canvas
 
-Working files for https://claude.ai/code/artifact/97ea42e4-d086-4f0e-8938-aed853dc279c
+https://claude.ai/code/artifact/97ea42e4-d086-4f0e-8938-aed853dc279c
 
-Edit these and re-seed. Never edit `kushal-amin-portfolio.html` — it is generated.
+Edit `Main.dc.html`, re-seed, republish. Never edit the generated
+`kushal-amin-portfolio.html`.
 
     node "<design-skill>/seed-canvas.mjs" \
       --template "<design-skill>/payload.template.html" \
       --out kushal-amin-portfolio.html --title "Kushal Amin Portfolio" \
-      --artboard Main.dc.html --artboard Project.dc.html --artboard Mobile.dc.html \
-      --canvas canvas.json
+      --artboard Main.dc.html --canvas canvas.json
 
-| File | What it is |
-|---|---|
-| `Main.dc.html` | The page. One continuous scroll, ten movements. Opens focused so it scrolls like a real site. |
-| `Project.dc.html` | Command Center case study. Clickable 4-layer stack. |
-| `Mobile.dc.html` | The page at 390. |
+## Direction D — soft light
 
-## Positioning
+Chosen from four options after the cream/orange/yellow system was rejected.
 
-"I build the whole product — then point AI at the busywork."
+- Ground `#F7F8FC` with slow-drifting tinted blobs; cards plain `#FFFFFF`
+- Accent `#5B4BE8`; text `#15162B` / `#55566E` / `#7A7B92`
+- Depth from shadow only. No borders, no hard edges, no rotations.
+- Radii 12–24px. Plus Jakarta Sans throughout.
+- Chapter washes on work cards: health `#E2F4EE`, cars `#FBEEDF`, AI `#EEECFD`
 
-Product engineer who ships end to end, now moving toward applied AI.
-Eight years and three industries carry the credibility; the AI section
-carries the direction. The timeline is mostly non-AI; the hero says both.
+## UX rules this page follows
 
-## Page as a journey
+Every one came from explicit feedback on the previous version:
 
-Ten movements, no hard seams between any of them — colour bleeds through
-gradient blends instead:
-
-1. Hero + scroll cue  2. One-line statement on ink  3. Four layers (sticky heading)
-4. **The journey** — nine year-panels  5. Where AI earns its place
-6. Work strip (drag sideways, snap)  7. Numbers  8. Stack ticker
-9. Away from work  10. Contact
-
-The timeline is the spine, not a widget. Each year pins its big number and
-company to the left while the story scrolls past, then swaps at the next
-year. Backgrounds carry the industry (teal → blue → orange → violet) and
-blend at each change of industry. Sticky year chips jump anywhere.
+- **Short.** ~4,300px, down from 12,800. Seven sections.
+- **One device.** Soft white cards. Nothing tilts, tickers or shouts.
+- **Real nav.** Sticky, every item anchors to a section, back-to-top in the
+  footer. All sections carry `scroll-margin-top`.
+- **Nothing fires on scroll.** No reveals, no parallax, no progress bar.
+- **Nine chips, one card** instead of nine full-screen year panels.
 
 ## Motion
 
-All CSS, no scroll listeners. Everything scroll-driven sits inside
-`@supports (animation-timeline: view())` with the base state visible, so a
-browser without support renders a normal, complete page rather than
-stranding content at `opacity: 0`.
+Ambient and interaction-driven only:
 
-- `.rise` — blocks lift in on entry (`view()`)
-- `.prog` — top progress bar (`scroll()`)
-- `.drift` — slow parallax on the hero and AI shapes
-- `.kx-tick` / `.bounce` — plain infinite animations
+- `.blobA` / `.blobB` — 34s and 42s background drift
+- `.in1`–`.in4` — one-time hero entrance on load
+- `.card` `.btn` `.ghost` `.chip` — hover lift
+- `.navlink::after` — underline draws in
+- `.go svg` — arrow nudges
+- `kxSwapA` / `kxSwapB` — the year card fades in on every pick. Two identical
+  keyframes; `renderVals` alternates the **name** so the animation actually
+  restarts. React keeps the element, so a transition or a single keyframe
+  would not re-fire.
 
-## Design system
+## Voice
 
-- Paper `#F5F2EA` · card `#FFFDF8` · ink `#141210` · body `#35302A` · muted `#7C746A`
-- Era colours: healthcare `#0E9C87` · banking `#2F5FE0` · automotive `#E2542C` · AI `#6D46D9`
-  Panel tints are keyed off these in `tint()` in `Main.dc.html`.
-- Highlight `#FFD84D`. Hard 2px borders on cards only; slight rotations.
-- Bricolage Grotesque (display) · Instrument Sans (body) · Space Mono (labels)
-- Display sizes use `clamp()` — the artboard opens fluid-width.
+Human, not assistant. Contractions, uneven sentence length, opinions, and
+zero em-dashes — the previous copy was full of them. No "open to X roles"
+badge anywhere; the work is meant to make that obvious.
 
-## Timeline data
+## Data
 
-`years()` in `Main.dc.html` is the source of truth; `Mobile.dc.html` carries
-a copy. Artboards share nothing at runtime, so edit both together.
+`years()` and `projects()` in `Main.dc.html` are the source of truth.
 
 ## Outstanding
 
-- **Dates unconfirmed.** Express Scripts spans 2018–19 and Bank of America
-  sits in 2020. Only Sept 2018 and July 2021 are pinned by the record.
-- Portrait placeholder expects `img/kushal.jpg`, 3:4.
-- Email is a bracketed placeholder in both footers.
+- The user ticked "something else" on the UX question; the free text never
+  arrived. Ask.
+- **Dates unconfirmed.** Express Scripts spans 2018–19, Bank of America sits
+  in 2020. Only Sept 2018 and July 2021 are pinned by the record.
+- Email is a placeholder; photo slot expects `img/kushal.jpg`, 3:4.
+- No phone layout yet.
+
+## Note on local preview
+
+The canvas editor will not mount in this sandbox — it sits on "Loading
+artboard…" for any artboard, including 3KB ones. That is environmental, not
+a property of the page. An earlier commit message blamed page size for it;
+that was wrong.
+
+## archive/
+
+The rejected cream/orange page, kept for its copy and timeline data.

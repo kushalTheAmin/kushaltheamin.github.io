@@ -1,55 +1,22 @@
 {
   "artboards": [
-    {
-      "file": "Main.dc.html",
-      "title": "A \u00b7 Ink + signal",
-      "x": 0,
-      "y": 0,
-      "w": 1080,
-      "h": 720
-    },
-    {
-      "file": "DirectionB.dc.html",
-      "title": "B \u00b7 Paper editorial",
-      "x": 1180,
-      "y": 0,
-      "w": 1080,
-      "h": 720
-    },
-    {
-      "file": "DirectionC.dc.html",
-      "title": "C \u00b7 Navy + sand",
-      "x": 0,
-      "y": 880,
-      "w": 1080,
-      "h": 720
-    },
-    {
-      "file": "DirectionD.dc.html",
-      "title": "D \u00b7 Soft light",
-      "x": 1180,
-      "y": 880,
-      "w": 1080,
-      "h": 720
-    }
+    { "file": "Main.dc.html", "title": "kushalamin.dev", "x": 0, "y": 0, "w": 1440, "h": 4300, "print": "flow", "expand": "fill", "is_interactive": true }
   ],
   "annotations": [
     {
-      "id": "note-pick",
-      "x": -470,
+      "id": "note-live",
+      "x": -450,
       "y": 0,
-      "w": 390,
-      "text": "PICK A COLOUR SYSTEM.\n\nSame words, same three projects, four different systems. Compare them like-for-like, then tell me a letter.\n\nEach one carries a UX posture too, not just a palette - how much structure comes from borders vs. spacing, how loud the buttons are, how much the page decorates itself.\n\nEvery one names its own downside at the bottom of the frame. None of them is free."
+      "w": 370,
+      "text": "IT OPENS AS THE REAL PAGE.\n\nDirection D, built out. Roughly a third the length of the last one, one visual device instead of six, and a nav that actually works - every item scrolls to its section, and there is a back-to-top in the footer.\n\nThe career section is nine chips. Click a year and the card swaps with a soft fade. That replaces nine full-screen panels.\n\nMotion: nothing fires on scroll. The colour blobs drift slowly on their own, cards lift on hover, arrows nudge, the nav underline draws in, and the year card animates when you change it."
     },
     {
-      "id": "note-sorry",
-      "x": -470,
-      "y": 380,
-      "w": 390,
-      "text": "WHY THIS INSTEAD OF ANOTHER FULL PAGE.\n\nI chose the palette for you three times and got it wrong three times. Cream, orange and yellow with hard black borders and tilted cards was a bad call - loud, dated, and it made every section shout at the same volume.\n\nSo: pick the system first, then I build the whole page once, in that system. Nothing else changes - the eight years, the AI section and the writing all carry over."
+      "id": "note-open",
+      "x": -450,
+      "y": 470,
+      "w": 370,
+      "text": "STILL OPEN\n\n1. You ticked \"something else\" on the UX question and I never saw what it was. Tell me and I'll fix it.\n\n2. Dates: Express Scripts across 2018-19, Bank of America 2020. Only Sept 2018 and July 2021 are pinned by your record.\n\n3. Your email, and the photo at img/kushal.jpg (3:4).\n\nNo phone layout yet - I wanted the desktop right first."
     }
   ],
-  "launch": {
-    "view": "canvas"
-  }
+  "launch": { "view": "focused", "file": "Main.dc.html" }
 }
