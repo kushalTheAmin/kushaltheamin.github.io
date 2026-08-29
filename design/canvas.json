@@ -1,11 +1,44 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",    "page": "page-1", "title": "Home — drag the timeline", "x": 0,    "y": 0, "w": 1440, "h": 6400, "print": "flow", "is_interactive": true },
-    { "file": "Project.dc.html", "page": "page-1", "title": "Case study — click the layers", "x": 1620, "y": 0, "w": 1440, "h": 3600, "print": "flow", "is_interactive": true },
-    { "file": "Mobile.dc.html",  "page": "page-1", "title": "On a phone", "x": 3240, "y": 0, "w": 390, "h": 4600, "print": "flow", "is_interactive": true }
+    {
+      "file": "Main.dc.html",
+      "page": "page-1",
+      "title": "Home — drag the timeline",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 8200,
+      "print": "flow",
+      "is_interactive": true
+    },
+    {
+      "file": "Project.dc.html",
+      "page": "page-1",
+      "title": "Case study — click the layers",
+      "x": 1620,
+      "y": 0,
+      "w": 1440,
+      "h": 3600,
+      "print": "flow",
+      "is_interactive": true
+    },
+    {
+      "file": "Mobile.dc.html",
+      "page": "page-1",
+      "title": "On a phone",
+      "x": 3240,
+      "y": 0,
+      "w": 390,
+      "h": 6200,
+      "print": "flow",
+      "is_interactive": true
+    }
   ],
   "pages": [
-    { "id": "page-1", "name": "Portfolio" }
+    {
+      "id": "page-1",
+      "name": "Portfolio"
+    }
   ],
   "annotations": [
     {
@@ -14,7 +47,7 @@
       "x": -440,
       "y": 0,
       "w": 360,
-      "text": "THESE ARE LIVE, NOT PICTURES.\n\nHome: grab the round handle on the track and drag it, or tap any year. Nine stops, 2018 to 2026. The colour of the page changes with the era - teal for healthcare, blue for banking, orange for automotive, violet for the AI years.\n\nCase study: click any of the four stack layers on the left and the panel swaps.\n\nPhone: the same timeline, drag or tap works there too."
+      "text": "THESE ARE LIVE, NOT PICTURES.\n\nHome: grab the round handle on the track and drag it, or tap any year. Nine stops, 2018 to 2026. The card recolours with the era - teal for healthcare, blue for banking, orange for automotive, violet for the AI years.\n\nCase study: click any of the four stack layers on the left and the panel swaps.\n\nPhone: the same timeline, drag or tap works there too."
     },
     {
       "id": "note-check",
@@ -25,5 +58,8 @@
       "text": "TWO THINGS FOR YOU TO CORRECT\n\n1. Dates. I have Express Scripts across 2018-19 and Bank of America in 2020, because your record only pins September 2018 and July 2021. Tell me the real months and I'll fix the stops.\n\n2. Your email is a placeholder in the footer - I won't publish an address without you saying so.\n\nThe photo frame in the hero is sized 3:4 for the waterfront shot. Save it to img/kushal.jpg in the repo and I'll drop it in."
     }
   ],
-  "launch": { "view": "canvas", "page": "page-1" }
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  }
 }

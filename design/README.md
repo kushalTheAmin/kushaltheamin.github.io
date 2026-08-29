@@ -12,14 +12,21 @@ Edit these and re-seed. Never edit `kushal-amin-portfolio.html` — it is genera
 
 | File | What it is |
 |---|---|
-| `Main.dc.html` | Home, desktop. Scrubbable 8-year timeline (drag or tap), 9 stops. |
+| `Main.dc.html` | Home, desktop. Scrubbable 8-year timeline (drag or tap), 9 stops, plus the AI section and a 9-card work grid. |
 | `Project.dc.html` | Command Center case study. Clickable 4-layer stack. |
 | `Mobile.dc.html` | Home at 390. Same timeline, touch-enabled. |
 
 ## Positioning
 
-Product engineer — owns a feature from database to pixel. Eight years,
-three industries. AI is two stops out of nine, not the headline.
+"I build the whole product — then point AI at the busywork."
+
+Product engineer who ships end to end, now moving toward applied AI.
+Eight years and three industries carry the credibility; the AI section
+carries the direction. Neither swallows the other — the timeline is
+mostly non-AI, and the hero says both in one line.
+
+Page order is deliberate: hero (both) → what "database to pixel" means →
+eight years of doing it → where AI earns its place → the work → contact.
 
 ## Design system
 
