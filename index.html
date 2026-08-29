@@ -36,12 +36,23 @@
     .in4 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .21s both; }
 
     /* work cards: ribbon draws in on hover, outcome slides out from under the text */
-    .ship { position: relative; overflow: hidden; transition: transform .26s cubic-bezier(.22,.9,.3,1), box-shadow .26s ease; }
-    .ship:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(21,22,43,.13); }
+    .ship { position: relative; height: 100%; overflow: hidden; border-radius: 18px; }
+    .flip { transition: transform .26s cubic-bezier(.22,.9,.3,1); }
+    .flip:hover { transform: translateY(-6px); }
     .ribbon { position: absolute; top: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transform-origin: left center; transition: transform .42s cubic-bezier(.22,.9,.3,1); }
-    .ship:hover .ribbon { transform: scaleX(1); }
-    .outcome { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .34s cubic-bezier(.22,.9,.3,1), opacity .28s ease, margin-top .34s ease; }
-    .ship:hover .outcome { max-height: 70px; opacity: 1; margin-top: 4px; }
+    .flip:hover .ribbon { transform: scaleX(1); }
+    .flip:hover .face.front { box-shadow: 0 18px 40px rgba(21,22,43,.12); }
+    .outcome { margin-top: 2px; }
+
+
+    /* work cards flip to the back, where what the project taught me lives */
+    .flip { perspective: 1600px; }
+    .flip-in { position: relative; height: 100%; transform-style: preserve-3d;
+               transition: transform .62s cubic-bezier(.2,.75,.2,1); }
+    .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .face.back { position: absolute; inset: 0; transform: rotateY(180deg); overflow: auto; }
+    .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .turn:focus-visible { outline: 2px solid #5B4BE8; outline-offset: 3px; }
 
     /* accordion rows */
     .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
@@ -77,7 +88,6 @@
 
     /* touch devices never fire :hover, so nothing may hide behind it */
     @media (hover: none) {
-      .outcome { max-height: 90px; opacity: 1; margin-top: 4px; }
       .ribbon { transform: scaleX(1); }
       .slide .tail { opacity: 1; transform: none; }
       .ship:hover, .slide:hover, .btn:hover, .chip:hover, .ghost:hover { transform: none; }
@@ -121,6 +131,14 @@
     .rail { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 18px 14px; }
     .rail::-webkit-scrollbar { display: none; }
     .rail > * { scroll-snap-align: center; flex: 0 0 84%; }
+
+
+    .flip { perspective: 1400px; }
+    .flip-in { position: relative; height: 100%; transform-style: preserve-3d;
+               transition: transform .58s cubic-bezier(.2,.75,.2,1); }
+    .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .face.back { position: absolute; inset: 0; transform: rotateY(180deg); overflow: auto; }
+    .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
 
     .fold { display: grid; transition: grid-template-rows .38s cubic-bezier(.22,.9,.3,1); }
     .fold > div { overflow: hidden; min-height: 0; }
@@ -198,86 +216,302 @@
   <section id="shipped" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 24px;">
       <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Stuff that shipped</h2>
-      <span style="font-size: 14px; color: #7A7B92;">Hover a card for where it ended up</span>
+      <span style="font-size: 14px; color: #7A7B92;">Flip a card for what it taught me</span>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #5B4BE8;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Hackathon idea 2025 · shipped to every customer 2026</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #5B4BE8;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Hackathon idea 2025 · shipped to every customer 2026</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600;">Read the announcement
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #5B4BE8; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">Fritz &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Streaming inference reads nothing like request and response. You design the screen around tokens arriving, not a payload landing.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Guardrails belong in code and in tests. A rule that only exists inside a prompt is a rule that quietly disappears.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">An idea can lose and still be right. This one came third at a hackathon and shipped anyway.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Compliance people are far easier to work with early than late.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #5B4BE8;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Live to every dealership since March 2026</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #5B4BE8;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Live to every dealership since March 2026</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600;">Read the announcement
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #5B4BE8; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">Command Center &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Counting rows is not counting people. The tile promised more than the list delivered until de-duplication moved upstream.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Two parts of an app disagreeing about what empty means will leak state between screens.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Deleting a morning of work costs less than defending it for a month.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Getting other people interested is most of the work of starting something.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #0E8F6E;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now they are in one. I was part of the database design, built the external API partners pull from, and shipped the app dealers register through.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Open to the whole industry since May 2026</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #0E8F6E;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now they are in one. I was part of the database design, built the external API partners pull from, and shipped the app dealers register through.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Open to the whole industry since May 2026</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600;">How it works
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #0E8F6E; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">FeeSync &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">An API other companies have integrated against is close to permanent. You get one attempt at its shape.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Syndication problems are consistency problems wearing a different hat.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Sitting in the database design discussion saves arguing about the API later.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">External partners read your documentation far more carefully than colleagues do.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">How it works
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #C2721B;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So you open the car instead of the customer, and it shows which of the dealer’s own customers are ready to trade into it. I was the engineer on it, working alongside product and design.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">Launched December 2023</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #C2721B;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So you open the car instead of the customer, and it shows which of the dealer’s own customers are ready to trade into it. I was the engineer on it, working alongside product and design.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">Launched December 2023</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600;">Read the announcement
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #C2721B; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">Turn &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Fetching everything once and filtering in the browser is a bet. I load-tested it at three thousand rows before committing.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Showing how many results each filter would give means running the whole chain again per option, which is why that row count mattered.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Inverting how a product is used takes more explaining than building.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Being the only engineer on something means the design questions are yours too.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #C2721B;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">The screen the whole product is built around</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #C2721B;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">The screen the whole product is built around</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600;">See the product
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #C2721B; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">The Deal Sheet &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">On a screen someone stares at all day, latency is a product decision rather than an infrastructure one.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Small correctness bugs in money fields cost more trust than a slow page ever does.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">First time leading pieces of work rather than only doing them. Mostly it is unblocking people earlier than feels necessary.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">A redesign is easier to argue for with one dealer's workflow written down than with an opinion.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">See the product
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: #0E8F6E;"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">Express Scripts · 2018–19</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. I was on the front end, and worked on the visualisation of how it all connects, in D3.</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Still running at Evernorth today</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: #0E8F6E;"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">Express Scripts · 2018–19</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. I was on the front end, and worked on the visualisation of how it all connects, in D3.</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Still running at Evernorth today</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600;">The product today
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #0E8F6E; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">Health Connect 360 &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Laying out a graph is geometry. Where each node sits, how you stop them overlapping, how the curves bend.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">The maths turned out to be harder than the D3.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Being in the requirements meeting stops you building the same screen twice.</p>
+                
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">Deadlines that eat weekends are worth taking seriously the first time you are given one.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">The product today
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       
     </div>
@@ -1028,69 +1262,285 @@
     </div>
     <div class="rail">
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #5B4BE8;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Hackathon idea 2025 · shipped to every customer 2026</span>
-            <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #5B4BE8; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Hackathon idea 2025 · shipped to every customer 2026</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600;">Read the announcement &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #5B4BE8; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">Fritz &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Streaming inference reads nothing like request and response. You design the screen around tokens arriving, not a payload landing.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Guardrails belong in code and in tests. A rule that only exists inside a prompt is a rule that quietly disappears.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">An idea can lose and still be right. This one came third at a hackathon and shipped anyway.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Compliance people are far easier to work with early than late.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #5B4BE8;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Live to every dealership since March 2026</span>
-            <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #5B4BE8; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Live to every dealership since March 2026</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600;">Read the announcement &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #5B4BE8; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">Command Center &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Counting rows is not counting people. The tile promised more than the list delivered until de-duplication moved upstream.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Two parts of an app disagreeing about what empty means will leak state between screens.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Deleting a morning of work costs less than defending it for a month.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Getting other people interested is most of the work of starting something.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #0E8F6E;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now they are in one. I was part of the database design, built the external API partners pull from, and shipped the app dealers register through.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Open to the whole industry since May 2026</span>
-            <a href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">How it works &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #0E8F6E; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now they are in one. I was part of the database design, built the external API partners pull from, and shipped the app dealers register through.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Open to the whole industry since May 2026</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600;">How it works &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #0E8F6E; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">FeeSync &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">An API other companies have integrated against is close to permanent. You get one attempt at its shape.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Syndication problems are consistency problems wearing a different hat.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Sitting in the database design discussion saves arguing about the API later.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">External partners read your documentation far more carefully than colleagues do.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #C2721B;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So you open the car instead of the customer, and it shows which of the dealer’s own customers are ready to trade into it. I was the engineer on it, working alongside product and design.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Launched December 2023</span>
-            <a href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #C2721B; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So you open the car instead of the customer, and it shows which of the dealer’s own customers are ready to trade into it. I was the engineer on it, working alongside product and design.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Launched December 2023</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600;">Read the announcement &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #C2721B; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">Turn &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Fetching everything once and filtering in the browser is a bet. I load-tested it at three thousand rows before committing.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Showing how many results each filter would give means running the whole chain again per option, which is why that row count mattered.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Inverting how a product is used takes more explaining than building.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Being the only engineer on something means the design questions are yours too.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #C2721B;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">The screen the whole product is built around</span>
-            <a href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">See the product &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #C2721B; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">The screen the whole product is built around</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600;">See the product &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #C2721B; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">The Deal Sheet &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">On a screen someone stares at all day, latency is a product decision rather than an infrastructure one.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Small correctness bugs in money fields cost more trust than a slow page ever does.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">First time leading pieces of work rather than only doing them. Mostly it is unblocking people earlier than feels necessary.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">A redesign is easier to argue for with one dealer's workflow written down than with an opinion.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: #0E8F6E;"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">Express Scripts · 2018–19</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. I was on the front end, and worked on the visualisation of how it all connects, in D3.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Still running at Evernorth today</span>
-            <a href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">The product today &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: none;">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: #0E8F6E; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">Express Scripts · 2018–19</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. I was on the front end, and worked on the visualisation of how it all connects, in D3.</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Still running at Evernorth today</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600;">The product today &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: #0E8F6E; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">Health Connect 360 &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Laying out a graph is geometry. Where each node sits, how you stop them overlapping, how the curves bend.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">The maths turned out to be harder than the D3.</p>
+                
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Being in the requirements meeting stops you building the same screen twice.</p>
+                
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">Deadlines that eat weekends are worth taking seriously the first time you are given one.</p>
+                
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       
@@ -1756,6 +2206,25 @@
       chip.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); }
       });
+    });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.turn'), function (btn) {
+    var card = btn.closest('.flip');
+    if (!card) return;
+    var inner = card.querySelector('.flip-in');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    function turn() {
+      var showing = inner.style.transform === 'rotateY(180deg)';
+      inner.style.transform = showing ? 'none' : 'rotateY(180deg)';
+      // only the visible face should be reachable by tab or a screen reader
+      card.querySelector('.face.front').setAttribute('aria-hidden', showing ? 'false' : 'true');
+      card.querySelector('.face.back').setAttribute('aria-hidden', showing ? 'true' : 'false');
+    }
+    btn.addEventListener('click', turn);
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); turn(); }
     });
   });
 

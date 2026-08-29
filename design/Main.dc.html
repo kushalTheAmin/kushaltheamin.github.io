@@ -28,12 +28,23 @@
     .in4 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .21s both; }
 
     /* work cards: ribbon draws in on hover, outcome slides out from under the text */
-    .ship { position: relative; overflow: hidden; transition: transform .26s cubic-bezier(.22,.9,.3,1), box-shadow .26s ease; }
-    .ship:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(21,22,43,.13); }
+    .ship { position: relative; height: 100%; overflow: hidden; border-radius: 18px; }
+    .flip { transition: transform .26s cubic-bezier(.22,.9,.3,1); }
+    .flip:hover { transform: translateY(-6px); }
     .ribbon { position: absolute; top: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transform-origin: left center; transition: transform .42s cubic-bezier(.22,.9,.3,1); }
-    .ship:hover .ribbon { transform: scaleX(1); }
-    .outcome { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .34s cubic-bezier(.22,.9,.3,1), opacity .28s ease, margin-top .34s ease; }
-    .ship:hover .outcome { max-height: 70px; opacity: 1; margin-top: 4px; }
+    .flip:hover .ribbon { transform: scaleX(1); }
+    .flip:hover .face.front { box-shadow: 0 18px 40px rgba(21,22,43,.12); }
+    .outcome { margin-top: 2px; }
+
+
+    /* work cards flip to the back, where what the project taught me lives */
+    .flip { perspective: 1600px; }
+    .flip-in { position: relative; height: 100%; transform-style: preserve-3d;
+               transition: transform .62s cubic-bezier(.2,.75,.2,1); }
+    .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .face.back { position: absolute; inset: 0; transform: rotateY(180deg); overflow: auto; }
+    .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .turn:focus-visible { outline: 2px solid #5B4BE8; outline-offset: 3px; }
 
     /* accordion rows */
     .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
@@ -69,7 +80,6 @@
 
     /* touch devices never fire :hover, so nothing may hide behind it */
     @media (hover: none) {
-      .outcome { max-height: 90px; opacity: 1; margin-top: 4px; }
       .ribbon { transform: scaleX(1); }
       .slide .tail { opacity: 1; transform: none; }
       .ship:hover, .slide:hover, .btn:hover, .chip:hover, .ghost:hover { transform: none; }
@@ -151,21 +161,53 @@
   <section id="shipped" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 24px;">
       <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Stuff that shipped</h2>
-      <span style="font-size: 14px; color: #7A7B92;">Hover a card for where it ended up</span>
+      <span style="font-size: 14px; color: #7A7B92;">Flip a card for what it taught me</span>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
       <sc-for list="{{ work }}" as="w" hint-placeholder-count="6">
-        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
-          <div class="ribbon" style="background: {{w.tone}};"></div>
-          <span style="font-size: 13px; color: #9C9DB0;">{{ w.where }}</span>
-          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">{{ w.name }}</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">{{ w.blurb }}</p>
-          <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 7px 13px; border-radius: 100px;">{{ w.outcome }}</span>
+        <div class="flip" style="min-height: 396px;">
+          <div class="flip-in" style="transform: {{w.flip}};">
+
+            <div class="ship face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 22px; display: flex; flex-direction: column; gap: 9px;">
+              <div class="ribbon" style="background: {{w.tone}};"></div>
+              <span style="font-size: 13px; color: #9C9DB0;">{{ w.where }}</span>
+              <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">{{ w.name }}</h3>
+              <p style="font-size: 15px; line-height: 1.6; color: #55566E;">{{ w.blurb }}</p>
+              <div class="outcome">
+                <span style="display: inline-block; font-size: 13px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 7px 13px; border-radius: 100px;">{{ w.outcome }}</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
+                <a class="go" href="{{ w.url }}" style="font-size: 14px; font-weight: 600;">{{ w.cta }}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                </a>
+                <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;" onClick="{{ w.turn }}">
+                  What it taught me
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                </span>
+              </div>
+            </div>
+
+            <div class="face back" style="background: {{w.tone}}; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 22px; display: flex; flex-direction: column; gap: 14px; color: #FFFFFF;">
+              <span style="font-size: 13px; opacity: 0.82;">{{ w.name }} &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                <sc-for list="{{ w.tech }}" as="t" hint-placeholder-count="2">
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">{{ t.t }}</p>
+                </sc-for>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 8px;">
+                <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                <sc-for list="{{ w.soft }}" as="t" hint-placeholder-count="2">
+                  <p style="font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.93);">{{ t.t }}</p>
+                </sc-for>
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 8px 13px; border-radius: 100px; margin-top: auto;" onClick="{{ w.turn }}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back to the project
+              </span>
+            </div>
+
           </div>
-          <a class="go" href="{{ w.url }}" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">{{ w.cta }}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
         </div>
       </sc-for>
     </div>
@@ -317,7 +359,7 @@
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { i: 8, n: 0, open: 0 };
+    this.state = { i: 8, n: 0, open: 0, flipped: {} };
   }
 
   years() {
@@ -336,27 +378,27 @@ class Component extends DCLogic {
 
   projects() {
     return [
-      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Fritz',
+      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Fritz', tech: [{ t: 'Streaming inference reads nothing like request and response. You design the screen around tokens arriving, not a payload landing.' }, { t: 'Guardrails belong in code and in tests. A rule that only exists inside a prompt is a rule that quietly disappears.' }], soft: [{ t: 'An idea can lose and still be right. This one came third at a hackathon and shipped anyway.' }, { t: 'Compliance people are far easier to work with early than late.' }],
         blurb: 'An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.',
         outcome: 'Hackathon idea 2025 · shipped to every customer 2026',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' },
-      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Command Center',
+      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Command Center', tech: [{ t: 'Counting rows is not counting people. The tile promised more than the list delivered until de-duplication moved upstream.' }, { t: 'Two parts of an app disagreeing about what empty means will leak state between screens.' }], soft: [{ t: 'Deleting a morning of work costs less than defending it for a month.' }, { t: 'Getting other people interested is most of the work of starting something.' }],
         blurb: 'A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.',
         outcome: 'Live to every dealership since March 2026',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/' },
-      { where: 'S&P Global Mobility · 2026', tone: '#0E8F6E', wash: '#E2F4EE', name: 'FeeSync',
+      { where: 'S&P Global Mobility · 2026', tone: '#0E8F6E', wash: '#E2F4EE', name: 'FeeSync', tech: [{ t: 'An API other companies have integrated against is close to permanent. You get one attempt at its shape.' }, { t: 'Syndication problems are consistency problems wearing a different hat.' }], soft: [{ t: 'Sitting in the database design discussion saves arguing about the API later.' }, { t: 'External partners read your documentation far more carefully than colleagues do.' }],
         blurb: 'Dealer fees used to live in a dozen systems, all slightly out of date. Now they are in one. I was part of the database design, built the external API partners pull from, and shipped the app dealers register through.',
         outcome: 'Open to the whole industry since May 2026',
         cta: 'How it works', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' },
-      { where: 'automotiveMastermind · 2023', tone: '#C2721B', wash: '#FBEEDF', name: 'Turn',
+      { where: 'automotiveMastermind · 2023', tone: '#C2721B', wash: '#FBEEDF', name: 'Turn', tech: [{ t: 'Fetching everything once and filtering in the browser is a bet. I load-tested it at three thousand rows before committing.' }, { t: 'Showing how many results each filter would give means running the whole chain again per option, which is why that row count mattered.' }], soft: [{ t: 'Inverting how a product is used takes more explaining than building.' }, { t: 'Being the only engineer on something means the design questions are yours too.' }],
         blurb: 'A car sitting thirty days on the lot is losing money every morning. So you open the car instead of the customer, and it shows which of the dealer’s own customers are ready to trade into it. I was the engineer on it, working alongside product and design.',
         outcome: 'Launched December 2023',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' },
-      { where: 'automotiveMastermind · 2023–24', tone: '#C2721B', wash: '#FBEEDF', name: 'The Deal Sheet',
+      { where: 'automotiveMastermind · 2023–24', tone: '#C2721B', wash: '#FBEEDF', name: 'The Deal Sheet', tech: [{ t: 'On a screen someone stares at all day, latency is a product decision rather than an infrastructure one.' }, { t: 'Small correctness bugs in money fields cost more trust than a slow page ever does.' }], soft: [{ t: 'First time leading pieces of work rather than only doing them. Mostly it is unblocking people earlier than feels necessary.' }, { t: 'A redesign is easier to argue for with one dealer\'s workflow written down than with an opinion.' }],
         blurb: 'The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.',
         outcome: 'The screen the whole product is built around',
         cta: 'See the product', url: 'https://www.automotivemastermind.com/mastermind-platform-overview/' },
-      { where: 'Express Scripts · 2018–19', tone: '#0E8F6E', wash: '#E2F4EE', name: 'Health Connect 360',
+      { where: 'Express Scripts · 2018–19', tone: '#0E8F6E', wash: '#E2F4EE', name: 'Health Connect 360', tech: [{ t: 'Laying out a graph is geometry. Where each node sits, how you stop them overlapping, how the curves bend.' }, { t: 'The maths turned out to be harder than the D3.' }], soft: [{ t: 'Being in the requirements meeting stops you building the same screen twice.' }, { t: 'Deadlines that eat weekends are worth taking seriously the first time you are given one.' }],
         blurb: 'Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. I was on the front end, and worked on the visualisation of how it all connects, in D3.',
         outcome: 'Still running at Evernorth today',
         cta: 'The product today', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }
@@ -429,6 +471,13 @@ class Component extends DCLogic {
     if (j !== this.state.i) this.setState({ i: j, n: this.state.n + 1 });
   }
 
+  turnCard(k) {
+    var next = {};
+    for (var key in this.state.flipped) next[key] = this.state.flipped[key];
+    next[k] = !next[k];
+    this.setState({ flipped: next });
+  }
+
   toggleArea(k) {
     this.setState({ open: this.state.open === k ? -1 : k });
   }
@@ -458,7 +507,12 @@ class Component extends DCLogic {
           pick: function () { self.pick(k); }
         };
       }),
-      work: this.projects(),
+      work: this.projects().map(function (p, k) {
+        return Object.assign({}, p, {
+          flip: self.state.flipped[k] ? 'rotateY(180deg)' : 'none',
+          turn: function () { self.turnCard(k); }
+        });
+      }),
       side: this.sideProjects().map(function (s) {
         return {
           n: s.n, title: s.title, blurb: s.blurb, stack: s.stack, url: s.url,

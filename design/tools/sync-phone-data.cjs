@@ -21,6 +21,13 @@ const tail = `
     if (j !== this.state.i) this.setState({ i: j, n: this.state.n + 1 });
   }
 
+  turnCard(k) {
+    var next = {};
+    for (var key in this.state.flipped) next[key] = this.state.flipped[key];
+    next[k] = !next[k];
+    this.setState({ flipped: next });
+  }
+
   toggleArea(k) {
     this.setState({ open: this.state.open === k ? -1 : k });
   }
@@ -50,7 +57,12 @@ const tail = `
           pick: function () { self.pick(k); }
         };
       }),
-      work: this.projects(),
+      work: this.projects().map(function (p, k) {
+        return Object.assign({}, p, {
+          flip: self.state.flipped[k] ? 'rotateY(180deg)' : 'none',
+          turn: function () { self.turnCard(k); }
+        });
+      }),
       side: this.sideProjects(),
       areas: this.aiAreas().map(function (a, k) {
         var on = k === self.state.open;

@@ -21,6 +21,14 @@
     .rail::-webkit-scrollbar { display: none; }
     .rail > * { scroll-snap-align: center; flex: 0 0 84%; }
 
+
+    .flip { perspective: 1400px; }
+    .flip-in { position: relative; height: 100%; transform-style: preserve-3d;
+               transition: transform .58s cubic-bezier(.2,.75,.2,1); }
+    .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .face.back { position: absolute; inset: 0; transform: rotateY(180deg); overflow: auto; }
+    .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
+
     .fold { display: grid; transition: grid-template-rows .38s cubic-bezier(.22,.9,.3,1); }
     .fold > div { overflow: hidden; min-height: 0; }
 
@@ -81,14 +89,46 @@
     </div>
     <div class="rail">
       <sc-for list="{{ work }}" as="w" hint-placeholder-count="6">
-        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
-          <div style="height: 5px; background: {{w.tone}};"></div>
-          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
-            <span style="font-size: 12px; color: #9C9DB0;">{{ w.where }}</span>
-            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">{{ w.name }}</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">{{ w.blurb }}</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">{{ w.outcome }}</span>
-            <a href="{{ w.url }}" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">{{ w.cta }} &rarr;</a>
+        <div class="flip" style="min-height: 400px;">
+          <div class="flip-in" style="transform: {{w.flip}};">
+
+            <div class="face front" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+              <div style="height: 5px; background: {{w.tone}}; flex-shrink: 0;"></div>
+              <div style="padding: 18px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+                <span style="font-size: 12px; color: #9C9DB0;">{{ w.where }}</span>
+                <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">{{ w.name }}</h3>
+                <p style="font-size: 14px; line-height: 1.58; color: #55566E;">{{ w.blurb }}</p>
+                <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">{{ w.outcome }}</span>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto; padding-top: 12px;">
+                  <a href="{{ w.url }}" style="font-size: 14px; font-weight: 600;">{{ w.cta }} &rarr;</a>
+                  <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 10px 14px; border-radius: 100px; min-height: 40px;" onClick="{{ w.turn }}">
+                    What it taught me
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A7B92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path><path d="M3 4v4h4"></path></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="face back" style="background: {{w.tone}}; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); padding: 20px 18px; display: flex; flex-direction: column; gap: 12px; color: #FFFFFF;">
+              <span style="font-size: 12px; opacity: 0.82;">{{ w.name }} &middot; what it taught me</span>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Technical</span>
+                <sc-for list="{{ w.tech }}" as="t" hint-placeholder-count="2">
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">{{ t.t }}</p>
+                </sc-for>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 7px;">
+                <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8;">Beyond the code</span>
+                <sc-for list="{{ w.soft }}" as="t" hint-placeholder-count="2">
+                  <p style="font-size: 13px; line-height: 1.55; color: rgba(255,255,255,0.93);">{{ t.t }}</p>
+                </sc-for>
+              </div>
+              <span class="turn" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #FFFFFF; background: rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 100px; margin-top: auto; min-height: 40px;" onClick="{{ w.turn }}">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7L21 8"></path><path d="M21 4v4h-4"></path></svg>
+                Back
+              </span>
+            </div>
+
           </div>
         </div>
       </sc-for>
@@ -227,6 +267,6 @@
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { i: 8, n: 0, open: 0 };
+    this.state = { i: 8, n: 0, open: 0, flipped: {} };
   }
 

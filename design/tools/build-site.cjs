@@ -160,6 +160,25 @@ const SCRIPT = `
     });
   });
 
+  Array.prototype.forEach.call(document.querySelectorAll('.turn'), function (btn) {
+    var card = btn.closest('.flip');
+    if (!card) return;
+    var inner = card.querySelector('.flip-in');
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('tabindex', '0');
+    function turn() {
+      var showing = inner.style.transform === 'rotateY(180deg)';
+      inner.style.transform = showing ? 'none' : 'rotateY(180deg)';
+      // only the visible face should be reachable by tab or a screen reader
+      card.querySelector('.face.front').setAttribute('aria-hidden', showing ? 'false' : 'true');
+      card.querySelector('.face.back').setAttribute('aria-hidden', showing ? 'true' : 'false');
+    }
+    btn.addEventListener('click', turn);
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); turn(); }
+    });
+  });
+
   Array.prototype.forEach.call(document.querySelectorAll('.foldrow'), function (row) {
     var fold = row.querySelector('.fold');
     var chevron = row.querySelector('svg');
