@@ -23,10 +23,11 @@
 
 
     .flip { perspective: 1400px; }
-    .flip-in { position: relative; height: 100%; transform-style: preserve-3d;
+    .flip-in { display: grid; height: 100%; transform-style: preserve-3d;
                transition: transform .58s cubic-bezier(.2,.75,.2,1); }
-    .face { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
-    .face.back { position: absolute; inset: 0; transform: rotateY(180deg); overflow: auto; }
+    .face { grid-area: 1 / 1; min-width: 0;
+            backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .face.back { transform: rotateY(180deg); }
     .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
 
     .fold { display: grid; transition: grid-template-rows .38s cubic-bezier(.22,.9,.3,1); }

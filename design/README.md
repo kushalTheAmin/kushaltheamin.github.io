@@ -45,6 +45,23 @@ Ambient and interaction-driven only:
   restarts. React keeps the element, so a transition or a single keyframe
   would not re-fire.
 
+## Cards that flip
+
+Each work card turns over to show what the project taught me, split into
+technical and beyond-the-code. Two rules keep it from breaking:
+
+- **Both faces share one grid cell.** `.flip-in` is `display: grid` and each
+  `.face` sits at `grid-area: 1 / 1`, so the card is as tall as its taller
+  side. The obvious version — back `position: absolute; inset: 0` — sizes the
+  card to the front alone and silently clips the back. That was cutting 240px
+  off Fritz before anyone noticed, because `overflow: auto` hides it behind a
+  scrollbar nobody scrolls.
+- **Keep the two faces close in height.** The grid stretches every card in a
+  row to the tallest, so one long back leaves a hole in five fronts. Backs run
+  about five learnings of roughly two lines each; much past that and the fronts
+  start looking empty. `design/tools/` has no check for this — render it and
+  look.
+
 ## Voice
 
 Human, not assistant. Contractions, uneven sentence length, opinions, and
@@ -55,7 +72,6 @@ badge anywhere; the work is meant to make that obvious.
 
 The phone is a separate design, not the desktop reflowed. A profile header,
 rails you flick sideways, swipeable work cards, and a docked action bar.
-4,557px against 9,120px for the responsive version.
 
 The obvious cost of two layouts is two copies of the text drifting apart, so
 they do not both hold it. `Main.dc.html` owns `years()`, `projects()`,
@@ -68,9 +84,9 @@ they do not both hold it. `Main.dc.html` owns `years()`, `projects()`,
 
 ## Responsive
 
-Verified by rendering `Main.dc.html` standalone at 1440, 834 and 390 and
+Verified by rendering the built `index.html` at 1440, 834 and 390 and
 checking `scrollWidth` against `clientWidth`: no horizontal scroll at any
-width. Page heights 4724 / 5410 / 9120.
+width. Page heights 5424 / 6275 / 5365.
 
 - `@media (hover: none)` — **the important one.** Touch devices never fire
   `:hover`, so anything hidden behind it is invisible on a phone. The work
@@ -88,8 +104,11 @@ which does not mount in a sandbox.
 
 - **Dates unconfirmed.** Express Scripts spans 2018–19, Bank of America sits
   in 2020. Only Sept 2018 and July 2021 are pinned by the record.
-- Photo: the user's path is on their own Mac and unreachable from a remote
-  container. Frame is 4:5, sized for a close head-and-shoulders crop.
+- **Turn.** The copy says "one of the engineers", which is the safe reading.
+  Nothing in the record says he led it, and nothing says he didn't.
+- **Health Connect 360** carries two technical learnings where the others
+  carry three. Two more were drafted from the domain rather than from his
+  record, so they were cut rather than invented.
 
 ## Note on local preview
 

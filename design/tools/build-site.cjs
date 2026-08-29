@@ -112,7 +112,10 @@ function buildLayout(file, years) {
                render(body.slice(range.end), [vals]);
 
   // the canvas keeps images flat at the document root; the site keeps them in img/
-  const withAssets = html.replace(/src="(?!https?:|\/|img\/)([^"]+\.(?:jpg|jpeg|png|webp|svg))"/g, 'src="img/$1"');
+  const withAssets = html
+    .replace(/src="(?!https?:|\/|img\/)([^"]+\.(?:jpg|jpeg|png|webp|svg))"/g, 'src="img/$1"')
+    // every project link leaves the site, so none of them should take the tab with it
+    .replace(/<a (?=[^>]*href="https?:)/g, '<a target="_blank" rel="noopener noreferrer" ');
 
   const css = helmet.replace(/<link[^>]*>/g, '').replace(/<\/?style>/g, '');
   const font = (helmet.match(/<link[^>]*fonts\.googleapis[^>]*>/) || [''])[0];
