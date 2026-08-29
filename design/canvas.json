@@ -1,6 +1,16 @@
 {
   "artboards": [
-    { "file": "Main.dc.html", "title": "kushalamin.dev", "x": 0, "y": 0, "w": 1440, "h": 4300, "print": "flow", "expand": "fill", "is_interactive": true }
+    {
+      "file": "Main.dc.html",
+      "title": "kushalamin.dev",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 4700,
+      "print": "flow",
+      "expand": "fill",
+      "is_interactive": true
+    }
   ],
   "annotations": [
     {
@@ -8,15 +18,18 @@
       "x": -450,
       "y": 0,
       "w": 370,
-      "text": "IT OPENS AS THE REAL PAGE.\n\nDirection D, built out. Roughly a third the length of the last one, one visual device instead of six, and a nav that actually works - every item scrolls to its section, and there is a back-to-top in the footer.\n\nThe career section is nine chips. Click a year and the card swaps with a soft fade. That replaces nine full-screen panels.\n\nMotion: nothing fires on scroll. The colour blobs drift slowly on their own, cards lift on hover, arrows nudge, the nav underline draws in, and the year card animates when you change it."
+      "text": "THREE SECTIONS, THREE DIFFERENT INTERACTIONS.\n\nShipped: hover a card. A coloured ribbon draws across the top and the outcome rises out from under the text.\n\nApplied AI: click a row. It unfolds, the number swells, the chevron turns. Five named areas instead of one vague heading.\n\nSide projects: hover a row. The whole thing slides right and an arrow travels in from the left.\n\nCareer: chips, and the card fades in on every pick. Awards now show inside the year they were won."
     },
     {
       "id": "note-open",
       "x": -450,
       "y": 470,
       "w": 370,
-      "text": "STILL OPEN\n\n1. You ticked \"something else\" on the UX question and I never saw what it was. Tell me and I'll fix it.\n\n2. Dates: Express Scripts across 2018-19, Bank of America 2020. Only Sept 2018 and July 2021 are pinned by your record.\n\n3. Your email, and the photo at img/kushal.jpg (3:4).\n\nNo phone layout yet - I wanted the desktop right first."
+      "text": "CHANGED FROM YOUR NOTES\n\nCars is automotive. Pull request counts are gone entirely. Awards appear in the journey as well as the header, mapped to the year each was won. The 2026-dot-AI style tags are replaced with where and when, plus an outcome that appears on hover. Side projects have written names instead of repo slugs, and each links to its own repo.\n\nSTILL OPEN\n\nLinkedIn's Featured section needs a login, so awards come from your portfolio doc. Paste the Featured items if they differ.\n\nDates for Express Scripts and Bank of America. Your email. The photo at img/kushal.jpg."
     }
   ],
-  "launch": { "view": "focused", "file": "Main.dc.html" }
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  }
 }

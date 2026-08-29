@@ -16,25 +16,43 @@
     p { margin: 0; }
     a { color: #5B4BE8; text-decoration: none; }
 
-    /* ambient, slow, never triggered by scrolling */
     @keyframes kxFloatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(70px,44px) scale(1.10); } }
     @keyframes kxFloatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,54px) scale(1.07); } }
     .blobA { animation: kxFloatA 34s ease-in-out infinite; }
     .blobB { animation: kxFloatB 42s ease-in-out infinite; }
 
-    /* one-time entrance, on load, not on scroll */
     @keyframes kxIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
     .in1 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) both; }
     .in2 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .07s both; }
     .in3 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .14s both; }
     .in4 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .21s both; }
 
-    /* the year card genuinely re-animates: the keyframe name flips each pick */
+    /* ═══ SHIPPED — signature: the ribbon draws across the top, the outcome rises ═══ */
+    .ship { position: relative; overflow: hidden; transition: transform .26s cubic-bezier(.22,.9,.3,1), box-shadow .26s ease; }
+    .ship:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(21,22,43,.13); }
+    .ribbon { position: absolute; top: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transform-origin: left center; transition: transform .42s cubic-bezier(.22,.9,.3,1); }
+    .ship:hover .ribbon { transform: scaleX(1); }
+    .outcome { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .34s cubic-bezier(.22,.9,.3,1), opacity .28s ease, margin-top .34s ease; }
+    .ship:hover .outcome { max-height: 70px; opacity: 1; margin-top: 4px; }
+
+    /* ═══ APPLIED AI — signature: rows unfold, number swells ═══ */
+    .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
+    .fold > div { overflow: hidden; min-height: 0; }
+    .foldrow { cursor: pointer; transition: background .24s ease; border-radius: 16px; }
+    .foldrow:hover { background: #1E2038; }
+    .foldnum { transition: transform .34s cubic-bezier(.22,.9,.3,1), color .3s ease; transform-origin: left center; }
+
+    /* ═══ SIDE PROJECTS — signature: the row slides, an arrow travels in ═══ */
+    .slide { position: relative; transition: transform .3s cubic-bezier(.22,.9,.3,1), background .3s ease; border-radius: 14px; }
+    .slide:hover { transform: translateX(12px); background: #FFFFFF; box-shadow: 0 8px 26px rgba(21,22,43,.09); }
+    .slide .tail { opacity: 0; transform: translateX(-14px); transition: opacity .3s ease, transform .3s cubic-bezier(.22,.9,.3,1); }
+    .slide:hover .tail { opacity: 1; transform: none; }
+    .slide .idx { transition: color .3s ease, opacity .3s ease; }
+    .slide:hover .idx { color: #5B4BE8; }
+
     @keyframes kxSwapA { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
     @keyframes kxSwapB { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
-    .card { transition: transform .2s cubic-bezier(.22,.9,.3,1), box-shadow .2s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(21,22,43,.12); }
     .btn { transition: transform .16s ease, box-shadow .16s ease; }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(91,75,232,.34); }
     .ghost { transition: background .16s ease, transform .16s ease; }
@@ -54,99 +72,93 @@
 <div style="position: relative; width: 100%; color: #15162B; font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.6; background: #F7F8FC; overflow: hidden;">
 
   <div class="blobA" style="position: absolute; top: -220px; left: -180px; width: 780px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, #DDE0FF, rgba(221,224,255,0)); pointer-events: none;"></div>
-  <div class="blobB" style="position: absolute; top: 120px; right: -240px; width: 720px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, #D3F0E6, rgba(211,240,230,0)); pointer-events: none;"></div>
-  <div class="blobA" style="position: absolute; top: 1900px; right: -160px; width: 640px; height: 540px; border-radius: 50%; background: radial-gradient(closest-side, #F5DEEA, rgba(245,222,234,0)); pointer-events: none;"></div>
+  <div class="blobB" style="position: absolute; top: 140px; right: -240px; width: 720px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, #D3F0E6, rgba(211,240,230,0)); pointer-events: none;"></div>
+  <div class="blobA" style="position: absolute; top: 2100px; right: -170px; width: 640px; height: 540px; border-radius: 50%; background: radial-gradient(closest-side, #F5DEEA, rgba(245,222,234,0)); pointer-events: none;"></div>
 
   <div style="position: relative;">
 
-  <!-- ── NAV ─────────────────────────────────────────── -->
   <header style="position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 15px 5vw; background: rgba(247,248,252,0.78); backdrop-filter: blur(14px);">
     <a href="#top" style="font-size: 17px; font-weight: 700; color: #15162B; letter-spacing: -0.01em;">Kushal Amin</a>
     <nav style="display: flex; align-items: center; gap: 30px; font-size: 15px; color: #55566E;">
-      <a class="navlink" href="#work" style="color: #55566E;">Work</a>
+      <a class="navlink" href="#shipped" style="color: #55566E;">Shipped</a>
       <a class="navlink" href="#career" style="color: #55566E;">Career</a>
-      <a class="navlink" href="#ai" style="color: #55566E;">AI</a>
+      <a class="navlink" href="#ai" style="color: #55566E;">Applied AI</a>
       <a class="navlink" href="#side" style="color: #55566E;">Side projects</a>
       <a class="btn" href="#contact" style="background: #5B4BE8; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 10px; box-shadow: 0 6px 16px rgba(91,75,232,.24);">Say hello</a>
     </nav>
   </header>
 
-  <!-- ── HERO ────────────────────────────────────────── -->
-  <section id="top" style="scroll-margin-top: 76px; padding: 58px 5vw 66px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
+  <!-- HERO -->
+  <section id="top" style="scroll-margin-top: 76px; padding: 58px 5vw 64px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 22px;">
       <span class="in1" style="align-self: flex-start; background: #FFFFFF; color: #55566E; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 100px; box-shadow: 0 3px 12px rgba(21,22,43,.07);">Product engineer &middot; Jersey City, NJ</span>
-
       <h1 class="in2" style="font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800;">I build the whole product. Then I get <span style="color: #5B4BE8;">AI</span> to do the boring half.</h1>
-
-      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Eight years of it, across healthcare, banking and now cars. Database, API, screen, the deploy. I&rsquo;d rather own all four than hand one feature over three times.</p>
-
+      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Eight years of it, across healthcare, banking and automotive. Database, API, screen, the deploy. I&rsquo;d rather own all four than hand one feature over three times.</p>
       <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Lately that&rsquo;s meant building the AI parts too. The thing that writes a rep&rsquo;s follow-up, and the thing that checks it&rsquo;s any good before it goes out.</p>
-
       <div class="in4" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding-top: 4px;">
-        <a class="btn" href="#work" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">See the work</a>
+        <a class="btn" href="#shipped" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">See what shipped</a>
         <a class="go" href="#career" style="font-size: 15px; font-weight: 500; color: #55566E; padding: 14px 4px;">or skim the eight years
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
         </a>
       </div>
     </div>
-
     <div class="in4" style="width: 100%; aspect-ratio: 3 / 4; background: #FFFFFF; border-radius: 22px; box-shadow: 0 16px 44px rgba(21,22,43,.11); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B9BAC9" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="11" r="3"></circle><path d="M3 20l5-5 3 3 4-4 6 6"></path></svg>
       <span style="font-size: 12px; color: #9C9DB0; text-align: center; line-height: 1.7;">[ your photo ]<br>img/kushal.jpg</span>
     </div>
   </section>
 
-  <!-- ── STATS ───────────────────────────────────────── -->
-  <section style="padding: 0 5vw 64px;">
-    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 24px rgba(21,22,43,.07); padding: 30px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 28px;">
+  <!-- STATS -->
+  <section style="padding: 0 5vw 62px;">
+    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 24px rgba(21,22,43,.07); padding: 30px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px;">
       <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">8 years</div><div style="font-size: 14px; color: #7A7B92;">shipping, since Sept 2018</div></div>
-      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">3 industries</div><div style="font-size: 14px; color: #7A7B92;">health, finance, cars</div></div>
-      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">1,074 PRs</div><div style="font-size: 14px; color: #7A7B92;">opened at S&amp;P. 91% merged</div></div>
+      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">3 industries</div><div style="font-size: 14px; color: #7A7B92;">healthcare, finance, automotive</div></div>
       <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">7 awards</div><div style="font-size: 14px; color: #7A7B92;">from the CTO, since 2021</div></div>
+      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">1st of 12</div><div style="font-size: 14px; color: #7A7B92;">company hackathon, 2026</div></div>
     </div>
   </section>
 
-  <!-- ── WORK ────────────────────────────────────────── -->
-  <section id="work" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+  <!-- SHIPPED -->
+  <section id="shipped" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 24px;">
       <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Stuff that shipped</h2>
-      <span style="font-size: 14px; color: #7A7B92;">Most of it you can go and look at</span>
+      <span style="font-size: 14px; color: #7A7B92;">Hover a card for where it ended up</span>
     </div>
-
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
       <sc-for list="{{ work }}" as="w" hint-placeholder-count="6">
-        <div class="card" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 26px 26px 28px; display: flex; flex-direction: column; gap: 11px;">
-          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 5px 11px; border-radius: 100px;">{{ w.meta }}</span>
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: {{w.tone}};"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">{{ w.where }}</span>
           <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">{{ w.name }}</h3>
           <p style="font-size: 15px; line-height: 1.6; color: #55566E;">{{ w.blurb }}</p>
-          <a class="go" href="{{ w.url }}" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 8px;">{{ w.cta }}
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: {{w.tone}}; background: {{w.wash}}; padding: 7px 13px; border-radius: 100px;">{{ w.outcome }}</span>
+          </div>
+          <a class="go" href="{{ w.url }}" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">{{ w.cta }}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </a>
         </div>
       </sc-for>
     </div>
-
-    <p style="font-size: 15px; color: #7A7B92; margin-top: 20px; max-width: 800px;">Two more that don&rsquo;t have a public page: a forecasting tool the traders at Bank of America used, in Angular and Java, and Project Horizon, where we moved 73 APIs from Azure to Google Cloud without breaking one of them.</p>
+    <p style="font-size: 15px; color: #7A7B92; margin-top: 20px; max-width: 810px;">Two more with no public page: a forecasting tool the traders at Bank of America used, in Angular and Java, and Project Horizon, where we moved 73 APIs from Azure to Google Cloud without breaking one of them.</p>
   </section>
 
-  <!-- ── CAREER ──────────────────────────────────────── -->
+  <!-- CAREER -->
   <section id="career" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
     <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 18px;">
       <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Where I&rsquo;ve been</h2>
       <span style="font-size: 14px; color: #7A7B92;">Pick a year</span>
     </div>
-
     <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;">
       <sc-for list="{{ chips }}" as="c" hint-placeholder-count="9">
         <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}};" onClick="{{ c.pick }}">{{ c.year }}</span>
       </sc-for>
     </div>
-
-    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 240px) 1fr; gap: 40px; min-height: 320px; animation: {{swap}} .36s cubic-bezier(.22,.9,.3,1) both;">
+    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: {{swap}} .36s cubic-bezier(.22,.9,.3,1) both;">
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: {{ cur.color }};">{{ cur.year }}</span>
         <div style="display: flex; flex-direction: column; gap: 3px;">
-          <span style="font-size: 17px; font-weight: 700; line-height: 1.3;">{{ cur.company }}</span>
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">{{ cur.company }}</span>
           <span style="font-size: 14px; color: #7A7B92;">{{ cur.role }}</span>
         </div>
         <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
@@ -155,14 +167,19 @@
           </sc-for>
         </div>
       </div>
-
       <div style="display: flex; flex-direction: column; gap: 15px;">
         <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">{{ cur.title }}</h3>
         <sc-for list="{{ cur.paras }}" as="p" hint-placeholder-count="2">
           <p style="font-size: 16px; line-height: 1.66; color: #55566E;">{{ p.t }}</p>
         </sc-for>
+        <sc-if value="{{ cur.hasAward }}" hint-placeholder-val="{{ true }}">
+          <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 14px 16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+            <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">{{ cur.award }}</span>
+          </div>
+        </sc-if>
         <sc-if value="{{ cur.hasLinks }}" hint-placeholder-val="{{ true }}">
-          <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 6px;">
+          <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 4px;">
             <sc-for list="{{ cur.links }}" as="l" hint-placeholder-count="2">
               <a class="go" href="{{ l.url }}" style="font-size: 14px; font-weight: 600;">{{ l.label }}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -174,64 +191,70 @@
     </div>
   </section>
 
-  <!-- ── AI ──────────────────────────────────────────── -->
+  <!-- APPLIED AI -->
   <section id="ai" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
-    <div style="background: #15162B; border-radius: 24px; padding: 44px 44px 46px; color: #EDEDF4;">
+    <div style="background: #15162B; border-radius: 24px; padding: 44px 42px 40px; color: #EDEDF4;">
       <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 30px; flex-wrap: wrap; margin-bottom: 26px;">
-        <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">What I actually do with AI</h2>
-        <span style="font-size: 15px; color: #9C9DB0; max-width: 420px;">Three times a model genuinely took work off someone. And once when I decided it shouldn&rsquo;t.</span>
+        <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Applied AI, specifically</h2>
+        <span style="font-size: 15px; color: #9C9DB0; max-width: 400px;">Because &ldquo;works with AI&rdquo; means nothing. Open one.</span>
       </div>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
-        <div style="background: #1E2038; border-radius: 16px; padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; color: #A99BFF;">It writes the follow-ups</span>
-          <p style="font-size: 15px; line-height: 1.6; color: #B9BAC9;">Reps used to write every call script and email from scratch. Now it drafts them, in over a hundred languages. Most of that service is mine, and the good part isn&rsquo;t the model call. It&rsquo;s the rules keeping it off claims a manufacturer&rsquo;s lawyers would hate, and the step that strips the customer&rsquo;s vehicle number before anything leaves.</p>
-          <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; color: #A99BFF; margin-top: auto; padding-top: 6px;">Announcement
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
-          </a>
-        </div>
-        <div style="background: #1E2038; border-radius: 16px; padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; color: #A99BFF;">It writes the day&rsquo;s list</span>
-          <p style="font-size: 15px; line-height: 1.6; color: #B9BAC9;">Three agents in a chain, then a fourth one marks the result out of ten. Under seven and it never ships. QA write their own scoring rules now, which means the quality bar isn&rsquo;t waiting on me to change code.</p>
-        </div>
-        <div style="background: #1E2038; border-radius: 16px; padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; color: #A99BFF;">Ask the warehouse in English</span>
-          <p style="font-size: 15px; line-height: 1.6; color: #B9BAC9;">Someone non-technical asks a question in plain words, gets a chart back, skips the analyst queue. The bit worth knowing: you can&rsquo;t trust the query the model wrote, not the sentence the person typed. So that&rsquo;s what gets checked before anything runs.</p>
-        </div>
-        <div style="background: #1E2038; border-radius: 16px; padding: 24px 24px 26px; display: flex; flex-direction: column; gap: 10px;">
-          <span style="font-size: 13px; font-weight: 700; color: #6FD9A4;">And once, no model at all</span>
-          <p style="font-size: 15px; line-height: 1.6; color: #B9BAC9;">Upgrading 2,455 files to a new React. I wrote eleven thousand lines of tooling that reads the code properly instead. This problem has exactly one right answer, and a model would get it wrong often enough that nobody would notice until production.</p>
-        </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
+          <div class="foldrow" style="background: {{a.rowbg}};" onClick="{{ a.toggle }}">
+            <div style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: {{a.numcol}}; transform: {{a.numscale}};">{{ a.n }}</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">{{ a.title }}</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: {{a.rot}}; transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: {{a.rows}};">
+              <div>
+                <div style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="2">
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">{{ p.t }}</p>
+                    </sc-for>
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      <sc-for list="{{ a.tags }}" as="t" hint-placeholder-count="4">
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">{{ t.t }}</span>
+                      </sc-for>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </sc-for>
       </div>
-
-      <p style="font-size: clamp(17px, 1.6vw, 21px); line-height: 1.5; font-weight: 600; margin-top: 26px; padding-top: 24px; border-top: 1px solid #2C2E4A; max-width: 880px;">If you can&rsquo;t tell whether the output is any good, you don&rsquo;t have a feature. You have a demo. So I build the thing that marks it at the same time as the thing that writes it.</p>
+      <p style="font-size: clamp(16px, 1.5vw, 20px); line-height: 1.52; font-weight: 600; margin-top: 26px; padding-top: 22px; border-top: 1px solid #2C2E4A; max-width: 860px;">If you can&rsquo;t tell whether the output is any good, you don&rsquo;t have a feature. You have a demo. So I build the thing that marks it at the same time as the thing that writes it.</p>
     </div>
   </section>
 
-  <!-- ── SIDE ────────────────────────────────────────── -->
-  <section id="side" style="scroll-margin-top: 76px; padding: 0 5vw 70px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 44px; align-items: start;">
-    <div style="display: flex; flex-direction: column; gap: 14px;">
+  <!-- SIDE PROJECTS -->
+  <section id="side" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 8px;">
       <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">When nobody&rsquo;s paying me</h2>
-      <p style="font-size: 16px; line-height: 1.65; color: #55566E;">I learn things by rebuilding them badly first. At the moment that&rsquo;s a search system over old Gujarati books, the ones printed before Unicode existed, so what you see on the page and what&rsquo;s in the file are two different things. The encoding mess is the actual project. Search is just the excuse.</p>
-      <p style="font-size: 16px; line-height: 1.65; color: #55566E;">Everything up there is half-finished with notes on where it broke. That&rsquo;s on purpose.</p>
+      <span style="font-size: 14px; color: #7A7B92;">All of it public, most of it half-finished</span>
     </div>
-    <div style="display: flex; flex-direction: column; gap: 12px;">
-      <a href="https://github.com/kushalTheAmin/Learn-RAG-system" class="card" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 5px 18px rgba(21,22,43,.07); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #15162B;">
-        <span><span style="display: block; font-size: 15px; font-weight: 700;">Learn-RAG-system</span><span style="display: block; font-size: 14px; color: #7A7B92;">Search over pre-Unicode Gujarati books</span></span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
-      </a>
-      <a href="https://github.com/kushalTheAmin/ai-learning-projects" class="card" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 5px 18px rgba(21,22,43,.07); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #15162B;">
-        <span><span style="display: block; font-size: 15px; font-weight: 700;">ai-learning-projects</span><span style="display: block; font-size: 14px; color: #7A7B92;">Rebuilding the ideas from scratch, one at a time</span></span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
-      </a>
-      <a href="https://github.com/kushalTheAmin" class="card" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 5px 18px rgba(21,22,43,.07); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; gap: 16px; color: #15162B;">
-        <span style="font-size: 15px; font-weight: 700;">The rest of it on GitHub</span>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
-      </a>
+    <p style="font-size: 16px; line-height: 1.65; color: #55566E; max-width: 700px; margin-bottom: 22px;">I learn things by building them badly first, then writing down where they broke. These are the ones I&rsquo;d actually show someone.</p>
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      <sc-for list="{{ side }}" as="s" hint-placeholder-count="6">
+        <a class="slide" href="{{ s.url }}" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">{{ s.n }}</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">{{ s.title }}</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">{{ s.blurb }}</span>
+          </span>
+          <span style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">{{ s.stack }}</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      </sc-for>
     </div>
   </section>
 
-  <!-- ── CONTACT ─────────────────────────────────────── -->
+  <!-- CONTACT -->
   <footer id="contact" style="scroll-margin-top: 76px; padding: 0 5vw 44px;">
     <div style="background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 34px rgba(21,22,43,.09); padding: 52px 44px 44px; display: flex; flex-direction: column; gap: 20px;">
       <h2 style="font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; max-width: 660px;">Got something that needs building?</h2>
@@ -253,54 +276,121 @@
   </div>
 </div>
 </x-dc>
-<script data-dc-script data-props='{"$preview":{"width":1440,"height":4300}}'>
+<script data-dc-script data-props='{"$preview":{"width":1440,"height":4700}}'>
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { i: 8, n: 0 };
+    this.state = { i: 8, n: 0, open: 0 };
   }
 
   years() {
     return [
-      { year: '2018', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', title: 'The year I learned that a chart is mostly geometry', paras: [{ t: 'Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.' }, { t: 'My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Front end' }], links: [{ label: 'Health Connect 360', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }] },
-      { year: '2019', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', title: 'Get in the room before the ticket exists', paras: [{ t: 'This was the year it went in front of real pharmacists. Which changes things. A number nobody trusts is worse than no number.' }, { t: 'I also picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Responsive UI' }], links: [] },
-      { year: '2020', company: 'Bank of America', role: 'Software Engineer', color: '#2F5FE0', title: 'Everything new at once', paras: [{ t: 'A forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a finance domain I knew nothing about.' }, { t: 'RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.' }, { t: 'Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.' }], stack: [{ t: 'Angular' }, { t: 'RxJS' }, { t: 'Java' }, { t: 'TypeScript' }], links: [] },
-      { year: '2021', company: 'S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', title: 'Third industry, and this time I started at the back', paras: [{ t: 'Joined automotiveMastermind in July. Healthcare, then banking, now car dealerships. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
-      { year: '2022', company: 'S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'Best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects. We got the Delivery Excellence Award that quarter.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
-      { year: '2023', company: 'S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', title: 'The screen they live in, and one I built alone', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading bits of it instead of just picking up tickets.' }, { t: 'Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
-      { year: '2024', company: 'S&P Global Mobility', role: 'Engineer II', color: '#5B4BE8', title: 'Head down, 222 pull requests', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'A lot of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
-      { year: '2025', company: 'S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', title: 'Teaching the product to write, and binning my own design', paras: [{ t: 'I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number out before anything leaves the building.' }, { t: 'Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one.' }, { t: 'Promoted to Senior in October. Six of us across the whole technology org that cycle.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
-      { year: '2026', company: 'S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', title: 'All of it shipped', paras: [{ t: 'Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I won the company hackathon with a team of two, first out of twelve, and wrote the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
+      { year: '2018', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', award: '', title: 'The year I learned a chart is mostly geometry', paras: [{ t: 'Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.' }, { t: 'My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Front end' }], links: [{ label: 'Health Connect 360', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }] },
+      { year: '2019', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', award: '', title: 'Get in the room before the ticket exists', paras: [{ t: 'This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.' }, { t: 'I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Responsive UI' }], links: [] },
+      { year: '2020', company: 'Bank of America', role: 'Software Engineer', color: '#2F5FE0', award: '', title: 'Everything new at once', paras: [{ t: 'A forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.' }, { t: 'RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.' }, { t: 'Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.' }], stack: [{ t: 'Angular' }, { t: 'RxJS' }, { t: 'Java' }, { t: 'TypeScript' }], links: [] },
+      { year: '2021', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: 'Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React', title: 'Third industry, and this time I started at the back', paras: [{ t: 'Joined in July. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
+      { year: '2022', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: 'Delivery Excellence Award, Q1 2022, for Project Horizon. A second Technology Excellence Award that July', title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
+      { year: '2023', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: '', title: 'The screen they live in, and one I built alone', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of it instead of just picking up tickets.' }, { t: 'Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
+      { year: '2024', company: 'automotiveMastermind, S&P Global Mobility', role: 'Engineer II', color: '#5B4BE8', award: 'Technology Excellence Award, 2024', title: 'Head down, and a lot of small things that were quietly wrong', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
+      { year: '2025', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', award: 'Delivery Excellence Award, Q1 2025, the first one here for Gen AI. Promoted to Senior in October, six of us across the whole technology org', title: 'Teaching the product to write, and binning my own design', paras: [{ t: 'I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.' }, { t: 'Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one than in month three.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
+      { year: '2026', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', award: 'Innovation Excellence Award for Fritz open chat, Delivery Excellence Award for Command Center, and first place at the company hackathon, two of us against twelve teams', title: 'All of it shipped', paras: [{ t: 'Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I wrote the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
     ];
   }
 
   projects() {
     return [
-      { meta: '2026 · AI', tone: '#5B4BE8', wash: '#EEECFD', name: 'Fritz',
-        blurb: 'Drafts the call script, the email or the text a salesperson would otherwise write from scratch, in over a hundred languages. I built most of the service behind it, guardrails included.',
+      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Fritz',
+        blurb: 'Drafts the call script, email or text a salesperson would otherwise write from scratch. I wrote most of the service behind it, guardrails included.',
+        outcome: 'On every customer’s deal sheet · 100+ languages',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' },
-      { meta: '2026 · Product + AI', tone: '#5B4BE8', wash: '#EEECFD', name: 'Command Center',
-        blurb: 'A home screen that answers one question: what should I do today? Who is ready to buy, whose offer dies on Friday, who was on the site last night. I started it and built the suggestion pipeline.',
+      { where: 'automotiveMastermind · 2025–26', tone: '#5B4BE8', wash: '#EEECFD', name: 'Command Center',
+        blurb: 'A home screen answering one question: what should I do today? Who is ready to buy, whose offer dies on Friday, who was on the site last night. My idea, and I built the suggestion pipeline.',
+        outcome: 'Live to every dealership since March 2026',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/' },
-      { meta: '2026 · End to end', tone: '#0E8F6E', wash: '#E2F4EE', name: 'FeeSync',
+      { where: 'S&P Global Mobility · 2026', tone: '#0E8F6E', wash: '#E2F4EE', name: 'FeeSync',
         blurb: 'Dealer fees used to live in a dozen systems, all slightly out of date. Now it is one. I was in the database design, owned the API partners pull from, and launched the app dealers register through.',
+        outcome: 'Open to the whole industry since May 2026',
         cta: 'How it works', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' },
-      { meta: '2023 · Built solo', tone: '#C2721B', wash: '#FBEEDF', name: 'Turn',
-        blurb: 'A car sitting thirty days on the lot is losing money every morning. So open the car instead of the customer, and it tells you who is ready to trade into it. 155 of its 162 files are mine.',
+      { where: 'automotiveMastermind · 2023', tone: '#C2721B', wash: '#FBEEDF', name: 'Turn',
+        blurb: 'A car sitting thirty days on the lot is losing money every morning. So open the car instead of the customer, and it tells you who is ready to trade into it. Mine end to end.',
+        outcome: 'Launched December 2023 · 155 of its 162 files are mine',
         cta: 'Read the announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' },
-      { meta: '2023–24 · Automotive', tone: '#C2721B', wash: '#FBEEDF', name: 'The Deal Sheet',
+      { where: 'automotiveMastermind · 2023–24', tone: '#C2721B', wash: '#FBEEDF', name: 'The Deal Sheet',
         blurb: 'The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.',
+        outcome: 'The screen the whole product is built around',
         cta: 'See the product', url: 'https://www.automotivemastermind.com/mastermind-platform-overview/' },
-      { meta: '2018–19 · Healthcare', tone: '#0E8F6E', wash: '#E2F4EE', name: 'Health Connect 360',
+      { where: 'Express Scripts · 2018–19', tone: '#0E8F6E', wash: '#E2F4EE', name: 'Health Connect 360',
         blurb: 'Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. The picture of how it all connects was mine, in D3.',
+        outcome: 'Still running at Evernorth today',
         cta: 'The product today', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }
     ];
   }
 
+  aiAreas() {
+    return [
+      { n: '01', title: 'Production LLM applications',
+        paras: [
+          { t: 'Fritz is the one that is live, on every customer’s deal sheet, in over a hundred languages. Streaming inference against Gemini on Vertex, response caching, conversation archiving, the lot.' },
+          { t: 'The part worth defending is the unglamorous half. Per-manufacturer rules that keep it off claims a legal team would object to, and a step that strips the customer’s vehicle number before anything reaches the model. That one is pinned by a test named after itself so nobody removes it later.' }
+        ],
+        tags: [{t:'.NET'},{t:'Gemini / Vertex AI'},{t:'Streaming inference'},{t:'Redis'},{t:'GKE'}] },
+      { n: '02', title: 'Evaluation, and knowing when output is good enough',
+        paras: [
+          { t: 'Generated messages get marked out of ten by a separate model with its own adversarial prompt, against a typed contract. Does it connect to the segment it was written for. Is there jargon, as a list rather than a yes or no. Can a rep actually act on it. Under seven and it does not ship.' },
+          { t: 'QA write their own criteria through a hook, so the quality bar moves without me changing code. That is the difference between an eval harness and a bottleneck.' }
+        ],
+        tags: [{t:'LLM-as-judge'},{t:'Typed scoring contract'},{t:'Sampling across dates'},{t:'BigQuery'}] },
+      { n: '03', title: 'Agents and tool use',
+        paras: [
+          { t: 'Three agents chained for the daily suggestions: one works out who the customer is and what situation they are in, one writes, one marks. Separately a text-to-SQL agent with five declared tools in auto mode and a genuinely recursive loop, where what gets validated is the query the model wrote, not the sentence the person typed.' },
+          { t: 'On my own time, a multi-agent research system built so the scorer cannot flatter the writer. Five specialists per round, an independent devil’s advocate, and an auditor prompted specifically to prevent score inflation.' }
+        ],
+        tags: [{t:'Multi-agent'},{t:'Function calling'},{t:'LangGraph'},{t:'asyncio'},{t:'Anthropic SDK'}] },
+      { n: '04', title: 'Automating my own job',
+        paras: [
+          { t: 'Skills and spec-driven development, so the repetitive parts of my work are written down once and run the same way twice. Same instinct as the product work: if a person is about to do the same thing two thousand times, that is a tool, not a task.' },
+          { t: 'And where a model is the wrong answer I do not use one. Moving 2,455 files onto React 19 took eleven thousand lines of tooling that reads the code properly, because that problem has exactly one right answer and a model would get it wrong quietly.' }
+        ],
+        tags: [{t:'Claude Code skills'},{t:'Spec-driven dev'},{t:'AST codemods'},{t:'TypeScript'}] },
+      { n: '05', title: 'Learning it in public',
+        paras: [
+          { t: 'Everything above I first built badly somewhere public. Retrieval from scratch over Gujarati books printed before Unicode existed. Multimodal agents with LangGraph and Gemini. Transcription and summarising, end to end, with tests. A job hunt automated onto Cloud Functions because I got bored of doing it by hand.' },
+          { t: 'It is all on GitHub with notes on where it broke, which is the point.' }
+        ],
+        tags: [{t:'RAG'},{t:'Whisper'},{t:'LangGraph'},{t:'Vertex AI'},{t:'GCP'}] }
+    ];
+  }
+
+  sideProjects() {
+    return [
+      { n: '01', title: 'Searching books a computer can’t read',
+        blurb: 'Retrieval from scratch over Gujarati books printed before Unicode existed, so what is on the page and what is in the file are two different things. The encoding mess is the actual project.',
+        stack: 'Python · RAG', url: 'https://github.com/kushalTheAmin/Learn-RAG-system' },
+      { n: '02', title: 'A robot that job-hunts while I sleep',
+        blurb: 'Runs daily on Cloud Functions, reads the boards, scores each role against my real experience, and only bothers me above sixty percent. Then it writes a tailored CV and emails it over, without repeating itself.',
+        stack: 'Python · Vertex AI · GCP', url: 'https://github.com/kushalTheAmin/Job-Finder' },
+      { n: '03', title: 'Talk at my laptop, get notes back',
+        blurb: 'Record in the browser, Whisper transcribes it, Gemini summarises it into meeting notes or an interview write-up. Built it properly, with eighty percent test coverage, because half-built side projects are how you learn nothing.',
+        stack: 'Next.js · Whisper · Gemini', url: 'https://github.com/kushalTheAmin/Meeting_AI' },
+      { n: '04', title: 'Teaching myself multimodal agents',
+        blurb: 'A lab I built to understand agents that handle more than text. MongoDB for the memory, Gemini for the thinking, LangGraph to wire the graph together. Notebooks, so the working out is visible.',
+        stack: 'LangGraph · Gemini · MongoDB', url: 'https://github.com/kushalTheAmin/multimodal-agents-lab' },
+      { n: '05', title: 'Rebuilding the ideas from scratch',
+        blurb: 'Small reimplementations of things I use every day but did not properly understand. One concept at a time, no libraries doing the interesting bit for me.',
+        stack: 'TypeScript', url: 'https://github.com/kushalTheAmin/ai-learning-projects' },
+      { n: '06', title: 'Notes, as I go',
+        blurb: 'The running log behind all of the above. Short, unpolished, and written the day I worked something out rather than months later when I have tidied up the story.',
+        stack: 'Markdown', url: 'https://github.com/kushalTheAmin/ai-notes' }
+    ];
+  }
+
   pick(i) {
-    var n = this.years().length;
-    var j = Math.max(0, Math.min(n - 1, i));
+    var j = Math.max(0, Math.min(this.years().length - 1, i));
     if (j !== this.state.i) this.setState({ i: j, n: this.state.n + 1 });
+  }
+
+  toggleArea(k) {
+    this.setState({ open: this.state.open === k ? -1 : k });
   }
 
   renderVals() {
@@ -313,9 +403,10 @@ class Component extends DCLogic {
       cur: {
         year: cur.year, company: cur.company, role: cur.role, color: cur.color,
         title: cur.title, paras: cur.paras, stack: cur.stack,
+        award: cur.award, hasAward: !!cur.award,
         links: cur.links, hasLinks: cur.links.length > 0
       },
-      // flipping the keyframe name is what makes the card re-animate on every pick
+      // alternating keyframe names are what make the card actually re-animate
       swap: (this.state.n % 2) ? 'kxSwapA' : 'kxSwapB',
       chips: list.map(function (y, k) {
         var on = k === i;
@@ -327,7 +418,20 @@ class Component extends DCLogic {
           pick: function () { self.pick(k); }
         };
       }),
-      work: this.projects()
+      work: this.projects(),
+      side: this.sideProjects(),
+      areas: this.aiAreas().map(function (a, k) {
+        var on = k === self.state.open;
+        return {
+          n: a.n, title: a.title, paras: a.paras, tags: a.tags,
+          rows: on ? '1fr' : '0fr',
+          rot: on ? 'rotate(180deg)' : 'rotate(0deg)',
+          rowbg: on ? '#1E2038' : 'transparent',
+          numcol: on ? '#A99BFF' : '#5C5E80',
+          numscale: on ? 'scale(1.25)' : 'scale(1)',
+          toggle: function () { self.toggleArea(k); }
+        };
+      })
     };
   }
 }
