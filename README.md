@@ -1,14 +1,35 @@
-# kushaltheamin.github.io
+# design
 
-My portfolio. Live at <https://kushaltheamin.github.io>.
+Source for <https://kushaltheamin.github.io>. This branch carries the design
+files; `master` carries only the built site.
 
-`index.html` is generated, not hand-written. The source is two design
-artboards under `design/`, and the site is built from them:
+## Layout
 
-    cd design && node tools/build-site.cjs
+| Path | What it is |
+|---|---|
+| `design/Main.dc.html` | Desktop artboard. Owns all copy and data. |
+| `design/Phone.dc.html` | Phone artboard. Generated - do not hand-edit. |
+| `design/phone.shell.html` | The phone's markup and styles, minus the data. |
+| `design/canvas.json` | Artboard layout for the design canvas. |
+| `design/tools/` | Sync, build, crop and preview scripts. |
+| `design/archive/` | Earlier directions, kept for their copy. |
 
-That resolves the artboards' template syntax ahead of time and emits one
-static page holding both layouts, with every year card and accordion panel
-already in the HTML so the page needs almost no JavaScript to work.
+## Changing the site
 
-See `design/README.md` for how the artboards fit together and what to edit.
+    git checkout design
+    # edit design/Main.dc.html, or design/phone.shell.html for phone markup
+    cd design
+    node tools/sync-phone-data.cjs      # copy Main's data into the phone artboard
+    node tools/build-site.cjs           # regenerate ../index.html
+
+Then copy the built `index.html` onto `master` and push. The site is plain
+static files, so that is the whole deploy.
+
+## Why the split
+
+The artboards are Design Component files. They carry `{{holes}}`, `<sc-for>`
+and a logic class that only the canvas runtime understands, so they are not
+servable and have no business sitting in a published site root.
+
+See `design/README.md` for the design system, the motion, and what is still
+outstanding.
