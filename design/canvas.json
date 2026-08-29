@@ -1,7 +1,27 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",  "title": "Desktop", "x": 0,    "y": 0, "w": 1440, "h": 4800, "print": "flow", "expand": "fill", "is_interactive": true },
-    { "file": "Phone.dc.html", "title": "Phone",   "x": 1600, "y": 0, "w": 390,  "h": 4700, "print": "flow", "expand": "fill", "is_interactive": true }
+    {
+      "file": "Main.dc.html",
+      "title": "Desktop",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 4800,
+      "print": "flow",
+      "expand": "fill",
+      "is_interactive": true
+    },
+    {
+      "file": "Phone.dc.html",
+      "title": "Phone",
+      "x": 1600,
+      "y": 0,
+      "w": 390,
+      "h": 4900,
+      "print": "flow",
+      "expand": "fill",
+      "is_interactive": true
+    }
   ],
   "annotations": [
     {
@@ -9,7 +29,7 @@
       "x": -450,
       "y": 0,
       "w": 370,
-      "text": "TWO DESIGNS NOW, NOT ONE THAT SQUEEZES.\n\nThe phone is laid out for a phone. A profile header with your photo, name and role as one block. Numbers on a rail you flick. Work as swipeable cards with the next one peeking, instead of six stacked. Years scroll sideways. And a bar pinned at the bottom with Email me on it, so nobody has to scroll back up to find you.\n\nIt comes out at 4,557px against 9,120px for the reflowed version. Same words, half the scrolling.\n\nExpand either artboard to use it properly."
+      "text": "TWO DESIGNS, NOT ONE THAT SQUEEZES.\n\nThe phone is laid out for a phone. A profile header with your photo, name and role as one block. Nine years in a 3x3 grid, all of them on screen. Three facts as three rows, all readable without moving anything. And a bar pinned at the bottom carrying Email me, so nobody scrolls back up to find you.\n\nOnly the work cards still swipe. Each one carries a paragraph and an outcome, so six stacked would be a very long scroll, and the peeking edge tells you there are more. Say if you want those stacked too.\n\nExpand either artboard to use it properly."
     },
     {
       "id": "note-sync",
@@ -19,5 +39,7 @@
       "text": "THE WORDS STAY IN ONE PLACE.\n\nTwo layouts would normally mean two copies of the text that drift apart. Main owns the data; tools/sync-phone-data.cjs lifts it into the phone file. Verified byte-identical.\n\nEdit Main, run the script, re-seed.\n\nSTILL OPEN: your photo, and the real months for Express Scripts and Bank of America."
     }
   ],
-  "launch": { "view": "canvas" }
+  "launch": {
+    "view": "canvas"
+  }
 }

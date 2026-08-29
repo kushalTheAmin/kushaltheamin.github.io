@@ -16,13 +16,10 @@
     p { margin: 0; }
     a { color: #5B4BE8; text-decoration: none; }
 
-    /* horizontal rails are the natural gesture on a phone, so work and years both use one */
+    /* work cards are rich enough that swiping beats a six-card stack; nothing else scrolls sideways */
     .rail { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 18px 14px; }
     .rail::-webkit-scrollbar { display: none; }
     .rail > * { scroll-snap-align: center; flex: 0 0 84%; }
-    .yrrail { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 18px 12px; }
-    .yrrail::-webkit-scrollbar { display: none; }
-    .yrrail > * { flex: 0 0 auto; }
 
     .fold { display: grid; transition: grid-template-rows .38s cubic-bezier(.22,.9,.3,1); }
     .fold > div { overflow: hidden; min-height: 0; }
@@ -58,20 +55,20 @@
     <p style="font-size: 16px; line-height: 1.6; color: #55566E;">Eight years, three industries. Database, API, screen, the deploy. Lately the AI parts too: the thing that writes a rep&rsquo;s follow-up, and the thing that checks it&rsquo;s any good.</p>
   </section>
 
-  <!-- one scroll of numbers rather than a grid that would be four cramped boxes -->
-  <section style="padding: 0 0 24px;">
-    <div class="yrrail">
-      <div style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 14px 18px;">
-        <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;">8 years</div>
-        <div style="font-size: 13px; color: #7A7B92; white-space: nowrap;">since Sept 2018</div>
+  <!-- three short facts, so all three are just visible -->
+  <section style="padding: 0 18px 24px;">
+    <div style="background: #FFFFFF; border-radius: 16px; box-shadow: 0 5px 20px rgba(21,22,43,.07); padding: 2px 18px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0; border-bottom: 1px solid #F0F1F7;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">8 years</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">shipping, since Sept 2018</span>
       </div>
-      <div style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 14px 18px;">
-        <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;">3 industries</div>
-        <div style="font-size: 13px; color: #7A7B92; white-space: nowrap;">health, finance, automotive</div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0; border-bottom: 1px solid #F0F1F7;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">3 industries</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">health, finance, automotive</span>
       </div>
-      <div style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 14px 18px;">
-        <div style="font-size: 24px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.15;">7 awards</div>
-        <div style="font-size: 13px; color: #7A7B92; white-space: nowrap;">from the CTO, since 2021</div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">7 awards</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">from the CTO, since 2021</span>
       </div>
     </div>
   </section>
@@ -104,9 +101,9 @@
       <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em;">Where I&rsquo;ve been</h2>
       <span style="font-size: 13px; color: #9C9DB0;">tap a year</span>
     </div>
-    <div class="yrrail">
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 18px 14px;">
       <sc-for list="{{ chips }}" as="c" hint-placeholder-count="9">
-        <span style="font-size: 15px; font-weight: 600; padding: 11px 18px; border-radius: 100px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; min-height: 44px; display: inline-flex; align-items: center;" onClick="{{ c.pick }}">{{ c.year }}</span>
+        <span style="font-size: 15px; font-weight: 600; border-radius: 12px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; min-height: 46px; display: flex; align-items: center; justify-content: center;" onClick="{{ c.pick }}">{{ c.year }}</span>
       </sc-for>
     </div>
     <div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: {{swap}} .34s cubic-bezier(.22,.9,.3,1) both;">
