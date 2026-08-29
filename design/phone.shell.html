@@ -103,7 +103,7 @@
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 18px 14px;">
       <sc-for list="{{ chips }}" as="c" hint-placeholder-count="9">
-        <span style="font-size: 15px; font-weight: 600; border-radius: 12px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; min-height: 46px; display: flex; align-items: center; justify-content: center;" onClick="{{ c.pick }}">{{ c.year }}</span>
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}}; min-height: 46px; display: flex; align-items: center; justify-content: center;" onClick="{{ c.pick }}">{{ c.year }}</span>
       </sc-for>
     </div>
     <div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: {{swap}} .34s cubic-bezier(.22,.9,.3,1) both;">
@@ -153,9 +153,9 @@
       <p style="font-size: 14px; color: #9C9DB0; margin-bottom: 16px;">Because &ldquo;works with AI&rdquo; means nothing. Tap one.</p>
       <div style="display: flex; flex-direction: column; gap: 4px;">
         <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
-          <div style="background: {{a.rowbg}}; border-radius: 14px;" onClick="{{ a.toggle }}">
+          <div class="foldrow" style="background: {{a.rowbg}}; border-radius: 14px;" onClick="{{ a.toggle }}">
             <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
-              <span style="font-size: 17px; font-weight: 800; color: {{a.numcol}};">{{ a.n }}</span>
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: {{a.numcol}};">{{ a.n }}</span>
               <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">{{ a.title }}</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: {{a.rot}}; transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
             </div>

@@ -1,126 +1,1786 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Kushal The Amin</title>
-	
-       <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <!-- <link rel="stylesheet" href="resource/css/bootstrap.min.css">-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kushal Amin — Product Engineer</title>
+<meta name="description" content="Product engineer. Eight years across healthcare, banking and automotive, from the database to the pixel, and lately the AI layer on top.">
+<meta property="og:title" content="Kushal Amin — Product Engineer">
+<meta property="og:description" content="Eight years across healthcare, banking and automotive, from the database to the pixel.">
+<meta property="og:image" content="https://kushaltheamin.github.io/img/kushal.jpg">
+<meta property="og:url" content="https://kushaltheamin.github.io/">
+<meta property="og:type" content="profile">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/kushal.jpg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+<style>
 
-       <!-- jQuery library -->
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-       <!-- Latest compiled JavaScript -->
-      <!-- <script src="resource/js/bootstrap.min.js"></script>-->
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-       <link rel="stylesheet" href="ihover/src/ihover.css">
-       <link rel="stylesheet" href="ihover/src/ihover.min.css">
-
-       <!-- jQuery library -->
-       <script src="https://use.fontawesome.com/b430502df9.js"></script>
-       <!--custom library -->
-       <script type="text/javascript" src="js/custom.js"></script>
-       <link rel="stylesheet" href="css/custom.css">
-</head>
-
-<body>
-
-   <div class="container">
-     <header id="headerId" class="navbar navbar-inverse row"></header>
-
-     <div class="navbar navbar-inverse row">
-         <!-- Slide Bar-->
-         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
-         <!-- Indicators -->
-           <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-           </ol>
-
-         <!-- Wrapper for slides -->
-           <div class="carousel-inner" role="listbox">
-             <div class="item active">
-               <img src="img/mainindex.jpg" alt="First">
-               <div class="carousel-caption">
-                 <h2> Profile Description Web site.</h2>
-                 <span><'This.web site i$ created for</span>
-                 <span>represent my {Self + Qualities}/>'</span>
-                 <a href="aboutMe.html" class="more">Click for more</a>
-               </div>
-            </div>
-
-            <div class="item">
-              <img src="img/mainindex2.jpg" alt="Second">
-              <div class="carousel-caption">
-                <h2> Profile Description Web site.</h2>
-                <span><'This.web site i$ created for</span>
-                <span>represent my {Self + Qualities}/>'</span>
-                <a href="aboutMe.html" class="more">Click for more</a>
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="img/mainindex3.jpg" alt="Second">
-              <div class="carousel-caption">
-                 <h2> Profile Description Web site.</h2>
-                 <span><'This.web site i$ created for</span>
-                 <span>represent my {Self + Qualities}/>'</span>
-                 <a href="aboutMe.html" class="more">Click for more</a>
-              </div>
-            </div>
-
-            <div class="item">
-              <img src="img/mainindex4.jpg" alt="Second">
-              <div class="carousel-caption">
-                  <h2> Profile Description Web site.</h2>
-                  <span><'This.web site i$ created for</span>
-                  <span>represent my {Self + Qualities}/>'</span>
-                  <a href="aboutMe.html" class="more">Click for more</a>
-              </div>
-            </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
   
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
+  
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F7F8FC; }
+    * { box-sizing: border-box; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+    p { margin: 0; }
+    a { color: #5B4BE8; text-decoration: none; }
 
+    @keyframes kxFloatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(70px,44px) scale(1.10); } }
+    @keyframes kxFloatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,54px) scale(1.07); } }
+    .blobA { animation: kxFloatA 34s ease-in-out infinite; }
+    .blobB { animation: kxFloatB 42s ease-in-out infinite; }
+
+    @keyframes kxIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+    .in1 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) both; }
+    .in2 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .07s both; }
+    .in3 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .14s both; }
+    .in4 { animation: kxIn .55s cubic-bezier(.22,.9,.3,1) .21s both; }
+
+    /* work cards: ribbon draws in on hover, outcome slides out from under the text */
+    .ship { position: relative; overflow: hidden; transition: transform .26s cubic-bezier(.22,.9,.3,1), box-shadow .26s ease; }
+    .ship:hover { transform: translateY(-6px); box-shadow: 0 20px 46px rgba(21,22,43,.13); }
+    .ribbon { position: absolute; top: 0; left: 0; right: 0; height: 4px; transform: scaleX(0); transform-origin: left center; transition: transform .42s cubic-bezier(.22,.9,.3,1); }
+    .ship:hover .ribbon { transform: scaleX(1); }
+    .outcome { max-height: 0; opacity: 0; overflow: hidden; transition: max-height .34s cubic-bezier(.22,.9,.3,1), opacity .28s ease, margin-top .34s ease; }
+    .ship:hover .outcome { max-height: 70px; opacity: 1; margin-top: 4px; }
+
+    /* accordion rows */
+    .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
+    .fold > div { overflow: hidden; min-height: 0; }
+    .foldrow { cursor: pointer; transition: background .24s ease; border-radius: 16px; }
+    .foldrow:hover { background: #1E2038; }
+    .foldnum { transition: transform .34s cubic-bezier(.22,.9,.3,1), color .3s ease; transform-origin: left center; }
+
+    /* side project rows */
+    .slide { position: relative; transition: transform .3s cubic-bezier(.22,.9,.3,1), background .3s ease; border-radius: 14px; }
+    .slide:hover { transform: translateX(12px); background: #FFFFFF; box-shadow: 0 8px 26px rgba(21,22,43,.09); }
+    .slide .tail { opacity: 0; transform: translateX(-14px); transition: opacity .3s ease, transform .3s cubic-bezier(.22,.9,.3,1); }
+    .slide:hover .tail { opacity: 1; transform: none; }
+    .slide .idx { transition: color .3s ease, opacity .3s ease; }
+    .slide:hover .idx { color: #5B4BE8; }
+
+    @keyframes kxSwapA { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes kxSwapB { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+    .btn { transition: transform .16s ease, box-shadow .16s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(91,75,232,.34); }
+    .ghost { transition: background .16s ease, transform .16s ease; }
+    .ghost:hover { background: #E7E8F2; transform: translateY(-2px); }
+    .chip { transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease; }
+    .chip:hover { transform: translateY(-2px); }
+    .navlink { position: relative; transition: color .15s ease; }
+    .navlink::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: #5B4BE8; transition: right .22s cubic-bezier(.22,.9,.3,1); }
+    .navlink:hover { color: #5B4BE8; }
+    .navlink:hover::after { right: 0; }
+    .go { display: inline-flex; align-items: center; gap: 6px; }
+    .go svg { transition: transform .18s ease; }
+    .go:hover svg { transform: translateX(4px); }
+
+    /* touch devices never fire :hover, so nothing may hide behind it */
+    @media (hover: none) {
+      .outcome { max-height: 90px; opacity: 1; margin-top: 4px; }
+      .ribbon { transform: scaleX(1); }
+      .slide .tail { opacity: 1; transform: none; }
+      .ship:hover, .slide:hover, .btn:hover, .chip:hover, .ghost:hover { transform: none; }
+    }
+
+    @media (max-width: 1024px) {
+      .yearcard { grid-template-columns: 1fr !important; gap: 26px !important; padding: 30px 30px !important; }
+      .navwrap { gap: 22px !important; font-size: 14px !important; }
+    }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr !important; gap: 30px !important; }
+      .heroimg { max-width: 300px; }
+    }
+
+    @media (max-width: 680px) {
+      .navwrap { flex-wrap: wrap; justify-content: flex-end; gap: 14px 18px !important; }
+      .hero { padding-top: 40px !important; padding-bottom: 46px !important; }
+      .heroimg { max-width: 100%; aspect-ratio: 5 / 4 !important; }
+      .foldhead { grid-template-columns: 40px 1fr 22px !important; gap: 12px !important; padding: 18px 16px !important; }
+      .foldbody { grid-template-columns: 1fr !important; gap: 0 !important; padding: 0 16px 20px !important; }
+      .foldbody > span:first-child { display: none; }
+      .siderow { grid-template-columns: 1fr !important; gap: 10px !important; padding: 18px 16px !important; }
+      .siderow .idx, .siderow .tail { display: none; }
+      .sidestack { justify-self: start; }
+      .slide:hover { transform: none; }
+    }
+  
+
+
+  
+  
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #F7F8FC; }
+    * { box-sizing: border-box; }
+    h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+    p { margin: 0; }
+    a { color: #5B4BE8; text-decoration: none; }
+
+    /* work cards are rich enough that swiping beats a six-card stack; nothing else scrolls sideways */
+    .rail { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; padding: 4px 18px 14px; }
+    .rail::-webkit-scrollbar { display: none; }
+    .rail > * { scroll-snap-align: center; flex: 0 0 84%; }
+
+    .fold { display: grid; transition: grid-template-rows .38s cubic-bezier(.22,.9,.3,1); }
+    .fold > div { overflow: hidden; min-height: 0; }
+
+    @keyframes kxSwapA { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @keyframes kxSwapB { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* the phone gets a thumb-reachable bar instead of a nav it has to reach up for */
+    .dock { position: sticky; bottom: 0; z-index: 60; }
+  
+
+.layout-phone { display: none; }
+@media (max-width: 760px) {
+  .layout-desktop { display: none; }
+  .layout-phone { display: block; }
+}
+.chip, .foldrow { -webkit-tap-highlight-color: transparent; }
+.chip:focus-visible, .foldrow:focus-visible { outline: 2px solid #5B4BE8; outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="layout-desktop">
+
+<div style="position: relative; width: 100%; color: #15162B; font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.6; background: #F7F8FC; overflow: hidden;">
+
+  <div class="blobA" style="position: absolute; top: -220px; left: -180px; width: 780px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, #DDE0FF, rgba(221,224,255,0)); pointer-events: none;"></div>
+  <div class="blobB" style="position: absolute; top: 140px; right: -240px; width: 720px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, #D3F0E6, rgba(211,240,230,0)); pointer-events: none;"></div>
+  <div class="blobA" style="position: absolute; top: 2100px; right: -170px; width: 640px; height: 540px; border-radius: 50%; background: radial-gradient(closest-side, #F5DEEA, rgba(245,222,234,0)); pointer-events: none;"></div>
+
+  <div style="position: relative;">
+
+  <header style="position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 15px 5vw; background: rgba(247,248,252,0.78); backdrop-filter: blur(14px);">
+    <a href="#top" style="font-size: 17px; font-weight: 700; color: #15162B; letter-spacing: -0.01em; white-space: nowrap;">Kushal Amin</a>
+    <nav class="navwrap" style="display: flex; align-items: center; gap: 30px; font-size: 15px; color: #55566E;">
+      <a class="navlink" href="#shipped" style="color: #55566E;">Shipped</a>
+      <a class="navlink" href="#career" style="color: #55566E;">Career</a>
+      <a class="navlink" href="#ai" style="color: #55566E;">Applied AI</a>
+      <a class="navlink" href="#side" style="color: #55566E;">Side projects</a>
+      <a class="btn" href="#contact" style="background: #5B4BE8; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 10px; box-shadow: 0 6px 16px rgba(91,75,232,.24);">Say hello</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="hero" style="scroll-margin-top: 76px; padding: 58px 5vw 64px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <span class="in1" style="align-self: flex-start; background: #FFFFFF; color: #55566E; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 100px; box-shadow: 0 3px 12px rgba(21,22,43,.07);">Product engineer &middot; Jersey City, NJ</span>
+      <h1 class="in2" style="font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800;">I build the whole product. Then I get <span style="color: #5B4BE8;">AI</span> to do the boring half.</h1>
+      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Eight years of it, across healthcare, banking and automotive. Database, API, screen, the deploy. I&rsquo;d rather own all four than hand one feature over three times.</p>
+      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Lately that&rsquo;s meant building the AI parts too. The thing that writes a rep&rsquo;s follow-up, and the thing that checks it&rsquo;s any good before it goes out.</p>
+      <div class="in4" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding-top: 4px;">
+        <a class="btn" href="#shipped" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">See what shipped</a>
+        <a class="go" href="#career" style="font-size: 15px; font-weight: 500; color: #55566E; padding: 14px 4px;">or skim the eight years
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+        </a>
       </div>
     </div>
-            
-    <div class="row">
-      <div class="col-xs-6">
-        <!-- normal -->
-        <div class="ih-item circle effect16 left_to_right">
-         <a href="#">
-          <div class="img"><img src="img/profile.jpg" alt="img"></div>
-           <div class="info">
-            <h3>Kushal Amin</h3>
-            <p>--- Creator ---</p>
-           </div>
-         </a>
-        </div>
-        <!-- end normal -->
-      </div>
+    <div class="in4 heroimg" style="width: 100%; aspect-ratio: 4 / 5; border-radius: 22px; box-shadow: 0 16px 44px rgba(21,22,43,.11); overflow: hidden;">
+      <img src="img/kushal.jpg" alt="Kushal Amin, product engineer" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+    </div>
+  </section>
 
-      <div class="col-xs-6">
-        <p id="quote"><b class="b1">"</b>Don't watch the clock; do what it does. Keep going.<b class="b1">"</b></p>
-        <p id="writer"> -Sam Levenson</p>
+  <!-- STATS -->
+  <section style="padding: 0 5vw 62px;">
+    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 24px rgba(21,22,43,.07); padding: 30px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
+      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">8 years</div><div style="font-size: 14px; color: #7A7B92;">shipping, since Sept 2018</div></div>
+      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">3 industries</div><div style="font-size: 14px; color: #7A7B92;">healthcare, finance, automotive</div></div>
+      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">7 awards</div><div style="font-size: 14px; color: #7A7B92;">from the CTO, since 2021</div></div>
+    </div>
+  </section>
+
+  <!-- SHIPPED -->
+  <section id="shipped" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 24px;">
+      <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Stuff that shipped</h2>
+      <span style="font-size: 14px; color: #7A7B92;">Hover a card for where it ended up</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 20px;">
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #5B4BE8;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Drafts the call script, email or text a salesperson would otherwise write from scratch. I wrote most of the service behind it, guardrails included.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">On every customer’s deal sheet · 100+ languages</span>
+          </div>
+          <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #5B4BE8;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer dies on Friday, who was on the site last night. My idea, and I built the suggestion pipeline.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Live to every dealership since March 2026</span>
+          </div>
+          <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #0E8F6E;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now it is one. I was in the database design, owned the API partners pull from, and launched the app dealers register through.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Open to the whole industry since May 2026</span>
+          </div>
+          <a class="go" href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">How it works
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #C2721B;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So open the car instead of the customer, and it tells you who is ready to trade into it. Mine end to end.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">Launched December 2023 · 155 of its 162 files are mine</span>
+          </div>
+          <a class="go" href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #C2721B;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 7px 13px; border-radius: 100px;">The screen the whole product is built around</span>
+          </div>
+          <a class="go" href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">See the product
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+        <div class="ship" style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.07); padding: 28px 26px 26px; display: flex; flex-direction: column; gap: 9px;">
+          <div class="ribbon" style="background: #0E8F6E;"></div>
+          <span style="font-size: 13px; color: #9C9DB0;">Express Scripts · 2018–19</span>
+          <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. The picture of how it all connects was mine, in D3.</p>
+          <div class="outcome">
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 7px 13px; border-radius: 100px;">Still running at Evernorth today</span>
+          </div>
+          <a class="go" href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">The product today
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </a>
+        </div>
+      
+    </div>
+    <p style="font-size: 15px; color: #7A7B92; margin-top: 20px; max-width: 810px;">Two more with no public page: a forecasting tool the traders at Bank of America used, in Angular and Java, and Project Horizon, where we moved 73 APIs from Azure to Google Cloud without breaking one of them.</p>
+  </section>
+
+  <!-- CAREER -->
+  <section id="career" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 18px;">
+      <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Where I&rsquo;ve been</h2>
+      <span style="font-size: 14px; color: #7A7B92;">Pick a year</span>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;">
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2018</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2019</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2020</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2021</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2022</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2023</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2024</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07);">2025</span>
+      
+        <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: #5B4BE8; color: #FFFFFF; box-shadow: 0 6px 16px rgba(91,75,232,.26);">2026</span>
+      
+    </div>
+    <div data-years><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #0E9C87;">2018</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">Express Scripts</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer, contract</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">JavaScript</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">D3.js</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Front end</span>
+          
+        </div>
       </div>
-    </div>    
-    <!--footer-->
-    <footer id="footerId" class="navbar navbar-inverse row" role="navigation"></footer>   
-  
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">The year I learned a chart is mostly geometry</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Plenty of weekends went into it, because the dates were real. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.</p>
+        
+        
+        
+          <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 4px;">
+            
+              <a class="go" href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600;">Health Connect 360
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            
+          </div>
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #0E9C87;">2019</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">Express Scripts</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer, contract</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">JavaScript</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">D3.js</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Responsive UI</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Get in the room before the ticket exists</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Recognised for getting a big piece of the platform over the line in a short window. We worked weekends to make the date.</span>
+              </div>
+            
+          </div>
+        
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #2F5FE0;">2020</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">Bank of America</span>
+          <span style="font-size: 14px; color: #7A7B92;">Application Developer</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Angular</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">RxJS</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Java</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">TypeScript</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Everything new at once</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">I finished at Express Scripts that January and started at Bank of America the same month, on a forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.</p>
+        
+        
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2021</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer II</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">C# / .NET</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">SQL</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">REST APIs</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Third industry, and this time I started at the back</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Bank of America until August, then automotiveMastermind, which is part of S&P Global. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React</span>
+              </div>
+            
+          </div>
+        
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2022</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer II</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Google Cloud</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Cloud SQL</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">.NET</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">73 APIs, moved, nobody noticed</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Delivery Excellence Award, Q1 2022, for Project Horizon</span>
+              </div>
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Technology Excellence Award, Q2 2022</span>
+              </div>
+            
+          </div>
+        
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2023</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer II</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">React</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">TypeScript</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Redux</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">.NET</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">The screen they live in, and one I built alone</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of it instead of just picking up tickets.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.</p>
+        
+        
+        
+          <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 4px;">
+            
+              <a class="go" href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600;">Turn announcement
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            
+          </div>
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2024</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Software Engineer II</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">React</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">TypeScript</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Vitest</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Head down, and a lot of small things that were quietly wrong</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Technology Excellence Award, 2024</span>
+              </div>
+            
+          </div>
+        
+        
+      </div>
+    </div></div><div data-year-pane hidden><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2025</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Senior Software Engineer</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">.NET</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Gemini / Vertex AI</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">React</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Redis</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Teaching the product to write, and binning my own design</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one than in month three.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Promoted to Senior in October, one of six across the whole technology organisation that cycle.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Delivery Excellence Award, Q1 2025. The first one here for Gen AI.</span>
+              </div>
+            
+          </div>
+        
+        
+      </div>
+    </div></div><div data-year-pane><div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: kxSwapB .36s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: #5B4BE8;">2026</span>
+        <div style="display: flex; flex-direction: column; gap: 3px;">
+          <span style="font-size: 16px; font-weight: 700; line-height: 1.35;">S&P Global</span>
+          <span style="font-size: 14px; color: #7A7B92;">Senior Software Engineer</span>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px;">
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">.NET</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">React 19</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Terraform</span>
+          
+            <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 11px; border-radius: 8px;">Apigee</span>
+          
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">All of it shipped</h3>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Somewhere in there I wrote the plan and the tooling for moving 2,455 files onto React 19.</p>
+        
+        
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Innovation Excellence Award for Fritz open chat</span>
+              </div>
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">Delivery Excellence Award for Command Center</span>
+              </div>
+            
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">First place at the company hackathon. Two of us, against twelve teams.</span>
+              </div>
+            
+          </div>
+        
+        
+          <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 4px;">
+            
+              <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600;">Fritz announcement
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            
+              <a class="go" href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600;">FeeSync
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            
+          </div>
+        
+      </div>
+    </div></div></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 10px 34px; margin-top: 16px; padding: 0 4px; font-size: 14px; color: #7A7B92;">
+      <span>Before all this: <span style="color: #55566E; font-weight: 600;">MS Computer Science</span>, New York Institute of Technology, 2016&ndash;18</span>
+      <span><span style="color: #55566E; font-weight: 600;">BE Computer Science</span>, Sardar Vallabhbhai Patel Institute of Technology, 2012&ndash;16</span>
+    </div>
+  </section>
+
+  <!-- APPLIED AI -->
+  <section id="ai" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+    <div style="background: #15162B; border-radius: 24px; padding: 44px 42px 40px; color: #EDEDF4;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 30px; flex-wrap: wrap; margin-bottom: 26px;">
+        <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">Applied AI, specifically</h2>
+        <span style="font-size: 15px; color: #9C9DB0; max-width: 400px;">Because &ldquo;works with AI&rdquo; means nothing. Open one.</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        
+          <div class="foldrow" style="background: #1E2038;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #A99BFF; transform: scale(1.25);">01</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">Production LLM applications</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg); transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 1fr;">
+              <div>
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">Fritz is the one that is live, on every customer’s deal sheet, in over a hundred languages. Streaming inference against Gemini on Vertex, response caching, conversation archiving, the lot.</p>
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">The part worth defending is the unglamorous half. Per-manufacturer rules that keep it off claims a legal team would object to, and a step that strips the customer’s vehicle number before anything reaches the model. That one is pinned by a test named after itself so nobody removes it later.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">.NET</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Gemini / Vertex AI</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Streaming inference</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Redis</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">GKE</span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #5C5E80; transform: scale(1);">02</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">Evaluation, and knowing when output is good enough</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">Generated messages get marked out of ten by a separate model with its own adversarial prompt, against a typed contract. Does it connect to the segment it was written for. Is there jargon, as a list rather than a yes or no. Can a rep actually act on it. Under seven and it does not ship.</p>
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">QA write their own criteria through a hook, so the quality bar moves without me changing code. That is the difference between an eval harness and a bottleneck.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">LLM-as-judge</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Typed scoring contract</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Sampling across dates</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">BigQuery</span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #5C5E80; transform: scale(1);">03</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">Agents and tool use</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">Three agents chained for the daily suggestions: one works out who the customer is and what situation they are in, one writes, one marks. Separately a text-to-SQL agent with five declared tools in auto mode and a genuinely recursive loop, where what gets validated is the query the model wrote, not the sentence the person typed.</p>
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">On my own time, a multi-agent research system built so the scorer cannot flatter the writer. Five specialists per round, an independent devil’s advocate, and an auditor prompted specifically to prevent score inflation.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Multi-agent</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Function calling</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">LangGraph</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">asyncio</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Anthropic SDK</span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #5C5E80; transform: scale(1);">04</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">Automating my own job</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">Skills and spec-driven development, so the repetitive parts of my work are written down once and run the same way twice. Same instinct as the product work: if a person is about to do the same thing two thousand times, that is a tool, not a task.</p>
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">And where a model is the wrong answer I do not use one. Moving 2,455 files onto React 19 took eleven thousand lines of tooling that reads the code properly, because that problem has exactly one right answer and a model would get it wrong quietly.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Claude Code skills</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Spec-driven dev</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">AST codemods</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">TypeScript</span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+              <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: #5C5E80; transform: scale(1);">05</span>
+              <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">Learning it in public</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                  <span></span>
+                  <div style="display: flex; flex-direction: column; gap: 12px;">
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">Everything above I first built badly somewhere public. Retrieval from scratch over Gujarati books printed before Unicode existed. Multimodal agents with LangGraph and Gemini. Transcription and summarising, end to end, with tests. A job hunt automated onto Cloud Functions because I got bored of doing it by hand.</p>
+                    
+                      <p style="font-size: 15px; line-height: 1.66; color: #B9BAC9; max-width: 780px;">It is all on GitHub with notes on where it broke, which is the point.</p>
+                    
+                    <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">RAG</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Whisper</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">LangGraph</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">Vertex AI</span>
+                      
+                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">GCP</span>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <p style="font-size: clamp(16px, 1.5vw, 20px); line-height: 1.52; font-weight: 600; margin-top: 26px; padding-top: 22px; border-top: 1px solid #2C2E4A; max-width: 860px;">If you can&rsquo;t tell whether the output is any good, you don&rsquo;t have a feature. You have a demo. So I build the thing that marks it at the same time as the thing that writes it.</p>
+    </div>
+  </section>
+
+  <!-- SIDE PROJECTS -->
+  <section id="side" style="scroll-margin-top: 76px; padding: 0 5vw 70px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 8px;">
+      <h2 style="font-size: clamp(28px, 2.8vw, 38px); font-weight: 800; letter-spacing: -0.03em;">When nobody&rsquo;s paying me</h2>
+      <span style="font-size: 14px; color: #7A7B92;">All of it public, most of it half-finished</span>
+    </div>
+    <p style="font-size: 16px; line-height: 1.65; color: #55566E; max-width: 700px; margin-bottom: 22px;">I learn things by building them badly first, then writing down where they broke. Before any of this I spent six years building Sampark for a local non-profit, an app real people used for event management and live data tracking, which taught me that shipping to people you will run into on a Sunday is its own kind of pressure. These are the ones I&rsquo;d show someone now.</p>
+    <div style="display: flex; flex-direction: column; gap: 2px;">
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/Learn-RAG-system" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">01</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Searching books a computer can’t read</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">Retrieval from scratch over Gujarati books printed before Unicode existed, so what is on the page and what is in the file are two different things. The encoding mess is the actual project.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">Python · RAG</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/Job-Finder" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">02</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">A robot that job-hunts while I sleep</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">Runs daily on Cloud Functions, reads the boards, scores each role against my real experience, and only bothers me above sixty percent. Then it writes a tailored CV and emails it over, without repeating itself.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">Python · Vertex AI · GCP</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/Meeting_AI" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">03</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Talk at my laptop, get notes back</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">Record in the browser, Whisper transcribes it, Gemini summarises it into meeting notes or an interview write-up. Built it properly, with eighty percent test coverage, because half-built side projects are how you learn nothing.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">Next.js · Whisper · Gemini</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/multimodal-agents-lab" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">04</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Teaching myself multimodal agents</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">A lab I built to understand agents that handle more than text. MongoDB for the memory, Gemini for the thinking, LangGraph to wire the graph together. Notebooks, so the working out is visible.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">LangGraph · Gemini · MongoDB</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/ai-learning-projects" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">05</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Rebuilding the ideas from scratch</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">Small reimplementations of things I use every day but did not properly understand. One concept at a time, no libraries doing the interesting bit for me.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">TypeScript</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin/ai-notes" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: transparent;">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">06</span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Notes, as I go</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">The running log behind all of the above. Short, unpolished, and written the day I worked something out rather than months later when I have tidied up the story.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">Markdown</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+        <a class="slide siderow" href="https://github.com/kushalTheAmin?tab=repositories" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: rgba(255,255,255,0.55);">
+          <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;"></span>
+          <span style="display: flex; flex-direction: column; gap: 4px;">
+            <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">Everything else</span>
+            <span style="font-size: 15px; line-height: 1.55; color: #55566E;">Twenty-odd more repositories going back to 2016, including the Angular and React years before any of this. Not curated, just what I was working on at the time.</span>
+          </span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">All repositories</span>
+          <span class="tail" style="display: flex;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+          </span>
+        </a>
+      
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <footer id="contact" style="scroll-margin-top: 76px; padding: 0 5vw 44px;">
+    <div style="background: #FFFFFF; border-radius: 24px; box-shadow: 0 10px 34px rgba(21,22,43,.09); padding: 52px 44px 44px; display: flex; flex-direction: column; gap: 20px;">
+      <h2 style="font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; max-width: 660px;">Got something that needs building?</h2>
+      <p style="font-size: 17px; line-height: 1.62; color: #55566E; max-width: 640px;">The work I like is the messy middle. Features that touch the database, the API and the screen at once, and the ones where a model can take the dull half off somebody&rsquo;s desk. If that sounds like your problem, I&rsquo;d like to hear about it.</p>
+      <div style="display: flex; gap: 11px; flex-wrap: wrap; padding-top: 4px;">
+        <a class="btn" href="mailto:kushalamin0@gmail.com" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">kushalamin0@gmail.com</a>
+        <a class="ghost" href="https://www.linkedin.com/in/kushalamin39/" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">LinkedIn</a>
+        <a class="ghost" href="https://github.com/kushalTheAmin" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">GitHub</a>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 12px; padding-top: 22px; border-top: 1px solid #ECEDF4; font-size: 13px; color: #9C9DB0;">
+        <span>Kushal Amin, product engineer, Jersey City</span>
+        <a class="go" href="#top" style="color: #9C9DB0;">Back to top
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9C9DB0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"></path></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  </div>
+</div>
+</div>
+<div class="layout-phone">
+
+<div style="position: relative; width: 100%; color: #15162B; font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 1.6; background: #F7F8FC; overflow: hidden;">
+
+  <div style="position: absolute; top: -160px; left: -140px; width: 460px; height: 400px; border-radius: 50%; background: radial-gradient(closest-side, #DDE0FF, rgba(221,224,255,0)); pointer-events: none;"></div>
+  <div style="position: absolute; top: 900px; right: -180px; width: 420px; height: 380px; border-radius: 50%; background: radial-gradient(closest-side, #D3F0E6, rgba(211,240,230,0)); pointer-events: none;"></div>
+
+  <div style="position: relative;">
+
+  <!-- identity block: photo, name and role read as one unit, the way a phone profile does -->
+  <section style="padding: 26px 18px 22px;">
+    <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 22px;">
+      <div style="width: 62px; height: 62px; border-radius: 50%; box-shadow: 0 5px 16px rgba(21,22,43,.10); overflow: hidden; flex-shrink: 0;">
+        <img src="img/kushal.jpg" alt="Kushal Amin, product engineer" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+        <span style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em;">Kushal Amin</span>
+        <span style="font-size: 14px; color: #7A7B92;">Product engineer &middot; Jersey City</span>
+      </div>
+    </div>
+
+    <h1 style="font-size: 34px; line-height: 1.12; letter-spacing: -0.03em; font-weight: 800; margin-bottom: 14px;">I build the whole product. Then I get <span style="color: #5B4BE8;">AI</span> to do the boring half.</h1>
+    <p style="font-size: 16px; line-height: 1.6; color: #55566E;">Eight years, three industries. Database, API, screen, the deploy. Lately the AI parts too: the thing that writes a rep&rsquo;s follow-up, and the thing that checks it&rsquo;s any good.</p>
+  </section>
+
+  <!-- three short facts, so all three are just visible -->
+  <section style="padding: 0 18px 24px;">
+    <div style="background: #FFFFFF; border-radius: 16px; box-shadow: 0 5px 20px rgba(21,22,43,.07); padding: 2px 18px;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0; border-bottom: 1px solid #F0F1F7;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">8 years</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">shipping, since Sept 2018</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0; border-bottom: 1px solid #F0F1F7;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">3 industries</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">health, finance, automotive</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 15px 0;">
+        <span style="font-size: 21px; font-weight: 800; letter-spacing: -0.03em; white-space: nowrap;">7 awards</span>
+        <span style="font-size: 14px; color: #7A7B92; text-align: right;">from the CTO, since 2021</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- work: a swipeable rail, not six stacked cards -->
+  <section style="padding: 4px 0 26px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 18px 12px;">
+      <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em;">Stuff that shipped</h2>
+      <span style="font-size: 13px; color: #9C9DB0;">swipe &rarr;</span>
+    </div>
+    <div class="rail">
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #5B4BE8;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Drafts the call script, email or text a salesperson would otherwise write from scratch. I wrote most of the service behind it, guardrails included.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">On every customer’s deal sheet · 100+ languages</span>
+            <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+          </div>
+        </div>
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #5B4BE8;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer dies on Friday, who was on the site last night. My idea, and I built the suggestion pipeline.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Live to every dealership since March 2026</span>
+            <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+          </div>
+        </div>
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #0E8F6E;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">S&P Global Mobility · 2026</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">FeeSync</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Dealer fees used to live in a dozen systems, all slightly out of date. Now it is one. I was in the database design, owned the API partners pull from, and launched the app dealers register through.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Open to the whole industry since May 2026</span>
+            <a href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">How it works &rarr;</a>
+          </div>
+        </div>
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #C2721B;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Turn</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A car sitting thirty days on the lot is losing money every morning. So open the car instead of the customer, and it tells you who is ready to trade into it. Mine end to end.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Launched December 2023 · 155 of its 162 files are mine</span>
+            <a href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
+          </div>
+        </div>
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #C2721B;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2023–24</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">The Deal Sheet</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">The page a salesperson has open all day. Everything known about one customer, and the car they might buy next. I worked on the redesign, in .NET microservices where a slow response is a real problem.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #C2721B; background: #FBEEDF; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">The screen the whole product is built around</span>
+            <a href="https://www.automotivemastermind.com/mastermind-platform-overview/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">See the product &rarr;</a>
+          </div>
+        </div>
+      
+        <div style="background: #FFFFFF; border-radius: 18px; box-shadow: 0 6px 22px rgba(21,22,43,.08); overflow: hidden; display: flex; flex-direction: column;">
+          <div style="height: 5px; background: #0E8F6E;"></div>
+          <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
+            <span style="font-size: 12px; color: #9C9DB0;">Express Scripts · 2018–19</span>
+            <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Health Connect 360</h3>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Express Scripts merged with Cigna and built a platform pulling prescriptions, records, lab work and wearable data into one view of a patient. The picture of how it all connects was mine, in D3.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #0E8F6E; background: #E2F4EE; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Still running at Evernorth today</span>
+            <a href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">The product today &rarr;</a>
+          </div>
+        </div>
+      
+    </div>
+  </section>
+
+  <!-- career: years scroll sideways, one card at a time below -->
+  <section style="padding: 4px 0 26px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; padding: 0 18px 12px;">
+      <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em;">Where I&rsquo;ve been</h2>
+      <span style="font-size: 13px; color: #9C9DB0;">tap a year</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 0 18px 14px;">
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2018</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2019</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2020</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2021</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2022</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2023</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2024</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #FFFFFF; color: #55566E; box-shadow: 0 3px 12px rgba(21,22,43,.07); min-height: 46px; display: flex; align-items: center; justify-content: center;">2025</span>
+      
+        <span class="chip" style="font-size: 15px; font-weight: 600; border-radius: 12px; background: #5B4BE8; color: #FFFFFF; box-shadow: 0 6px 16px rgba(91,75,232,.26); min-height: 46px; display: flex; align-items: center; justify-content: center;">2026</span>
+      
+    </div>
+    <div data-years><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #0E9C87;">2018</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer, contract</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">Express Scripts</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">The year I learned a chart is mostly geometry</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Plenty of weekends went into it, because the dates were real. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.</p>
+        
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">JavaScript</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">D3.js</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Front end</span>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <a href="https://www.evernorth.com/our-solutions/health-connect-360" style="font-size: 14px; font-weight: 600;">Health Connect 360 &rarr;</a>
+          
+        </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #0E9C87;">2019</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer, contract</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">Express Scripts</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Get in the room before the ticket exists</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Recognised for getting a big piece of the platform over the line in a short window. We worked weekends to make the date.</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">JavaScript</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">D3.js</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Responsive UI</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #2F5FE0;">2020</span>
+        <span style="font-size: 13px; color: #7A7B92;">Application Developer</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">Bank of America</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Everything new at once</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">I finished at Express Scripts that January and started at Bank of America the same month, on a forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.</p>
+        
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Angular</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">RxJS</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Java</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">TypeScript</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2021</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer II</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Third industry, and this time I started at the back</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Bank of America until August, then automotiveMastermind, which is part of S&P Global. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">C# / .NET</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">SQL</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">REST APIs</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2022</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer II</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">73 APIs, moved, nobody noticed</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Delivery Excellence Award, Q1 2022, for Project Horizon</span>
+            </div>
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Technology Excellence Award, Q2 2022</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Google Cloud</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Cloud SQL</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">.NET</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2023</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer II</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">The screen they live in, and one I built alone</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of it instead of just picking up tickets.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.</p>
+        
+      </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">React</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">TypeScript</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Redux</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">.NET</span>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <a href="https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/" style="font-size: 14px; font-weight: 600;">Turn announcement &rarr;</a>
+          
+        </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2024</span>
+        <span style="font-size: 13px; color: #7A7B92;">Software Engineer II</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Head down, and a lot of small things that were quietly wrong</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Technology Excellence Award, 2024</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">React</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">TypeScript</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Vitest</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane hidden><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2025</span>
+        <span style="font-size: 13px; color: #7A7B92;">Senior Software Engineer</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Teaching the product to write, and binning my own design</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one than in month three.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Promoted to Senior in October, one of six across the whole technology organisation that cycle.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Delivery Excellence Award, Q1 2025. The first one here for Gen AI.</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">.NET</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Gemini / Vertex AI</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">React</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Redis</span>
+        
+      </div>
+      
+    </div></div><div data-year-pane><div style="margin: 0 18px; background: #FFFFFF; border-radius: 18px; box-shadow: 0 8px 26px rgba(21,22,43,.08); padding: 22px 20px; animation: kxSwapB .34s cubic-bezier(.22,.9,.3,1) both;">
+      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px;">
+        <span style="font-size: 34px; font-weight: 800; letter-spacing: -0.035em; line-height: 1; color: #5B4BE8;">2026</span>
+        <span style="font-size: 13px; color: #7A7B92;">Senior Software Engineer</span>
+      </div>
+      <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">All of it shipped</h3>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Somewhere in there I wrote the plan and the tooling for moving 2,455 files onto React 19.</p>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Innovation Excellence Award for Fritz open chat</span>
+            </div>
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">Delivery Excellence Award for Command Center</span>
+            </div>
+          
+            <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">First place at the company hackathon. Two of us, against twelve teams.</span>
+            </div>
+          
+        </div>
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px;">
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">.NET</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">React 19</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Terraform</span>
+        
+          <span style="font-size: 12px; font-weight: 600; color: #55566E; background: #F1F2F8; padding: 6px 10px; border-radius: 8px;">Apigee</span>
+        
+      </div>
+      
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 14px;">
+          
+            <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600;">Fritz announcement &rarr;</a>
+          
+            <a href="https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry" style="font-size: 14px; font-weight: 600;">FeeSync &rarr;</a>
+          
+        </div>
+      
+    </div></div></div>
+    <div style="margin: 14px 18px 0; font-size: 13px; line-height: 1.6; color: #7A7B92;">
+      Before all this: <span style="color: #55566E; font-weight: 600;">MS Computer Science</span>, New York Institute of Technology, 2016&ndash;18. <span style="color: #55566E; font-weight: 600;">BE Computer Science</span>, Sardar Vallabhbhai Patel Institute of Technology, 2012&ndash;16.
+    </div>
+  </section>
+
+  <!-- applied AI: accordion, because five open panels would be a mile of scrolling -->
+  <section style="padding: 4px 18px 26px;">
+    <div style="background: #15162B; border-radius: 20px; padding: 24px 18px 20px; color: #EDEDF4;">
+      <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 6px;">Applied AI, specifically</h2>
+      <p style="font-size: 14px; color: #9C9DB0; margin-bottom: 16px;">Because &ldquo;works with AI&rdquo; means nothing. Tap one.</p>
+      <div style="display: flex; flex-direction: column; gap: 4px;">
+        
+          <div class="foldrow" style="background: #1E2038; border-radius: 14px;">
+            <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: #A99BFF;">01</span>
+              <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">Production LLM applications</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(180deg); transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 1fr;">
+              <div>
+                <div style="padding: 0 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">Fritz is the one that is live, on every customer’s deal sheet, in over a hundred languages. Streaming inference against Gemini on Vertex, response caching, conversation archiving, the lot.</p>
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">The part worth defending is the unglamorous half. Per-manufacturer rules that keep it off claims a legal team would object to, and a step that strips the customer’s vehicle number before anything reaches the model. That one is pinned by a test named after itself so nobody removes it later.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">.NET</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Gemini / Vertex AI</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Streaming inference</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Redis</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">GKE</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent; border-radius: 14px;">
+            <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: #5C5E80;">02</span>
+              <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">Evaluation, and knowing when output is good enough</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div style="padding: 0 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">Generated messages get marked out of ten by a separate model with its own adversarial prompt, against a typed contract. Does it connect to the segment it was written for. Is there jargon, as a list rather than a yes or no. Can a rep actually act on it. Under seven and it does not ship.</p>
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">QA write their own criteria through a hook, so the quality bar moves without me changing code. That is the difference between an eval harness and a bottleneck.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">LLM-as-judge</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Typed scoring contract</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Sampling across dates</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">BigQuery</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent; border-radius: 14px;">
+            <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: #5C5E80;">03</span>
+              <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">Agents and tool use</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div style="padding: 0 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">Three agents chained for the daily suggestions: one works out who the customer is and what situation they are in, one writes, one marks. Separately a text-to-SQL agent with five declared tools in auto mode and a genuinely recursive loop, where what gets validated is the query the model wrote, not the sentence the person typed.</p>
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">On my own time, a multi-agent research system built so the scorer cannot flatter the writer. Five specialists per round, an independent devil’s advocate, and an auditor prompted specifically to prevent score inflation.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Multi-agent</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Function calling</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">LangGraph</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">asyncio</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Anthropic SDK</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent; border-radius: 14px;">
+            <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: #5C5E80;">04</span>
+              <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">Automating my own job</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div style="padding: 0 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">Skills and spec-driven development, so the repetitive parts of my work are written down once and run the same way twice. Same instinct as the product work: if a person is about to do the same thing two thousand times, that is a tool, not a task.</p>
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">And where a model is the wrong answer I do not use one. Moving 2,455 files onto React 19 took eleven thousand lines of tooling that reads the code properly, because that problem has exactly one right answer and a model would get it wrong quietly.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Claude Code skills</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Spec-driven dev</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">AST codemods</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">TypeScript</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="foldrow" style="background: transparent; border-radius: 14px;">
+            <div style="display: grid; grid-template-columns: 32px 1fr 20px; gap: 10px; align-items: center; padding: 15px 14px; min-height: 52px;">
+              <span class="foldnum" style="font-size: 17px; font-weight: 800; color: #5C5E80;">05</span>
+              <span style="font-size: 16px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.3;">Learning it in public</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: rotate(0deg); transition: transform .32s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+            </div>
+            <div class="fold" style="grid-template-rows: 0fr;">
+              <div>
+                <div style="padding: 0 14px 16px; display: flex; flex-direction: column; gap: 10px;">
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">Everything above I first built badly somewhere public. Retrieval from scratch over Gujarati books printed before Unicode existed. Multimodal agents with LangGraph and Gemini. Transcription and summarising, end to end, with tests. A job hunt automated onto Cloud Functions because I got bored of doing it by hand.</p>
+                  
+                    <p style="font-size: 14px; line-height: 1.62; color: #B9BAC9;">It is all on GitHub with notes on where it broke, which is the point.</p>
+                  
+                  <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">RAG</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Whisper</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">LangGraph</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">Vertex AI</span>
+                    
+                      <span style="font-size: 11px; font-weight: 600; color: #A99BFF; background: #262845; padding: 5px 9px; border-radius: 7px;">GCP</span>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      </div>
+      <p style="font-size: 15px; line-height: 1.5; font-weight: 600; margin-top: 18px; padding-top: 16px; border-top: 1px solid #2C2E4A;">If you can&rsquo;t tell whether the output is any good, you don&rsquo;t have a feature. You have a demo.</p>
+    </div>
+  </section>
+
+  <!-- side projects -->
+  <section style="padding: 4px 18px 26px;">
+    <h2 style="font-size: 24px; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 6px;">When nobody&rsquo;s paying me</h2>
+    <p style="font-size: 15px; line-height: 1.6; color: #55566E; margin-bottom: 16px;">I learn things by building them badly first. Before any of this I spent six years building Sampark for a local non-profit, an app real people used, which taught me that shipping to someone you will run into on a Sunday is its own kind of pressure.</p>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      
+        <a href="https://github.com/kushalTheAmin/Learn-RAG-system" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Searching books a computer can’t read</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">Retrieval from scratch over Gujarati books printed before Unicode existed, so what is on the page and what is in the file are two different things. The encoding mess is the actual project.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">Python · RAG</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin/Job-Finder" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">A robot that job-hunts while I sleep</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">Runs daily on Cloud Functions, reads the boards, scores each role against my real experience, and only bothers me above sixty percent. Then it writes a tailored CV and emails it over, without repeating itself.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">Python · Vertex AI · GCP</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin/Meeting_AI" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Talk at my laptop, get notes back</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">Record in the browser, Whisper transcribes it, Gemini summarises it into meeting notes or an interview write-up. Built it properly, with eighty percent test coverage, because half-built side projects are how you learn nothing.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">Next.js · Whisper · Gemini</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin/multimodal-agents-lab" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Teaching myself multimodal agents</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">A lab I built to understand agents that handle more than text. MongoDB for the memory, Gemini for the thinking, LangGraph to wire the graph together. Notebooks, so the working out is visible.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">LangGraph · Gemini · MongoDB</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin/ai-learning-projects" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Rebuilding the ideas from scratch</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">Small reimplementations of things I use every day but did not properly understand. One concept at a time, no libraries doing the interesting bit for me.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">TypeScript</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin/ai-notes" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Notes, as I go</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">The running log behind all of the above. Short, unpolished, and written the day I worked something out rather than months later when I have tidied up the story.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">Markdown</span>
+        </a>
+      
+        <a href="https://github.com/kushalTheAmin?tab=repositories" style="background: #FFFFFF; border-radius: 14px; box-shadow: 0 4px 16px rgba(21,22,43,.07); padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; color: #15162B; min-height: 52px;">
+          <span style="display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+            <span style="font-size: 17px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.25;">Everything else</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" style="flex-shrink: 0;"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <span style="font-size: 14px; line-height: 1.55; color: #55566E;">Twenty-odd more repositories going back to 2016, including the Angular and React years before any of this. Not curated, just what I was working on at the time.</span>
+          <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 5px 10px; border-radius: 100px; margin-top: 2px;">All repositories</span>
+        </a>
+      
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section style="padding: 4px 18px 22px;">
+    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.09); padding: 26px 20px 24px;">
+      <h2 style="font-size: 26px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.12; margin-bottom: 10px;">Got something that needs building?</h2>
+      <p style="font-size: 15px; line-height: 1.6; color: #55566E;">The work I like is the messy middle. Features that touch the database, the API and the screen at once, and the ones where a model can take the dull half off somebody&rsquo;s desk.</p>
+    </div>
+  </section>
+
+  <!-- thumb-reachable, always there, so nobody has to scroll back up to find the email -->
+  <div class="dock" style="padding: 10px 14px 14px; background: linear-gradient(to bottom, rgba(247,248,252,0), #F7F8FC 42%);">
+    <div style="display: flex; gap: 8px; background: #FFFFFF; border-radius: 16px; box-shadow: 0 -2px 24px rgba(21,22,43,.12); padding: 8px;">
+      <a href="mailto:kushalamin0@gmail.com" style="flex: 1 1 0; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; border-radius: 11px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+        Email me
+      </a>
+      <a href="https://www.linkedin.com/in/kushalamin39/" style="width: 52px; min-height: 48px; display: flex; align-items: center; justify-content: center; background: #F1F2F8; color: #15162B; font-size: 13px; font-weight: 700; border-radius: 11px;">in</a>
+      <a href="https://github.com/kushalTheAmin" style="width: 52px; min-height: 48px; display: flex; align-items: center; justify-content: center; background: #F1F2F8; border-radius: 11px;">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#15162B" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l-6-6 6-6M15 6l6 6-6 6"></path></svg>
+      </a>
+    </div>
   </div>
 
+  </div>
+</div>
+</div>
+<script>
+(function () {
+  var ON = { bg: '#5B4BE8', fg: '#FFFFFF', shadow: '0 6px 16px rgba(91,75,232,.26)' };
+  var OFF = { bg: '#FFFFFF', fg: '#55566E', shadow: '0 3px 12px rgba(21,22,43,.07)' };
+
+  function paintChip(chip, on) {
+    var s = on ? ON : OFF;
+    chip.style.background = s.bg;
+    chip.style.color = s.fg;
+    chip.style.boxShadow = s.shadow;
+    chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-years]'), function (group) {
+    var panes = group.querySelectorAll('[data-year-pane]');
+    var chips = group.parentNode.querySelectorAll('.chip');
+    if (chips.length !== panes.length) return;
+
+    Array.prototype.forEach.call(chips, function (chip, i) {
+      chip.setAttribute('role', 'button');
+      chip.setAttribute('tabindex', '0');
+      function show() {
+        Array.prototype.forEach.call(chips, function (c, j) { paintChip(c, i === j); });
+        Array.prototype.forEach.call(panes, function (p, j) { p.hidden = i !== j; });
+        var card = panes[i].firstElementChild;
+        if (card) { card.style.animation = 'none'; void card.offsetHeight; card.style.animation = ''; }
+      }
+      chip.addEventListener('click', show);
+      chip.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); show(); }
+      });
+    });
+  });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.foldrow'), function (row) {
+    var fold = row.querySelector('.fold');
+    var chevron = row.querySelector('svg');
+    var num = row.querySelector('.foldnum');
+    var dark = row.parentNode.querySelectorAll('.foldrow');
+    row.setAttribute('role', 'button');
+    row.setAttribute('tabindex', '0');
+
+    function paint(open) {
+      if (fold) fold.style.gridTemplateRows = open ? '1fr' : '0fr';
+      if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+      if (num) num.style.color = open ? '#A99BFF' : '#5C5E80';
+      row.style.background = open ? '#1E2038' : 'transparent';
+      row.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function toggle() {
+      var open = row.getAttribute('aria-expanded') !== 'true';
+      Array.prototype.forEach.call(dark, function (other) {
+        if (other !== row) { other.dispatchEvent(new CustomEvent('kx-close')); }
+      });
+      paint(open);
+    }
+    row.addEventListener('kx-close', function () { paint(false); });
+    row.addEventListener('click', toggle);
+    row.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+    });
+    paint(fold && fold.style.gridTemplateRows === '1fr');
+  });
+})();
+</script>
 </body>
 </html>
