@@ -51,9 +51,20 @@ Human, not assistant. Contractions, uneven sentence length, opinions, and
 zero em-dashes — the previous copy was full of them. No "open to X roles"
 badge anywhere; the work is meant to make that obvious.
 
-## Data
+## Two layouts, one set of words
 
-`years()` and `projects()` in `Main.dc.html` are the source of truth.
+The phone is a separate design, not the desktop reflowed. A profile header,
+rails you flick sideways, swipeable work cards, and a docked action bar.
+4,557px against 9,120px for the responsive version.
+
+The obvious cost of two layouts is two copies of the text drifting apart, so
+they do not both hold it. `Main.dc.html` owns `years()`, `projects()`,
+`aiAreas()` and `sideProjects()`; `tools/sync-phone-data.cjs` lifts them into
+`Phone.dc.html`. After editing Main:
+
+    node tools/sync-phone-data.cjs && <re-seed>
+
+`Phone.dc.html` is generated. Edit `phone.shell.html` for phone markup.
 
 ## Responsive
 

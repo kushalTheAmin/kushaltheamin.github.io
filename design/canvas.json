@@ -1,35 +1,23 @@
 {
   "artboards": [
-    {
-      "file": "Main.dc.html",
-      "title": "kushalamin.dev",
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 4800,
-      "print": "flow",
-      "expand": "fill",
-      "is_interactive": true
-    }
+    { "file": "Main.dc.html",  "title": "Desktop", "x": 0,    "y": 0, "w": 1440, "h": 4800, "print": "flow", "expand": "fill", "is_interactive": true },
+    { "file": "Phone.dc.html", "title": "Phone",   "x": 1600, "y": 0, "w": 390,  "h": 4700, "print": "flow", "expand": "fill", "is_interactive": true }
   ],
   "annotations": [
     {
-      "id": "note-live",
+      "id": "note-two",
       "x": -450,
       "y": 0,
       "w": 370,
-      "text": "OPENS AS THE REAL PAGE, AND IT RESIZES.\n\nThe frame fills your window, so narrow the browser and you will see the iPad and phone layouts live. I rendered it at 1440, 834 and 390 to check: no sideways scrolling at any width.\n\nTouch matters here. On a phone or iPad there is no hover, so the outcome line on each work card is always showing instead of hidden behind a hover.\n\nThree sections, three interactions: a ribbon and rising outcome on the work cards, unfolding rows in Applied AI, sliding rows in side projects."
+      "text": "TWO DESIGNS NOW, NOT ONE THAT SQUEEZES.\n\nThe phone is laid out for a phone. A profile header with your photo, name and role as one block. Numbers on a rail you flick. Work as swipeable cards with the next one peeking, instead of six stacked. Years scroll sideways. And a bar pinned at the bottom with Email me on it, so nobody has to scroll back up to find you.\n\nIt comes out at 4,557px against 9,120px for the reflowed version. Same words, half the scrolling.\n\nExpand either artboard to use it properly."
     },
     {
-      "id": "note-open",
+      "id": "note-sync",
       "x": -450,
       "y": 470,
       "w": 370,
-      "text": "THE PHOTO IS THE ONE THING I COULD NOT DO.\n\nThe path you gave is on your own Mac (/Users/kushal/Downloads/...). I run in a remote container and cannot reach it. Attach the image here and I will crop it close, head and shoulders, like your LinkedIn.\n\nThe frame is already sized for that crop: 4:5 portrait, and it will fill rather than letterbox.\n\nALSO STILL OPEN\n\nThe real months for Express Scripts and Bank of America. Everything else from your list is done, email included."
+      "text": "THE WORDS STAY IN ONE PLACE.\n\nTwo layouts would normally mean two copies of the text that drift apart. Main owns the data; tools/sync-phone-data.cjs lifts it into the phone file. Verified byte-identical.\n\nEdit Main, run the script, re-seed.\n\nSTILL OPEN: your photo, and the real months for Express Scripts and Bank of America."
     }
   ],
-  "launch": {
-    "view": "focused",
-    "file": "Main.dc.html"
-  }
+  "launch": { "view": "canvas" }
 }

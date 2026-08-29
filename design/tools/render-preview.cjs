@@ -1,5 +1,5 @@
 const fs = require('fs');
-const SRC = '/home/user/kushaltheamin.github.io/design/Main.dc.html';
+const SRC = process.argv[2] || '/home/user/kushaltheamin.github.io/design/Main.dc.html';
 const raw = fs.readFileSync(SRC, 'utf8');
 
 const helmet = raw.match(/<helmet>([\s\S]*?)<\/helmet>/)[1];
@@ -64,6 +64,6 @@ const interp = (s, scopes) =>
   s.replace(/\son(Click|MouseDown|MouseMove|MouseUp|MouseLeave|TouchStart|TouchMove|TouchEnd)="\{\{[^}]*\}\}"/g, '')
    .replace(/\{\{\s*([\w.$]+)\s*\}\}/g, (_, p) => { const v = get(scopes, p); return v == null ? '' : String(v); });
 
-fs.writeFileSync('preview.html',
+fs.writeFileSync((process.argv[3] || 'preview.html'),
   `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">${helmet}</head><body>${render(body, [vals])}</body></html>`);
-console.log('preview.html written,', fs.statSync('preview.html').size, 'bytes');
+console.log('preview.html written,', fs.statSync((process.argv[3] || 'preview.html')).size, 'bytes');
