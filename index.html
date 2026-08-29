@@ -206,9 +206,9 @@
           <div class="ribbon" style="background: #5B4BE8;"></div>
           <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
           <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">Drafts the call script, email or text a salesperson would otherwise write from scratch. I worked across the service behind it, including the compliance rules and how customer data is handled.</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
           <div class="outcome">
-            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">On every customer’s deal sheet · 100+ languages</span>
+            <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Hackathon idea 2025 · shipped to every customer 2026</span>
           </div>
           <a class="go" href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 12px;">Read the announcement
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -219,7 +219,7 @@
           <div class="ribbon" style="background: #5B4BE8;"></div>
           <span style="font-size: 13px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
           <h3 style="font-size: 22px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
-          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the pipeline behind the daily suggestions.</p>
+          <p style="font-size: 15px; line-height: 1.6; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
           <div class="outcome">
             <span style="display: inline-block; font-size: 13px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 7px 13px; border-radius: 100px;">Live to every dealership since March 2026</span>
           </div>
@@ -583,9 +583,13 @@
         </div>
       </div>
       <div style="display: flex; flex-direction: column; gap: 15px;">
-        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">Teaching the product to write, and throwing out a first attempt</h3>
+        <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">A hackathon idea that turned into the product</h3>
         
-          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Most of my year went into the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.</p>
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Fritz began as an idea I pitched at the company hackathon that April. It didn’t win, but it finished in the top three and the judging panel backed taking it further.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Most of the year then went into building it for real: a .NET service running streaming inference against Gemini on Vertex AI, with response caching and conversation archiving behind it.</p>
+        
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">The interesting work wasn’t the model call. It was the rules keeping the model away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number out before any of it reaches the LLM.</p>
         
           <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Command Center started that year too. I built a first version in the morning and deleted all of it by the afternoon, once it turned out adding one category meant touching six files. Better to notice on day one than in month three.</p>
         
@@ -625,7 +629,7 @@
       <div style="display: flex; flex-direction: column; gap: 15px;">
         <h3 style="font-size: clamp(21px, 2vw, 27px); font-weight: 700; letter-spacing: -0.025em; line-height: 1.22;">All of it shipped</h3>
         
-          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.</p>
+          <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Fritz, the LLM assistant, went to every customer in January, in over a hundred languages. Command Center reached every dealership in March, daily suggestions written by a chain of agents. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.</p>
         
           <p style="font-size: 16px; line-height: 1.66; color: #55566E;">Somewhere in there I put together the plan and the tooling for moving 2,455 files onto React 19.</p>
         
@@ -644,7 +648,7 @@
             
               <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
-                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">First place at the company hackathon. Two of us, against twelve teams.</span>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">First place at the company hackathon, out of a field of more than a hundred engineers. I led our team.</span>
               </div>
             
           </div>
@@ -1029,8 +1033,8 @@
           <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
             <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
             <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Fritz</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">Drafts the call script, email or text a salesperson would otherwise write from scratch. I worked across the service behind it, including the compliance rules and how customer data is handled.</p>
-            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">On every customer’s deal sheet · 100+ languages</span>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">An LLM assistant on the deal sheet, drafting the call script, email or text a salesperson would otherwise write from scratch. It began as an idea I pitched at the 2025 hackathon, where it made the top three. I worked across the .NET service behind it: streaming inference against Gemini, the compliance rules, and what gets stripped out before anything reaches the model.</p>
+            <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Hackathon idea 2025 · shipped to every customer 2026</span>
             <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
           </div>
         </div>
@@ -1040,7 +1044,7 @@
           <div style="padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 8px; flex-grow: 1;">
             <span style="font-size: 12px; color: #9C9DB0;">automotiveMastermind · 2025–26</span>
             <h3 style="font-size: 20px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;">Command Center</h3>
-            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the pipeline behind the daily suggestions.</p>
+            <p style="font-size: 14px; line-height: 1.58; color: #55566E;">A home screen answering one question: what should I do today? Who is ready to buy, whose offer expires on Friday, who was on the site last night. I was on it from the early prototypes, and built the multi-agent LLM pipeline that writes the daily suggestions and scores them before they show up.</p>
             <span style="align-self: flex-start; font-size: 12px; font-weight: 600; color: #5B4BE8; background: #EEECFD; padding: 6px 11px; border-radius: 100px; line-height: 1.35;">Live to every dealership since March 2026</span>
             <a href="https://www.automotivemastermind.com/automotivemastermind-introduces-command-center/" style="font-size: 14px; font-weight: 600; margin-top: auto; padding-top: 10px;">Read the announcement &rarr;</a>
           </div>
@@ -1360,10 +1364,14 @@
         <span style="font-size: 13px; color: #7A7B92;">Senior Software Engineer</span>
       </div>
       <div style="font-size: 15px; font-weight: 700; line-height: 1.35; margin-bottom: 14px;">S&P Global</div>
-      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">Teaching the product to write, and throwing out a first attempt</h3>
+      <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">A hackathon idea that turned into the product</h3>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         
-          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Most of my year went into the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.</p>
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Fritz began as an idea I pitched at the company hackathon that April. It didn’t win, but it finished in the top three and the judging panel backed taking it further.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Most of the year then went into building it for real: a .NET service running streaming inference against Gemini on Vertex AI, with response caching and conversation archiving behind it.</p>
+        
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">The interesting work wasn’t the model call. It was the rules keeping the model away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number out before any of it reaches the LLM.</p>
         
           <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Command Center started that year too. I built a first version in the morning and deleted all of it by the afternoon, once it turned out adding one category meant touching six files. Better to notice on day one than in month three.</p>
         
@@ -1401,7 +1409,7 @@
       <h3 style="font-size: 19px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 12px;">All of it shipped</h3>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         
-          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.</p>
+          <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Fritz, the LLM assistant, went to every customer in January, in over a hundred languages. Command Center reached every dealership in March, daily suggestions written by a chain of agents. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.</p>
         
           <p style="font-size: 15px; line-height: 1.62; color: #55566E;">Somewhere in there I put together the plan and the tooling for moving 2,455 files onto React 19.</p>
         
@@ -1421,7 +1429,7 @@
           
             <div style="display: flex; align-items: flex-start; gap: 10px; background: #FBF6E8; border-radius: 12px; padding: 12px 14px;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
-              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">First place at the company hackathon. Two of us, against twelve teams.</span>
+              <span style="font-size: 13px; line-height: 1.5; color: #7A5E14;">First place at the company hackathon, out of a field of more than a hundred engineers. I led our team.</span>
             </div>
           
         </div>
