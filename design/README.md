@@ -55,13 +55,30 @@ badge anywhere; the work is meant to make that obvious.
 
 `years()` and `projects()` in `Main.dc.html` are the source of truth.
 
+## Responsive
+
+Verified by rendering `Main.dc.html` standalone at 1440, 834 and 390 and
+checking `scrollWidth` against `clientWidth`: no horizontal scroll at any
+width. Page heights 4724 / 5410 / 9120.
+
+- `@media (hover: none)` — **the important one.** Touch devices never fire
+  `:hover`, so anything hidden behind it is invisible on a phone. The work
+  card outcome line, the ribbon and the side-row arrow are all forced on.
+- `max-width: 1024px` — career card stacks, nav tightens
+- `max-width: 760px` — hero stacks, photo caps at 300px
+- `max-width: 680px` — nav wraps, accordion and side rows go single column
+
+`design/tools/render-preview.cjs` renders the artboard to a standalone
+`preview.html` (resolving `sc-for`, `sc-if` and `{{holes}}` against
+`renderVals()`) so it can be screenshotted without the canvas editor,
+which does not mount in a sandbox.
+
 ## Outstanding
 
-- The user ticked "something else" on the UX question; the free text never
-  arrived. Ask.
 - **Dates unconfirmed.** Express Scripts spans 2018–19, Bank of America sits
   in 2020. Only Sept 2018 and July 2021 are pinned by the record.
-- Email is a placeholder; photo slot expects `img/kushal.jpg`, 3:4.
+- Photo: the user's path is on their own Mac and unreachable from a remote
+  container. Frame is 4:5, sized for a close head-and-shoulders crop.
 - No phone layout yet.
 
 ## Note on local preview

@@ -6,7 +6,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 4700,
+      "h": 4800,
       "print": "flow",
       "expand": "fill",
       "is_interactive": true
@@ -18,14 +18,14 @@
       "x": -450,
       "y": 0,
       "w": 370,
-      "text": "THREE SECTIONS, THREE DIFFERENT INTERACTIONS.\n\nShipped: hover a card. A coloured ribbon draws across the top and the outcome rises out from under the text.\n\nApplied AI: click a row. It unfolds, the number swells, the chevron turns. Five named areas instead of one vague heading.\n\nSide projects: hover a row. The whole thing slides right and an arrow travels in from the left.\n\nCareer: chips, and the card fades in on every pick. Awards now show inside the year they were won."
+      "text": "OPENS AS THE REAL PAGE, AND IT RESIZES.\n\nThe frame fills your window, so narrow the browser and you will see the iPad and phone layouts live. I rendered it at 1440, 834 and 390 to check: no sideways scrolling at any width.\n\nTouch matters here. On a phone or iPad there is no hover, so the outcome line on each work card is always showing instead of hidden behind a hover.\n\nThree sections, three interactions: a ribbon and rising outcome on the work cards, unfolding rows in Applied AI, sliding rows in side projects."
     },
     {
       "id": "note-open",
       "x": -450,
       "y": 470,
       "w": 370,
-      "text": "CHANGED FROM YOUR NOTES\n\nCars is automotive. Pull request counts are gone entirely. Awards appear in the journey as well as the header, mapped to the year each was won. The 2026-dot-AI style tags are replaced with where and when, plus an outcome that appears on hover. Side projects have written names instead of repo slugs, and each links to its own repo.\n\nSTILL OPEN\n\nLinkedIn's Featured section needs a login, so awards come from your portfolio doc. Paste the Featured items if they differ.\n\nDates for Express Scripts and Bank of America. Your email. The photo at img/kushal.jpg."
+      "text": "THE PHOTO IS THE ONE THING I COULD NOT DO.\n\nThe path you gave is on your own Mac (/Users/kushal/Downloads/...). I run in a remote container and cannot reach it. Attach the image here and I will crop it close, head and shoulders, like your LinkedIn.\n\nThe frame is already sized for that crop: 4:5 portrait, and it will fill rather than letterbox.\n\nALSO STILL OPEN\n\nThe real months for Express Scripts and Bank of America. Everything else from your list is done, email included."
     }
   ],
   "launch": {

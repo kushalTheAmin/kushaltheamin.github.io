@@ -66,6 +66,39 @@
     .go { display: inline-flex; align-items: center; gap: 6px; }
     .go svg { transition: transform .18s ease; }
     .go:hover svg { transform: translateX(4px); }
+
+    /* ═══ touch: nothing may hide behind :hover, because there is no hover ═══ */
+    @media (hover: none) {
+      .outcome { max-height: 90px; opacity: 1; margin-top: 4px; }
+      .ribbon { transform: scaleX(1); }
+      .slide .tail { opacity: 1; transform: none; }
+      .ship:hover, .slide:hover, .btn:hover, .chip:hover, .ghost:hover { transform: none; }
+    }
+
+    /* ═══ iPad and below ═══ */
+    @media (max-width: 1024px) {
+      .yearcard { grid-template-columns: 1fr !important; gap: 26px !important; padding: 30px 30px !important; }
+      .navwrap { gap: 22px !important; font-size: 14px !important; }
+    }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr !important; gap: 30px !important; }
+      .heroimg { max-width: 300px; }
+    }
+
+    /* ═══ phone ═══ */
+    @media (max-width: 680px) {
+      .navwrap { flex-wrap: wrap; justify-content: flex-end; gap: 14px 18px !important; }
+      .hero { padding-top: 40px !important; padding-bottom: 46px !important; }
+      .heroimg { max-width: 100%; aspect-ratio: 5 / 4 !important; }
+      .foldhead { grid-template-columns: 40px 1fr 22px !important; gap: 12px !important; padding: 18px 16px !important; }
+      .foldbody { grid-template-columns: 1fr !important; gap: 0 !important; padding: 0 16px 20px !important; }
+      .foldbody > span:first-child { display: none; }
+      .siderow { grid-template-columns: 1fr !important; gap: 10px !important; padding: 18px 16px !important; }
+      .siderow .idx, .siderow .tail { display: none; }
+      .sidestack { justify-self: start; }
+      .slide:hover { transform: none; }
+    }
   </style>
 </helmet>
 
@@ -78,8 +111,8 @@
   <div style="position: relative;">
 
   <header style="position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; gap: 30px; padding: 15px 5vw; background: rgba(247,248,252,0.78); backdrop-filter: blur(14px);">
-    <a href="#top" style="font-size: 17px; font-weight: 700; color: #15162B; letter-spacing: -0.01em;">Kushal Amin</a>
-    <nav style="display: flex; align-items: center; gap: 30px; font-size: 15px; color: #55566E;">
+    <a href="#top" style="font-size: 17px; font-weight: 700; color: #15162B; letter-spacing: -0.01em; white-space: nowrap;">Kushal Amin</a>
+    <nav class="navwrap" style="display: flex; align-items: center; gap: 30px; font-size: 15px; color: #55566E;">
       <a class="navlink" href="#shipped" style="color: #55566E;">Shipped</a>
       <a class="navlink" href="#career" style="color: #55566E;">Career</a>
       <a class="navlink" href="#ai" style="color: #55566E;">Applied AI</a>
@@ -89,7 +122,7 @@
   </header>
 
   <!-- HERO -->
-  <section id="top" style="scroll-margin-top: 76px; padding: 58px 5vw 64px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
+  <section id="top" class="hero" style="scroll-margin-top: 76px; padding: 58px 5vw 64px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 22px;">
       <span class="in1" style="align-self: flex-start; background: #FFFFFF; color: #55566E; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 100px; box-shadow: 0 3px 12px rgba(21,22,43,.07);">Product engineer &middot; Jersey City, NJ</span>
       <h1 class="in2" style="font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800;">I build the whole product. Then I get <span style="color: #5B4BE8;">AI</span> to do the boring half.</h1>
@@ -102,19 +135,18 @@
         </a>
       </div>
     </div>
-    <div class="in4" style="width: 100%; aspect-ratio: 3 / 4; background: #FFFFFF; border-radius: 22px; box-shadow: 0 16px 44px rgba(21,22,43,.11); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
+    <div class="in4 heroimg" style="width: 100%; aspect-ratio: 4 / 5; background: #FFFFFF; border-radius: 22px; box-shadow: 0 16px 44px rgba(21,22,43,.11); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;">
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B9BAC9" stroke-width="1.4" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><circle cx="12" cy="11" r="3"></circle><path d="M3 20l5-5 3 3 4-4 6 6"></path></svg>
-      <span style="font-size: 12px; color: #9C9DB0; text-align: center; line-height: 1.7;">[ your photo ]<br>img/kushal.jpg</span>
+      <span style="font-size: 12px; color: #9C9DB0; text-align: center; line-height: 1.7;">[ your photo ]<br>close crop, head and shoulders</span>
     </div>
   </section>
 
   <!-- STATS -->
   <section style="padding: 0 5vw 62px;">
-    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 24px rgba(21,22,43,.07); padding: 30px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 28px;">
+    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 6px 24px rgba(21,22,43,.07); padding: 30px 38px; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px;">
       <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">8 years</div><div style="font-size: 14px; color: #7A7B92;">shipping, since Sept 2018</div></div>
       <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">3 industries</div><div style="font-size: 14px; color: #7A7B92;">healthcare, finance, automotive</div></div>
       <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">7 awards</div><div style="font-size: 14px; color: #7A7B92;">from the CTO, since 2021</div></div>
-      <div><div style="font-size: 34px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;">1st of 12</div><div style="font-size: 14px; color: #7A7B92;">company hackathon, 2026</div></div>
     </div>
   </section>
 
@@ -154,7 +186,7 @@
         <span class="chip" style="font-size: 14px; font-weight: 600; padding: 10px 18px; border-radius: 100px; cursor: pointer; background: {{c.bg}}; color: {{c.fg}}; box-shadow: {{c.shadow}};" onClick="{{ c.pick }}">{{ c.year }}</span>
       </sc-for>
     </div>
-    <div style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: {{swap}} .36s cubic-bezier(.22,.9,.3,1) both;">
+    <div class="yearcard" style="background: #FFFFFF; border-radius: 20px; box-shadow: 0 8px 28px rgba(21,22,43,.08); padding: 34px 38px; display: grid; grid-template-columns: minmax(0, 250px) 1fr; gap: 40px; min-height: 330px; animation: {{swap}} .36s cubic-bezier(.22,.9,.3,1) both;">
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <span style="font-size: 54px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; color: {{ cur.color }};">{{ cur.year }}</span>
         <div style="display: flex; flex-direction: column; gap: 3px;">
@@ -173,9 +205,13 @@
           <p style="font-size: 16px; line-height: 1.66; color: #55566E;">{{ p.t }}</p>
         </sc-for>
         <sc-if value="{{ cur.hasAward }}" hint-placeholder-val="{{ true }}">
-          <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 14px 16px;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
-            <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">{{ cur.award }}</span>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <sc-for list="{{ cur.awards }}" as="aw" hint-placeholder-count="2">
+              <div style="display: flex; align-items: flex-start; gap: 12px; background: #FBF6E8; border-radius: 12px; padding: 13px 16px;">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B98A20" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 2px;"><circle cx="12" cy="9" r="6"></circle><path d="M8.5 14.5L7 22l5-3 5 3-1.5-7.5"></path></svg>
+                <span style="font-size: 14px; line-height: 1.55; color: #7A5E14;">{{ aw.t }}</span>
+              </div>
+            </sc-for>
           </div>
         </sc-if>
         <sc-if value="{{ cur.hasLinks }}" hint-placeholder-val="{{ true }}">
@@ -201,14 +237,14 @@
       <div style="display: flex; flex-direction: column; gap: 4px;">
         <sc-for list="{{ areas }}" as="a" hint-placeholder-count="5">
           <div class="foldrow" style="background: {{a.rowbg}};" onClick="{{ a.toggle }}">
-            <div style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
+            <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
               <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: {{a.numcol}}; transform: {{a.numscale}};">{{ a.n }}</span>
               <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">{{ a.title }}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: {{a.rot}}; transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
             </div>
             <div class="fold" style="grid-template-rows: {{a.rows}};">
               <div>
-                <div style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
+                <div class="foldbody" style="display: grid; grid-template-columns: 62px 1fr; gap: 16px; padding: 0 22px 22px;">
                   <span></span>
                   <div style="display: flex; flex-direction: column; gap: 12px;">
                     <sc-for list="{{ a.paras }}" as="p" hint-placeholder-count="2">
@@ -239,13 +275,13 @@
     <p style="font-size: 16px; line-height: 1.65; color: #55566E; max-width: 700px; margin-bottom: 22px;">I learn things by building them badly first, then writing down where they broke. These are the ones I&rsquo;d actually show someone.</p>
     <div style="display: flex; flex-direction: column; gap: 2px;">
       <sc-for list="{{ side }}" as="s" hint-placeholder-count="6">
-        <a class="slide" href="{{ s.url }}" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B;">
+        <a class="slide siderow" href="{{ s.url }}" style="display: grid; grid-template-columns: 46px 1fr auto 26px; gap: 20px; align-items: center; padding: 20px 22px; color: #15162B; background: {{ s.rowbg }};">
           <span class="idx" style="font-size: 14px; font-weight: 700; color: #B9BAC9;">{{ s.n }}</span>
           <span style="display: flex; flex-direction: column; gap: 4px;">
             <span style="font-size: clamp(17px, 1.5vw, 20px); font-weight: 700; letter-spacing: -0.02em;">{{ s.title }}</span>
             <span style="font-size: 15px; line-height: 1.55; color: #55566E;">{{ s.blurb }}</span>
           </span>
-          <span style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">{{ s.stack }}</span>
+          <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">{{ s.stack }}</span>
           <span class="tail" style="display: flex;">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </span>
@@ -260,7 +296,7 @@
       <h2 style="font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; max-width: 660px;">Got something that needs building?</h2>
       <p style="font-size: 17px; line-height: 1.62; color: #55566E; max-width: 640px;">The work I like is the messy middle. Features that touch the database, the API and the screen at once, and the ones where a model can take the dull half off somebody&rsquo;s desk. If that sounds like your problem, I&rsquo;d like to hear about it.</p>
       <div style="display: flex; gap: 11px; flex-wrap: wrap; padding-top: 4px;">
-        <span class="btn" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">[ your email ]</span>
+        <a class="btn" href="mailto:kushalamin0@gmail.com" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">kushalamin0@gmail.com</a>
         <a class="ghost" href="https://www.linkedin.com/in/kushalamin39/" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">LinkedIn</a>
         <a class="ghost" href="https://github.com/kushalTheAmin" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">GitHub</a>
       </div>
@@ -285,15 +321,15 @@ class Component extends DCLogic {
 
   years() {
     return [
-      { year: '2018', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', award: '', title: 'The year I learned a chart is mostly geometry', paras: [{ t: 'Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.' }, { t: 'My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Front end' }], links: [{ label: 'Health Connect 360', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }] },
-      { year: '2019', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', award: '', title: 'Get in the room before the ticket exists', paras: [{ t: 'This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.' }, { t: 'I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Responsive UI' }], links: [] },
-      { year: '2020', company: 'Bank of America', role: 'Software Engineer', color: '#2F5FE0', award: '', title: 'Everything new at once', paras: [{ t: 'A forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.' }, { t: 'RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.' }, { t: 'Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.' }], stack: [{ t: 'Angular' }, { t: 'RxJS' }, { t: 'Java' }, { t: 'TypeScript' }], links: [] },
-      { year: '2021', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: 'Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React', title: 'Third industry, and this time I started at the back', paras: [{ t: 'Joined in July. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
-      { year: '2022', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: 'Delivery Excellence Award, Q1 2022, for Project Horizon. A second Technology Excellence Award that July', title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
-      { year: '2023', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', award: '', title: 'The screen they live in, and one I built alone', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of it instead of just picking up tickets.' }, { t: 'Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
-      { year: '2024', company: 'automotiveMastermind, S&P Global Mobility', role: 'Engineer II', color: '#5B4BE8', award: 'Technology Excellence Award, 2024', title: 'Head down, and a lot of small things that were quietly wrong', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
-      { year: '2025', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', award: 'Delivery Excellence Award, Q1 2025, the first one here for Gen AI. Promoted to Senior in October, six of us across the whole technology org', title: 'Teaching the product to write, and binning my own design', paras: [{ t: 'I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.' }, { t: 'Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one than in month three.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
-      { year: '2026', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', award: 'Innovation Excellence Award for Fritz open chat, Delivery Excellence Award for Command Center, and first place at the company hackathon, two of us against twelve teams', title: 'All of it shipped', paras: [{ t: 'Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I wrote the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
+      { year: '2018', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', awards: [], title: 'The year I learned a chart is mostly geometry', paras: [{ t: 'Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.' }, { t: 'My piece was the picture. A D3 view of who prescribes what, which pharmacy fills it, who pays for it. Plenty of weekends went into it, because the dates were real. Sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Front end' }], links: [{ label: 'Health Connect 360', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }] },
+      { year: '2019', company: 'Express Scripts', role: 'Front-End Developer', color: '#0E9C87', awards: [{ t: 'Recognised for getting a big piece of the platform over the line in a short window. We worked weekends to make the date.' }], title: 'Get in the room before the ticket exists', paras: [{ t: 'This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.' }, { t: 'I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Responsive UI' }], links: [] },
+      { year: '2020', company: 'Bank of America', role: 'Software Engineer', color: '#2F5FE0', awards: [], title: 'Everything new at once', paras: [{ t: 'A forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.' }, { t: 'RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.' }, { t: 'Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.' }], stack: [{ t: 'Angular' }, { t: 'RxJS' }, { t: 'Java' }, { t: 'TypeScript' }], links: [] },
+      { year: '2021', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', awards: [{ t: 'Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React' }], title: 'Third industry, and this time I started at the back', paras: [{ t: 'Joined in July. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. Full slices rather than tickets, and tests for all three endings, not just the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
+      { year: '2022', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2022, for Project Horizon' }, { t: 'Technology Excellence Award, Q2 2022' }], title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
+      { year: '2023', company: 'automotiveMastermind, S&P Global Mobility', role: 'Software Engineer', color: '#5B4BE8', awards: [], title: 'The screen they live in, and one I built alone', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of it instead of just picking up tickets.' }, { t: 'Then Turn, which was mine end to end. A car sitting on the lot for thirty days is losing the dealer money every morning. So flip it round: open the car, and it tells you which of your own customers is ready to trade into it. 155 of its 162 files are mine.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
+      { year: '2024', company: 'automotiveMastermind, S&P Global Mobility', role: 'Engineer II', color: '#5B4BE8', awards: [{ t: 'Technology Excellence Award, 2024' }], title: 'Head down, and a lot of small things that were quietly wrong', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
+      { year: '2025', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2025. The first one here for Gen AI.' }], title: 'Teaching the product to write, and binning my own design', paras: [{ t: 'I built out the service that drafts call scripts, emails and texts for reps. The interesting work wasn’t the model call. It was the rules keeping it away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number before anything leaves the building.' }, { t: 'Also started Command Center. Built the first version in the morning, deleted all of it by the afternoon when it turned out adding one category meant touching six files. Better to notice that on day one than in month three.' }, { t: 'Promoted to Senior in October, one of six across the whole technology organisation that cycle.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
+      { year: '2026', company: 'automotiveMastermind, S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Innovation Excellence Award for Fritz open chat' }, { t: 'Delivery Excellence Award for Command Center' }, { t: 'First place at the company hackathon. Two of us, against twelve teams.' }], title: 'All of it shipped', paras: [{ t: 'Fritz went to every customer in January. Command Center to every dealership in March. FeeSync, where I was in the database design, owned the external API and launched the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I wrote the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
     ];
   }
 
@@ -380,7 +416,10 @@ class Component extends DCLogic {
         stack: 'TypeScript', url: 'https://github.com/kushalTheAmin/ai-learning-projects' },
       { n: '06', title: 'Notes, as I go',
         blurb: 'The running log behind all of the above. Short, unpolished, and written the day I worked something out rather than months later when I have tidied up the story.',
-        stack: 'Markdown', url: 'https://github.com/kushalTheAmin/ai-notes' }
+        stack: 'Markdown', url: 'https://github.com/kushalTheAmin/ai-notes' },
+      { n: '', title: 'Everything else', more: true,
+        blurb: 'Twenty-odd more repositories going back to 2016, including the Angular and React years before any of this. Not curated, just what I was working on at the time.',
+        stack: 'All repositories', url: 'https://github.com/kushalTheAmin?tab=repositories' }
     ];
   }
 
@@ -403,7 +442,7 @@ class Component extends DCLogic {
       cur: {
         year: cur.year, company: cur.company, role: cur.role, color: cur.color,
         title: cur.title, paras: cur.paras, stack: cur.stack,
-        award: cur.award, hasAward: !!cur.award,
+        awards: cur.awards, hasAward: cur.awards.length > 0,
         links: cur.links, hasLinks: cur.links.length > 0
       },
       // alternating keyframe names are what make the card actually re-animate
@@ -419,7 +458,12 @@ class Component extends DCLogic {
         };
       }),
       work: this.projects(),
-      side: this.sideProjects(),
+      side: this.sideProjects().map(function (s) {
+        return {
+          n: s.n, title: s.title, blurb: s.blurb, stack: s.stack, url: s.url,
+          rowbg: s.more ? 'rgba(255,255,255,0.55)' : 'transparent'
+        };
+      }),
       areas: this.aiAreas().map(function (a, k) {
         var on = k === self.state.open;
         return {
