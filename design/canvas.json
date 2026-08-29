@@ -1,24 +1,55 @@
 {
   "artboards": [
-    { "file": "Main.dc.html",    "title": "The page — scroll it", "x": 0,    "y": 0, "w": 1440, "h": 12800, "print": "flow", "expand": "fill", "is_interactive": true },
-    { "file": "Project.dc.html", "title": "Case study — click the layers", "x": 1620, "y": 0, "w": 1440, "h": 3600, "print": "flow", "is_interactive": true },
-    { "file": "Mobile.dc.html",  "title": "On a phone", "x": 3240, "y": 0, "w": 390, "h": 6200, "print": "flow", "is_interactive": true }
+    {
+      "file": "Main.dc.html",
+      "title": "A \u00b7 Ink + signal",
+      "x": 0,
+      "y": 0,
+      "w": 1080,
+      "h": 720
+    },
+    {
+      "file": "DirectionB.dc.html",
+      "title": "B \u00b7 Paper editorial",
+      "x": 1180,
+      "y": 0,
+      "w": 1080,
+      "h": 720
+    },
+    {
+      "file": "DirectionC.dc.html",
+      "title": "C \u00b7 Navy + sand",
+      "x": 0,
+      "y": 880,
+      "w": 1080,
+      "h": 720
+    },
+    {
+      "file": "DirectionD.dc.html",
+      "title": "D \u00b7 Soft light",
+      "x": 1180,
+      "y": 880,
+      "w": 1080,
+      "h": 720
+    }
   ],
   "annotations": [
     {
-      "id": "note-scroll",
-      "x": -460,
+      "id": "note-pick",
+      "x": -470,
       "y": 0,
-      "w": 380,
-      "text": "IT OPENS AS ONE SCROLLING PAGE.\n\nThis is a real page, not a picture of one. Scroll it top to bottom - that is the whole design.\n\nThe journey: nine year-panels. The big year and the company pin to the left while their story scrolls past, then swap when the next year arrives. The background carries the industry - teal for healthcare, blue for banking, orange for automotive, violet for the AI years - and blends where you change industry. The year chips at the top stay with you and jump you anywhere.\n\nOther motion: a progress bar across the very top, blocks that rise as they come into view, a work strip you drag sideways, a stack ticker that never stops.\n\nCollapse it to see the case study and the phone layout alongside."
+      "w": 390,
+      "text": "PICK A COLOUR SYSTEM.\n\nSame words, same three projects, four different systems. Compare them like-for-like, then tell me a letter.\n\nEach one carries a UX posture too, not just a palette - how much structure comes from borders vs. spacing, how loud the buttons are, how much the page decorates itself.\n\nEvery one names its own downside at the bottom of the frame. None of them is free."
     },
     {
-      "id": "note-check",
-      "x": -460,
-      "y": 560,
-      "w": 380,
-      "text": "STILL FOR YOU TO SETTLE\n\n1. Dates. Express Scripts sits across 2018-19 and Bank of America in 2020 - only September 2018 and July 2021 are pinned by your record. Give me the real months.\n\n2. Your email is a placeholder in the footer.\n\n3. The photo frame in the hero is 3:4 for the waterfront shot. Save it to img/kushal.jpg."
+      "id": "note-sorry",
+      "x": -470,
+      "y": 380,
+      "w": 390,
+      "text": "WHY THIS INSTEAD OF ANOTHER FULL PAGE.\n\nI chose the palette for you three times and got it wrong three times. Cream, orange and yellow with hard black borders and tilted cards was a bad call - loud, dated, and it made every section shout at the same volume.\n\nSo: pick the system first, then I build the whole page once, in that system. Nothing else changes - the eight years, the AI section and the writing all carry over."
     }
   ],
-  "launch": { "view": "focused", "file": "Main.dc.html" }
+  "launch": {
+    "view": "canvas"
+  }
 }
