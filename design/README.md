@@ -39,68 +39,72 @@ Every colour on the page except the text greys is a token. Sixteen of them:
     accent  accent-soft  accent-tint  accent-line
     tone-b  wash-b  tone-c  wash-c  tone-d  wash-d
 
-Twelve palettes define all sixteen. `data-pal` on `<html>` picks one and the
-whole page follows: the background, the cards, the neutral pill behind a
-tech tag, the hairline under a stat, the colour the shadows are cast in.
-Five seconds each, 1.8s crossfade.
+Twelve palettes define all sixteen, but not as twelve sets of sixteen
+colours. Each palette is **seven numbers** — a hue, three offsets and three
+chroma weights — and the sixteen derive from them in CSS. Five seconds each,
+1.8s crossfade.
 
     python3 tools/build-palette.py      # regenerates the CSS in both artboards
     node tools/sync-phone-data.cjs && node tools/build-site.cjs
 
-`tools/palette.py` is the source. It carries an oklch to sRGB conversion with
-the chroma-reduction gamut mapping browsers do, so the hex it prints is the
-hex that gets painted; a naive clamp would shift the hue instead. Change a
-seed hue there, rerun, and the eight blocks are rewritten in place between
-the `>>> palette` markers. Nothing else should be edited by hand.
+### Why seven numbers and not sixteen colours
 
-Why generate them rather than hand-pick eight sets of sixteen: the contrast
-has to hold in all twelve, and there are more than a hundred pairings once
-text, accents, washes and surfaces are crossed. Generating from a seed means
-one lightness decision applies everywhere and can be checked in a loop.
+The first version stored sixteen literal hex values per palette and
+cross-faded between them. Chrome interpolates registered colours through
+sRGB, so a change from emerald to magenta passed through `rgb(74,73,53)`, a
+grey-olive, for about four hundred milliseconds. The only way to hide that
+was to keep every change small, which meant ordering the twelve around the
+wheel — and neighbours in wheel order come out about 0.08 apart in oklab,
+which is one colour in two shades. Every palette looked like the last one.
 
-- **The seeds are placed by perceptual distance, not by degrees.** Blue
-  changes slowly per degree of hue and red changes fast, so twelve evenly
-  spaced angles put three near-identical blue-greens next to each other. The
-  first attempt did exactly that and two of the twelve were flagged as too
-  close to the one before. Measured in oklab, the tightest neighbouring pair
-  is now 0.057 against 0.032 for even spacing.
-- **Nothing rests between 60 and 125 degrees.** Anything in that band dark
-  enough to carry white text clips to olive, which is the one hue this page
-  has no use for. Crossing it is the twelfth step, the one long hop.
-- **The supporting triads are four different shapes, cycled**, and the
-  chroma has three characters. Twelve runs of one formula would read as
-  twelve tints of the same idea rather than twelve combinations. Every
-  spacing still keeps at least 70 degrees between any two of a palette's
-  four hues, which is about where two tones stop being reliably tellable
-  apart at this size.
-- **Every token is a registered custom property**, so it interpolates
-  instead of snapping. That is the whole reason the swap reads as a fade.
-- **Lightness is not luminance.** The same oklch L reads far brighter at
-  yellow than at blue, so contrast drifts hue to hue. The numbers were fixed
-  by checking every pairing in all twelve rather than eyeballing one.
-  Worst measured pairing in the rendered page: 5.41:1.
+Rotating a hue instead sweeps around the wheel rather than across the middle
+of it. Measured through a real transition, the lowest chroma seen anywhere
+is now 0.112 against 0.032 before. So the fade no longer constrains the
+order, and the order can be chosen for difference.
 
-`tools/palette.py` scores itself: run it through the checks in the commit and
-it reports, per palette, the worst contrast, the closest pair of tones within
-it, and the distance to the palette before. Three thresholds, and a palette
-that trips one is named.
+### Order
 
-### The two greys
+    CYCLE = [(i * 5) % 12 for i in range(12)]
 
-`#7A7B92` and `#9C9DB0` were below AA on the old page too, at 4.09 and 2.64
-on white. Nothing to do with the palette, but "every colour" is a reasonable
-moment to fix them. They are now `#5E5E6E` and `#676877`, which clear 4.5 on
-every surface in every palette. The ramp is tighter than it was — 7.1 / 6.4 /
-5.5 on white rather than 7.1 / 4.1 / 2.6 — because meta text that passes AA
-cannot be very light. That is the trade, and it is the right way round.
+Five positions apart, which puts at least 0.217 in oklab between anything
+you see one after another, against 0.056 at its worst before. Five is
+coprime with twelve so it still visits all of them. The switch rotates
+whichever way is shorter, so nothing spins more than half a turn.
+
+### Placing the twelve
+
+Seeds are placed by perceptual distance, not by degrees: blue changes slowly
+per degree of hue and red fast, so twelve evenly spaced angles put three
+near-identical blue-greens in the set. Nothing rests between 60 and 125,
+where anything dark enough to carry white text clips to olive.
+
+The supporting triads are four different shapes, cycled, and the chroma has
+three characters. Twelve runs of one formula would read as twelve tints of
+one idea. Every shape still keeps at least 70 degrees between any two of a
+palette's four hues.
+
+### Contrast
+
+Checked at 9,792 pairings — twelve palettes crossed with every 15 degrees of
+the sweep, against the foreground-on-background pairs the page actually
+contains rather than every pair that could theoretically exist. Worst
+anywhere, at rest or mid-sweep: **4.60:1**.
+
+Two things that search turned up:
+
+- The card-back pill was `rgba(255,255,255,0.18)`, which lightens the tone
+  under it until white text on it falls to 3.70. It is `rgba(0,0,0,0.16)`
+  now, which can never be worse than white on the tone itself.
+- `#7A7B92` and `#9C9DB0` were below AA on the old page too, at 4.09 and
+  2.64 on white. They are `#5E5E6E` and `#676877`. The ramp is tighter than
+  it was, because meta text that passes AA cannot be very light.
 
 ### Degradation
 
-`prefers-reduced-motion: reduce` holds palette 0 and turns the transition
-off. A hidden tab stops the timer. Without `@property` the swap is a hard cut
-rather than a fade. The floor is Chrome 111 / Safari 15.4 / Firefox 113,
-which is what `oklch()` in the generator output needs — the emitted values
-are plain hex, so only the crossfade depends on `@property`.
+`prefers-reduced-motion: reduce` holds the first palette and turns the
+transition off. A hidden tab stops the timer. Without `@property` the swap
+is a hard cut rather than a fade. `oklch()` is required, so the floor is
+Chrome 111 / Safari 15.4 / Firefox 113.
 
 ## Motion
 

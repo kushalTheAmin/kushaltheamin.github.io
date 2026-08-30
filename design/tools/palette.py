@@ -161,3 +161,36 @@ def hex_oklab(h):
 def dE(a, b):
     x, y = hex_oklab(a), hex_oklab(b)
     return math.sqrt(sum((p - q) ** 2 for p, q in zip(x, y)))
+
+# ---------- the same maths, written for CSS --------------------------------
+
+# One table so the generated hex and the generated stylesheet cannot drift:
+# token -> (lightness %, chroma expression, hue variable). The Python above
+# and the CSS below are the same formula written twice, which is once too
+# many, but the stylesheet has to interpolate and Python has to score.
+DERIVE = {
+    'ground':      ('97.5', 'calc(0.010 * var(--nC))', 'var(--hA)'),
+    'card':        ('99.5', 'calc(0.004 * var(--nC))', 'var(--hA)'),
+    'surface':     ('95.5', 'calc(0.016 * var(--nC))', 'var(--hA)'),
+    'surface-2':   ('94.3', 'calc(0.019 * var(--nC))', 'var(--hA)'),
+    'line':        ('91.0', 'calc(0.024 * var(--nC))', 'var(--hA)'),
+    'shadow':      ('23.0', 'calc(0.045 * var(--nC))', 'var(--hA)'),
+    'accent':      ('48.0', 'var(--aC)',               'var(--hA)'),
+    'accent-soft': ('96.8', 'calc(0.034 * var(--nC))', 'var(--hA)'),
+    'accent-tint': ('94.0', 'calc(0.065 * var(--nC))', 'var(--hA)'),
+    'accent-line': ('86.0', 'calc(0.070 * var(--nC))', 'var(--hA)'),
+    'tone-b':      ('47.0', 'var(--tC)',               'var(--hB)'),
+    'wash-b':      ('96.8', 'calc(0.036 * var(--nC))', 'var(--hB)'),
+    'tone-c':      ('47.0', 'var(--tC)',               'var(--hC)'),
+    'wash-c':      ('96.8', 'calc(0.036 * var(--nC))', 'var(--hC)'),
+    'tone-d':      ('47.0', 'var(--tC)',               'var(--hD)'),
+    'wash-d':      ('96.8', 'calc(0.036 * var(--nC))', 'var(--hD)'),
+}
+
+# Shown in this order, which is not wheel order. Twelve hues around a circle
+# are about 0.08 apart in oklab and two colours that close read as the same
+# one in a different shade. Stepping five positions each time puts at least
+# 0.217 between anything you see one after the other, and because the fade
+# rotates the hue rather than crossing the wheel, the long way round stays
+# saturated the whole way.
+CYCLE = [(i * 5) % 12 for i in range(12)]

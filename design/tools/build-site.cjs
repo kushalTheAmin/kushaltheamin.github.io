@@ -212,20 +212,38 @@ const SCRIPT = `
     paint(fold && fold.style.gridTemplateRows === '1fr');
   });
 
-  // One switch for the whole page: data-pal picks one of the eight palettes
-  // in the stylesheet, and every token in it is a registered custom property,
-  // so the swap eases instead of snapping. Nothing here knows what any of the
-  // colours are.
-  var COUNT = 12, HOLD = 5000;
-  var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var root = document.documentElement, at = 0, timer = null;
+  // One switch for the whole page. data-pal picks the palette's shape and
+  // saturation out of the stylesheet; --hue carries where on the wheel it
+  // sits, and is moved by hand because the order is not wheel order.
+  //
+  // The order steps five palettes at a time so that nothing you see is a
+  // near-repeat of the one before it: neighbours in wheel order come out
+  // about 0.08 apart in oklab, which reads as one colour in two shades,
+  // and five apart is 0.217. The cost of that is a long way to travel
+  // between them, which is why the hue rotates instead of the colours
+  // being cross-faded: a rotation stays saturated all the way round, where
+  // fading emerald to magenta in sRGB passes through a grey-olive.
+  //
+  // Each step turns whichever way is shorter, so nothing spins more than
+  // half a turn, and the twelve deltas sum to a whole number of turns.
+  var ORDER  = [0, 5, 10, 3, 8, 1, 6, 11, 4, 9, 2, 7];
+  var TURN   = [145, 98, -138, 102, 178, 144, 93, -140, 103, -155, 118, 172];
+  var HOLD = 5000;
 
-  function wear(n) { at = ((n % COUNT) + COUNT) % COUNT; root.setAttribute('data-pal', at); }
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var root = document.documentElement, at = 0, hue = 143, timer = null;
+
+  function wear(i) {
+    at = ((i % ORDER.length) + ORDER.length) % ORDER.length;
+    root.setAttribute('data-pal', ORDER[at]);
+    root.style.setProperty('--hue', hue + 'deg');
+  }
+  function step() { hue += TURN[at]; wear(at + 1); }
   function halt() { if (timer) { clearInterval(timer); timer = null; } }
   function run() {
     halt();
-    if (calm.matches) { wear(0); return; }
-    timer = setInterval(function () { wear(at + 1); }, HOLD);
+    if (calm.matches) { at = 0; hue = 143; wear(0); return; }
+    timer = setInterval(step, HOLD);
   }
 
   document.addEventListener('visibilitychange', function () {
