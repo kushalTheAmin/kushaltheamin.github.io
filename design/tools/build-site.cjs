@@ -216,7 +216,7 @@ const SCRIPT = `
   // in the stylesheet, and every token in it is a registered custom property,
   // so the swap eases instead of snapping. Nothing here knows what any of the
   // colours are.
-  var COUNT = 8, HOLD = 10000;
+  var COUNT = 12, HOLD = 5000;
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
   var root = document.documentElement, at = 0, timer = null;
 

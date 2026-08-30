@@ -60,44 +60,81 @@ def contrast(a, b):
     x, y = lum(a), lum(b)
     return (max(x, y) + 0.05) / (min(x, y) + 0.05)
 
-# ---------- the eight ------------------------------------------------------
+# ---------- the twelve -----------------------------------------------------
 
-# Ordered so neighbours are close on the wheel: every switch is a short hop,
-# which is what keeps the crossfade from wandering somewhere muddy.
+# Twelve seeds in wheel order, so every switch is a short hop and the
+# crossfade never has far to travel. The one long jump, brass to emerald,
+# skips 70-110: anything in that band dark enough to read on white is olive.
+#
+# The supporting triads deliberately are not all the same shape. Four
+# different spacings, cycled, so the twelve read as a set of combinations
+# rather than one formula run twelve times. Every spacing keeps at least 70
+# degrees between any two of the four hues, which is about where two tones
+# stop being reliably tellable apart at this size.
+SPACINGS = {
+    'balanced': (100, 190, 280),   # gaps 100 / 90 / 90 / 80
+    'wide':     (110, 205, 290),   # gaps 110 / 95 / 85 / 70
+    'near':     ( 75, 160, 250),   # gaps  75 / 85 / 90 / 110
+    'even':     ( 85, 165, 265),   # gaps  85 / 80 / 100 / 95
+}
+
+# chroma character, cycled too: some palettes come out rich, some composed.
+# A set where every entry is equally saturated flattens into one note.
+CHARACTER = {
+    'rich':     dict(aC=0.200, tC=0.175, nC=1.00),
+    'composed': dict(aC=0.165, tC=0.145, nC=0.78),
+    'deep':     dict(aC=0.185, tC=0.160, nC=1.15),
+}
+
 SEEDS = [
-    ('rani pink',  320), ('vermilion',  355), ('marigold',    30),
-    ('brass',       62), ('emerald',    145), ('peacock',    178),
-    ('cobalt',     212), ('violet',     272),
+    # Placed by perceptual distance, not by degrees: blues change slowly per
+    # degree and reds fast, so twelve evenly spaced angles would have put three
+    # near-identical blue-greens in a row. Measured, the tightest neighbouring
+    # pair is now 0.057 in oklab against 0.032 for even spacing.
+    #
+    # Nothing rests between 60 and 125. Anything in that band dark enough for
+    # white text on it clips to olive, which is the one hue this page has no
+    # use for. The long hop across it is the twelfth step.
+    ('emerald',   143, 'balanced', 'rich'),
+    ('jade',      168, 'wide',     'composed'),
+    ('teal',      213, 'near',     'deep'),
+    ('cobalt',    248, 'even',     'rich'),
+    ('sapphire',  265, 'balanced', 'composed'),
+    ('indigo',    288, 'wide',     'deep'),
+    ('violet',    312, 'near',     'rich'),
+    ('orchid',    331, 'even',     'composed'),
+    ('magenta',   350, 'balanced', 'deep'),
+    ('rose',        8, 'wide',     'rich'),
+    ('vermilion',  26, 'near',     'composed'),
+    ('rust',       45, 'even',     'deep'),
 ]
 
-# supporting hues sit 100/190/280 off the seed: near enough a quarter turn to
-# stay tellable apart, off the grid so no two palettes share a set
-OFF_B, OFF_C, OFF_D = 100, 190, 280
-
-def palette(seed):
+def palette(seed, spacing, character):
+    oB, oC, oD = SPACINGS[spacing]
+    k = CHARACTER[character]
     hA = seed
-    hB, hC, hD = (seed + OFF_B) % 360, (seed + OFF_C) % 360, (seed + OFF_D) % 360
+    hB, hC, hD = (seed + oB) % 360, (seed + oC) % 360, (seed + oD) % 360
+    n = k['nC']
     return {
-        # surfaces: tinted toward the seed so the page itself changes, not
-        # just the things sitting on it
-        'ground':      oklch_hex(0.975, 0.010, hA),
-        'card':        oklch_hex(0.995, 0.004, hA),
-        'surface':     oklch_hex(0.955, 0.016, hA),
-        'surface-2':   oklch_hex(0.943, 0.019, hA),
-        'line':        oklch_hex(0.910, 0.024, hA),
-        'shadow':      oklch_hex(0.230, 0.045, hA),
-        # accent family
-        'accent':      oklch_hex(0.480, 0.200, hA),
-        'accent-soft': oklch_hex(0.968, 0.034, hA),
-        'accent-tint': oklch_hex(0.940, 0.065, hA),
-        'accent-line': oklch_hex(0.860, 0.070, hA),
-        # the three chapters
-        'tone-b': oklch_hex(0.470, 0.170, hB), 'wash-b': oklch_hex(0.968, 0.036, hB),
-        'tone-c': oklch_hex(0.470, 0.170, hC), 'wash-c': oklch_hex(0.968, 0.036, hC),
-        'tone-d': oklch_hex(0.470, 0.170, hD), 'wash-d': oklch_hex(0.968, 0.036, hD),
+        # surfaces carry a trace of the seed, so the page itself changes and
+        # not only the things sitting on it
+        'ground':      oklch_hex(0.975, 0.010 * n, hA),
+        'card':        oklch_hex(0.995, 0.004 * n, hA),
+        'surface':     oklch_hex(0.955, 0.016 * n, hA),
+        'surface-2':   oklch_hex(0.943, 0.019 * n, hA),
+        'line':        oklch_hex(0.910, 0.024 * n, hA),
+        'shadow':      oklch_hex(0.230, 0.045 * n, hA),
+        'accent':      oklch_hex(0.480, k['aC'], hA),
+        'accent-soft': oklch_hex(0.968, 0.034 * n, hA),
+        'accent-tint': oklch_hex(0.940, 0.065 * n, hA),
+        'accent-line': oklch_hex(0.860, 0.070 * n, hA),
+        'tone-b': oklch_hex(0.470, k['tC'], hB), 'wash-b': oklch_hex(0.968, 0.036 * n, hB),
+        'tone-c': oklch_hex(0.470, k['tC'], hC), 'wash-c': oklch_hex(0.968, 0.036 * n, hC),
+        'tone-d': oklch_hex(0.470, k['tC'], hD), 'wash-d': oklch_hex(0.968, 0.036 * n, hD),
     }
 
-PALETTES = [(name, palette(h)) for name, h in SEEDS]
+PALETTES = [(name, palette(h, sp, ch)) for name, h, sp, ch in SEEDS]
+HUES = {name: [(h + o) % 360 for o in (0,) + SPACINGS[sp]] for name, h, sp, _ in SEEDS}
 ORDER = ['ground', 'card', 'surface', 'surface-2', 'line', 'shadow',
          'accent', 'accent-soft', 'accent-tint', 'accent-line',
          'tone-b', 'wash-b', 'tone-c', 'wash-c', 'tone-d', 'wash-d']
@@ -105,3 +142,22 @@ ORDER = ['ground', 'card', 'surface', 'surface-2', 'line', 'shadow',
 if __name__ == '__main__':
     for name, p in PALETTES:
         print('%-11s %s' % (name, '  '.join(p[k] for k in ORDER)))
+
+# ---------- scoring --------------------------------------------------------
+
+def hex_oklab(h):
+    """sRGB hex back to oklab, so distances are measured on the colours that
+    actually get painted rather than on the values asked for before gamut
+    mapping clipped them."""
+    h = h.lstrip('#')
+    r, g, b = (_srgb_to_lin(int(h[i:i + 2], 16) / 255.0) for i in (0, 2, 4))
+    l = (0.4122214708 * r + 0.5363325363 * g + 0.0514459929 * b) ** (1 / 3)
+    m = (0.2119034982 * r + 0.6806995451 * g + 0.1073969566 * b) ** (1 / 3)
+    s = (0.0883024619 * r + 0.2817188376 * g + 0.6299787005 * b) ** (1 / 3)
+    return (0.2104542553 * l + 0.7936177850 * m - 0.0040720468 * s,
+            1.9779984951 * l - 2.4285922050 * m + 0.4505937099 * s,
+            0.0259040371 * l + 0.7827717662 * m - 0.8086757660 * s)
+
+def dE(a, b):
+    x, y = hex_oklab(a), hex_oklab(b)
+    return math.sqrt(sum((p - q) ** 2 for p, q in zip(x, y)))

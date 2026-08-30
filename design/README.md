@@ -31,7 +31,7 @@ Every one came from explicit feedback on the previous version:
 - **Nothing fires on scroll.** No reveals, no parallax, no progress bar.
 - **Nine chips, one card** instead of nine full-screen year panels.
 
-## Eight palettes, one switch
+## Twelve palettes, one switch
 
 Every colour on the page except the text greys is a token. Sixteen of them:
 
@@ -39,10 +39,10 @@ Every colour on the page except the text greys is a token. Sixteen of them:
     accent  accent-soft  accent-tint  accent-line
     tone-b  wash-b  tone-c  wash-c  tone-d  wash-d
 
-Eight palettes define all sixteen. `data-pal` on `<html>` picks one and the
+Twelve palettes define all sixteen. `data-pal` on `<html>` picks one and the
 whole page follows: the background, the cards, the neutral pill behind a
 tech tag, the hairline under a stat, the colour the shadows are cast in.
-Ten seconds each, 2.4s crossfade.
+Five seconds each, 1.8s crossfade.
 
     python3 tools/build-palette.py      # regenerates the CSS in both artboards
     node tools/sync-phone-data.cjs && node tools/build-site.cjs
@@ -54,22 +54,36 @@ seed hue there, rerun, and the eight blocks are rewritten in place between
 the `>>> palette` markers. Nothing else should be edited by hand.
 
 Why generate them rather than hand-pick eight sets of sixteen: the contrast
-has to hold in all eight, and there are more than a hundred pairings once
+has to hold in all twelve, and there are more than a hundred pairings once
 text, accents, washes and surfaces are crossed. Generating from a seed means
 one lightness decision applies everywhere and can be checked in a loop.
 
-- **The seeds are ordered around the wheel** — rani pink, vermilion,
-  marigold, brass, emerald, peacock, cobalt, violet — so each switch is a
-  short hop and the crossfade never wanders somewhere muddy.
-- **Supporting hues sit 100/190/280 off the seed.** Near enough a quarter
-  turn to stay tellable apart; deliberately off it, because at exactly 90 the
-  set of four maps onto itself and only two distinct combinations exist.
-- **Every token is a registered custom property**, so it interpolates instead
-  of snapping. That is the whole reason the swap reads as a fade.
+- **The seeds are placed by perceptual distance, not by degrees.** Blue
+  changes slowly per degree of hue and red changes fast, so twelve evenly
+  spaced angles put three near-identical blue-greens next to each other. The
+  first attempt did exactly that and two of the twelve were flagged as too
+  close to the one before. Measured in oklab, the tightest neighbouring pair
+  is now 0.057 against 0.032 for even spacing.
+- **Nothing rests between 60 and 125 degrees.** Anything in that band dark
+  enough to carry white text clips to olive, which is the one hue this page
+  has no use for. Crossing it is the twelfth step, the one long hop.
+- **The supporting triads are four different shapes, cycled**, and the
+  chroma has three characters. Twelve runs of one formula would read as
+  twelve tints of the same idea rather than twelve combinations. Every
+  spacing still keeps at least 70 degrees between any two of a palette's
+  four hues, which is about where two tones stop being reliably tellable
+  apart at this size.
+- **Every token is a registered custom property**, so it interpolates
+  instead of snapping. That is the whole reason the swap reads as a fade.
 - **Lightness is not luminance.** The same oklch L reads far brighter at
   yellow than at blue, so contrast drifts hue to hue. The numbers were fixed
-  by checking every pairing in all eight rather than eyeballing one.
+  by checking every pairing in all twelve rather than eyeballing one.
   Worst measured pairing in the rendered page: 5.41:1.
+
+`tools/palette.py` scores itself: run it through the checks in the commit and
+it reports, per palette, the worst contrast, the closest pair of tones within
+it, and the distance to the palette before. Three thresholds, and a palette
+that trips one is named.
 
 ### The two greys
 

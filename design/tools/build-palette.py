@@ -22,7 +22,7 @@ def css():
         L.append("    @property --%s { syntax: '<color>'; inherits: true; initial-value: %s; }"
                  % (t, PALETTES[0][1][t]))
     L.append('    :root {')
-    L.append('      transition: ' + ',\n                  '.join('--%s 2.4s cubic-bezier(.45,.05,.35,1)' % t for t in ORDER) + ';')
+    L.append('      transition: ' + ',\n                  '.join('--%s 1.8s cubic-bezier(.45,.05,.35,1)' % t for t in ORDER) + ';')
     L.append('    }')
     for n, (name, p) in enumerate(PALETTES):
         L.append('    /* %d %s */' % (n, name))

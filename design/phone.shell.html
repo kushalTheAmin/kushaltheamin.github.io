@@ -35,191 +35,267 @@
        lot. Each token is registered so it interpolates rather than
        snapping, which is what makes the change read as a fade.
        Generated: edit tools/palette.py, not this block. */
-    @property --ground { syntax: '<color>'; inherits: true; initial-value: #FAF5FB; }
-    @property --card { syntax: '<color>'; inherits: true; initial-value: #FFFDFF; }
-    @property --surface { syntax: '<color>'; inherits: true; initial-value: #F5EDF7; }
-    @property --surface-2 { syntax: '<color>'; inherits: true; initial-value: #F2E8F4; }
-    @property --line { syntax: '<color>'; inherits: true; initial-value: #E9DCEB; }
-    @property --shadow { syntax: '<color>'; inherits: true; initial-value: #26152A; }
-    @property --accent { syntax: '<color>'; inherits: true; initial-value: #8C23A1; }
-    @property --accent-soft { syntax: '<color>'; inherits: true; initial-value: #FCEFFF; }
-    @property --accent-tint { syntax: '<color>'; inherits: true; initial-value: #FAE2FF; }
-    @property --accent-line { syntax: '<color>'; inherits: true; initial-value: #E6C3EE; }
-    @property --tone-b { syntax: '<color>'; inherits: true; initial-value: #864900; }
-    @property --wash-b { syntax: '<color>'; inherits: true; initial-value: #FFF2E8; }
-    @property --tone-c { syntax: '<color>'; inherits: true; initial-value: #006E30; }
-    @property --wash-c { syntax: '<color>'; inherits: true; initial-value: #E4FCE8; }
-    @property --tone-d { syntax: '<color>'; inherits: true; initial-value: #006191; }
-    @property --wash-d { syntax: '<color>'; inherits: true; initial-value: #EBF6FF; }
+    @property --ground { syntax: '<color>'; inherits: true; initial-value: #F3F9F2; }
+    @property --card { syntax: '<color>'; inherits: true; initial-value: #FCFEFC; }
+    @property --surface { syntax: '<color>'; inherits: true; initial-value: #EAF3E9; }
+    @property --surface-2 { syntax: '<color>'; inherits: true; initial-value: #E5F0E4; }
+    @property --line { syntax: '<color>'; inherits: true; initial-value: #D8E6D7; }
+    @property --shadow { syntax: '<color>'; inherits: true; initial-value: #0F220E; }
+    @property --accent { syntax: '<color>'; inherits: true; initial-value: #007207; }
+    @property --accent-soft { syntax: '<color>'; inherits: true; initial-value: #E8FBE6; }
+    @property --accent-tint { syntax: '<color>'; inherits: true; initial-value: #D3F7D0; }
+    @property --accent-line { syntax: '<color>'; inherits: true; initial-value: #B7DDB4; }
+    @property --tone-b { syntax: '<color>'; inherits: true; initial-value: #006095; }
+    @property --wash-b { syntax: '<color>'; inherits: true; initial-value: #EBF6FF; }
+    @property --tone-c { syntax: '<color>'; inherits: true; initial-value: #902684; }
+    @property --wash-c { syntax: '<color>'; inherits: true; initial-value: #FFEFFC; }
+    @property --tone-d { syntax: '<color>'; inherits: true; initial-value: #844B00; }
+    @property --wash-d { syntax: '<color>'; inherits: true; initial-value: #FFF2E7; }
     :root {
-      transition: --ground 2.4s cubic-bezier(.45,.05,.35,1),
-                  --card 2.4s cubic-bezier(.45,.05,.35,1),
-                  --surface 2.4s cubic-bezier(.45,.05,.35,1),
-                  --surface-2 2.4s cubic-bezier(.45,.05,.35,1),
-                  --line 2.4s cubic-bezier(.45,.05,.35,1),
-                  --shadow 2.4s cubic-bezier(.45,.05,.35,1),
-                  --accent 2.4s cubic-bezier(.45,.05,.35,1),
-                  --accent-soft 2.4s cubic-bezier(.45,.05,.35,1),
-                  --accent-tint 2.4s cubic-bezier(.45,.05,.35,1),
-                  --accent-line 2.4s cubic-bezier(.45,.05,.35,1),
-                  --tone-b 2.4s cubic-bezier(.45,.05,.35,1),
-                  --wash-b 2.4s cubic-bezier(.45,.05,.35,1),
-                  --tone-c 2.4s cubic-bezier(.45,.05,.35,1),
-                  --wash-c 2.4s cubic-bezier(.45,.05,.35,1),
-                  --tone-d 2.4s cubic-bezier(.45,.05,.35,1),
-                  --wash-d 2.4s cubic-bezier(.45,.05,.35,1);
+      transition: --ground 1.8s cubic-bezier(.45,.05,.35,1),
+                  --card 1.8s cubic-bezier(.45,.05,.35,1),
+                  --surface 1.8s cubic-bezier(.45,.05,.35,1),
+                  --surface-2 1.8s cubic-bezier(.45,.05,.35,1),
+                  --line 1.8s cubic-bezier(.45,.05,.35,1),
+                  --shadow 1.8s cubic-bezier(.45,.05,.35,1),
+                  --accent 1.8s cubic-bezier(.45,.05,.35,1),
+                  --accent-soft 1.8s cubic-bezier(.45,.05,.35,1),
+                  --accent-tint 1.8s cubic-bezier(.45,.05,.35,1),
+                  --accent-line 1.8s cubic-bezier(.45,.05,.35,1),
+                  --tone-b 1.8s cubic-bezier(.45,.05,.35,1),
+                  --wash-b 1.8s cubic-bezier(.45,.05,.35,1),
+                  --tone-c 1.8s cubic-bezier(.45,.05,.35,1),
+                  --wash-c 1.8s cubic-bezier(.45,.05,.35,1),
+                  --tone-d 1.8s cubic-bezier(.45,.05,.35,1),
+                  --wash-d 1.8s cubic-bezier(.45,.05,.35,1);
     }
-    /* 0 rani pink */
+    /* 0 emerald */
     :root, :root[data-pal="0"] {
-      --ground: #FAF5FB;
-      --card: #FFFDFF;
-      --surface: #F5EDF7;
-      --surface-2: #F2E8F4;
-      --line: #E9DCEB;
-      --shadow: #26152A;
-      --accent: #8C23A1;
-      --accent-soft: #FCEFFF;
-      --accent-tint: #FAE2FF;
-      --accent-line: #E6C3EE;
-      --tone-b: #864900;
-      --wash-b: #FFF2E8;
-      --tone-c: #006E30;
-      --wash-c: #E4FCE8;
-      --tone-d: #006191;
-      --wash-d: #EBF6FF;
+      --ground: #F3F9F2;
+      --card: #FCFEFC;
+      --surface: #EAF3E9;
+      --surface-2: #E5F0E4;
+      --line: #D8E6D7;
+      --shadow: #0F220E;
+      --accent: #007207;
+      --accent-soft: #E8FBE6;
+      --accent-tint: #D3F7D0;
+      --accent-line: #B7DDB4;
+      --tone-b: #006095;
+      --wash-b: #EBF6FF;
+      --tone-c: #902684;
+      --wash-c: #FFEFFC;
+      --tone-d: #844B00;
+      --wash-d: #FFF2E7;
     }
-    /* 1 vermilion */
+    /* 1 jade */
     :root[data-pal="1"] {
-      --ground: #FDF4F7;
+      --ground: #F2F9F6;
+      --card: #FBFEFD;
+      --surface: #E9F3EE;
+      --surface-2: #E3F0EA;
+      --line: #D6E6DF;
+      --shadow: #09221A;
+      --accent: #006F53;
+      --accent-soft: #E4FBF1;
+      --accent-tint: #CBF7E5;
+      --accent-line: #AFDDCA;
+      --tone-b: #4B4DAA;
+      --wash-b: #F2F4FF;
+      --tone-c: #9B2D43;
+      --wash-c: #FFF0F1;
+      --tone-d: #6A5B00;
+      --wash-d: #F9F5E0;
+    }
+    /* 2 teal */
+    :root[data-pal="2"] {
+      --ground: #EFF9FB;
+      --card: #FAFEFF;
+      --surface: #E3F4F8;
+      --surface-2: #DDF0F5;
+      --line: #CEE7EC;
+      --shadow: #002228;
+      --accent: #00697A;
+      --accent-soft: #E2FAFF;
+      --accent-tint: #C6F5FF;
+      --accent-line: #91DFF1;
+      --tone-b: #5A45AD;
+      --wash-b: #F3F3FF;
+      --tone-c: #A02340;
+      --wash-c: #FFF0F1;
+      --tone-d: #655C00;
+      --wash-d: #F9F6D7;
+    }
+    /* 3 cobalt */
+    :root[data-pal="3"] {
+      --ground: #F2F8FD;
+      --card: #FCFEFF;
+      --surface: #E8F1FB;
+      --surface-2: #E3EEF9;
+      --line: #D5E3F1;
+      --shadow: #091E31;
+      --accent: #0061A2;
+      --accent-soft: #ECF6FF;
+      --accent-tint: #DCEEFF;
+      --accent-line: #ADD6FD;
+      --tone-b: #902684;
+      --wash-b: #FFEFFC;
+      --tone-c: #8D4400;
+      --wash-c: #FFF1E9;
+      --tone-d: #006D38;
+      --wash-d: #E3FCE9;
+    }
+    /* 4 sapphire */
+    :root[data-pal="4"] {
+      --ground: #F4F7FC;
+      --card: #FDFDFF;
+      --surface: #ECF0F9;
+      --surface-2: #E7ECF6;
+      --line: #DBE1EE;
+      --shadow: #151D2E;
+      --accent: #2E55B9;
+      --accent-soft: #EFF5FF;
+      --accent-tint: #E2EBFF;
+      --accent-line: #C0D1F6;
+      --tone-b: #992D50;
+      --wash-b: #FFF0F3;
+      --tone-c: #6C5900;
+      --wash-c: #FAF5E0;
+      --tone-d: #006A61;
+      --wash-d: #E1FBF7;
+    }
+    /* 5 indigo */
+    :root[data-pal="5"] {
+      --ground: #F6F6FE;
+      --card: #FDFDFF;
+      --surface: #EFEEFC;
+      --surface-2: #EBEAFA;
+      --line: #E0DFF3;
+      --shadow: #1C1834;
+      --accent: #5E41BD;
+      --accent-soft: #F3F3FF;
+      --accent-tint: #EAE8FF;
+      --accent-line: #CECAFF;
+      --tone-b: #9E2F00;
+      --wash-b: #FFF1ED;
+      --tone-c: #3B6900;
+      --wash-c: #EAFBDF;
+      --tone-d: #00667A;
+      --wash-d: #E4F9FF;
+    }
+    /* 6 violet */
+    :root[data-pal="6"] {
+      --ground: #F9F5FC;
+      --card: #FEFDFF;
+      --surface: #F4EDF8;
+      --surface-2: #F0E9F6;
+      --line: #E7DDED;
+      --shadow: #24162C;
+      --accent: #822AAC;
+      --accent-soft: #F9F1FF;
+      --accent-tint: #F4E4FF;
+      --accent-line: #E1C4F3;
+      --tone-b: #A71A1B;
+      --wash-b: #FFF1EF;
+      --tone-c: #5D6000;
+      --wash-c: #F5F7DC;
+      --tone-d: #00686E;
+      --wash-d: #DAFCFF;
+    }
+    /* 7 orchid */
+    :root[data-pal="7"] {
+      --ground: #FAF5F9;
+      --card: #FFFDFE;
+      --surface: #F5EDF4;
+      --surface-2: #F2E9F1;
+      --line: #E9DDE7;
+      --shadow: #261724;
+      --accent: #8F3087;
+      --accent-soft: #FFEFFC;
+      --accent-tint: #FFE0FA;
+      --accent-line: #E7C5E2;
+      --tone-b: #8A4600;
+      --wash-b: #FFF2E9;
+      --tone-c: #316B00;
+      --wash-c: #ECF9E7;
+      --tone-d: #00628C;
+      --wash-d: #EAF7FF;
+    }
+    /* 8 magenta */
+    :root[data-pal="8"] {
+      --ground: #FDF4F8;
+      --card: #FFFDFE;
+      --surface: #FBEBF2;
+      --surface-2: #F8E7EE;
+      --line: #F1DAE4;
+      --shadow: #2E1220;
+      --accent: #A2186C;
+      --accent-soft: #FFF0F6;
+      --accent-tint: #FFE2EE;
+      --accent-line: #FBBCD8;
+      --tone-b: #705700;
+      --wash-b: #FFF4D6;
+      --tone-c: #006A5D;
+      --wash-c: #D8FEF5;
+      --tone-d: #3A4FB3;
+      --wash-d: #F0F4FF;
+    }
+    /* 9 rose */
+    :root[data-pal="9"] {
+      --ground: #FDF4F5;
       --card: #FFFDFD;
-      --surface: #FAECF1;
-      --surface-2: #F7E7ED;
-      --line: #EFDBE2;
-      --shadow: #2D131E;
-      --accent: #A90063;
-      --accent-soft: #FFF0F5;
-      --accent-tint: #FFE2EC;
-      --accent-line: #F7BFD3;
-      --tone-b: #6C5900;
-      --wash-b: #FCF5DA;
-      --tone-c: #006A61;
-      --wash-c: #DBFDF8;
-      --tone-d: #434AB8;
+      --surface: #FBECEE;
+      --surface-2: #F8E7EA;
+      --line: #F1DBDE;
+      --shadow: #2E1319;
+      --accent: #AE0049;
+      --accent-soft: #FFF0F2;
+      --accent-tint: #FFE3E7;
+      --accent-line: #FBBFC8;
+      --tone-b: #566200;
+      --wash-b: #F2F8DD;
+      --tone-c: #006676;
+      --wash-c: #E2FAFF;
+      --tone-d: #693AAE;
+      --wash-d: #F6F2FF;
+    }
+    /* 10 vermilion */
+    :root[data-pal="10"] {
+      --ground: #FCF5F4;
+      --card: #FFFDFC;
+      --surface: #F8EDEC;
+      --surface-2: #F6E9E7;
+      --line: #EEDDDB;
+      --shadow: #2B1614;
+      --accent: #A72626;
+      --accent-soft: #FFF1EF;
+      --accent-tint: #FFE4E1;
+      --accent-line: #F3C4BE;
+      --tone-b: #675C00;
+      --wash-b: #F8F5E0;
+      --tone-c: #006962;
+      --wash-c: #E1FBF7;
+      --tone-d: #474EAA;
       --wash-d: #F1F4FF;
     }
-    /* 2 marigold */
-    :root[data-pal="2"] {
-      --ground: #FDF4F3;
+    /* 11 rust */
+    :root[data-pal="11"] {
+      --ground: #FEF5F1;
       --card: #FFFDFC;
-      --surface: #FBECEA;
-      --surface-2: #F9E8E5;
-      --line: #F1DCD8;
-      --shadow: #2F1410;
-      --accent: #B10A00;
-      --accent-soft: #FFF1EE;
-      --accent-tint: #FFE4DF;
-      --accent-line: #FCC1B6;
+      --surface: #FCEDE6;
+      --surface-2: #FAE8E0;
+      --line: #F2DCD3;
+      --shadow: #301406;
+      --accent: #993D00;
+      --accent-soft: #FFF1EB;
+      --accent-tint: #FFE5DA;
+      --accent-line: #FFC1A6;
       --tone-b: #426800;
-      --wash-b: #EDFAE1;
-      --tone-c: #00657C;
-      --wash-c: #E5F8FF;
-      --tone-d: #7835A0;
+      --wash-b: #EBFBDE;
+      --tone-c: #006774;
+      --wash-c: #E0FAFF;
+      --tone-d: #76399C;
       --wash-d: #F9F1FF;
-    }
-    /* 3 brass */
-    :root[data-pal="3"] {
-      --ground: #FCF5F0;
-      --card: #FFFDFB;
-      --surface: #F8EEE6;
-      --surface-2: #F6EAE0;
-      --line: #EEDED2;
-      --shadow: #2C1704;
-      --accent: #894D00;
-      --accent-soft: #FFF2E7;
-      --accent-tint: #FFE6D1;
-      --accent-line: #F3C7A2;
-      --tone-b: #006C49;
-      --wash-b: #E0FDED;
-      --tone-c: #005BA6;
-      --wash-c: #EDF5FF;
-      --tone-d: #952475;
-      --wash-d: #FFEFF8;
-    }
-    /* 4 emerald */
-    :root[data-pal="4"] {
-      --ground: #F3F9F3;
-      --card: #FCFEFC;
-      --surface: #EAF3EA;
-      --surface-2: #E5F0E5;
-      --line: #D8E6D8;
-      --shadow: #0E220F;
-      --accent: #00721B;
-      --accent-soft: #E7FBE7;
-      --accent-tint: #D1F7D1;
-      --accent-line: #B5DEB5;
-      --tone-b: #005F98;
-      --wash-b: #ECF6FF;
-      --tone-c: #902880;
-      --wash-c: #FFEFFB;
-      --tone-d: #824C00;
-      --wash-d: #FFF2E6;
-    }
-    /* 5 peacock */
-    :root[data-pal="5"] {
-      --ground: #F0F9F7;
-      --card: #FBFEFD;
-      --surface: #E6F4F0;
-      --surface-2: #E0F1EC;
-      --line: #D1E7E1;
-      --shadow: #00231D;
-      --accent: #006E5E;
-      --accent-soft: #DDFDF4;
-      --accent-tint: #BDFAEB;
-      --accent-line: #9FE1D1;
-      --tone-b: #4948B7;
-      --wash-b: #F2F4FF;
-      --tone-c: #A21B48;
-      --wash-c: #FFF0F2;
-      --tone-d: #6A5B00;
-      --wash-d: #FBF5DA;
-    }
-    /* 6 cobalt */
-    :root[data-pal="6"] {
-      --ground: #F0F9FB;
-      --card: #FBFEFF;
-      --surface: #E5F3F6;
-      --surface-2: #DFF0F4;
-      --line: #D0E6EB;
-      --shadow: #002228;
-      --accent: #006A79;
-      --accent-soft: #E1FAFF;
-      --accent-tint: #C5F5FF;
-      --accent-line: #9BDEEC;
-      --tone-b: #7A349E;
-      --wash-b: #F9F1FF;
-      --tone-c: #993700;
-      --wash-c: #FFF1EC;
-      --tone-d: #3D6900;
-      --wash-d: #ECFAE1;
-    }
-    /* 7 violet */
-    :root[data-pal="7"] {
-      --ground: #F4F7FE;
-      --card: #FDFDFF;
-      --surface: #ECF0FB;
-      --surface-2: #E7ECF9;
-      --line: #DBE1F2;
-      --shadow: #161B32;
-      --accent: #3C49CC;
-      --accent-soft: #F1F4FF;
-      --accent-tint: #E4EBFF;
-      --accent-line: #C1CFFF;
-      --tone-b: #A31B41;
-      --wash-b: #FFF0F1;
-      --tone-c: #665C00;
-      --wash-c: #F9F6DA;
-      --tone-d: #006966;
-      --wash-d: #DAFDFB;
     }
     .accs { color: var(--accent); }
     .accd { color: var(--tone-d); }
