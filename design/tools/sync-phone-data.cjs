@@ -70,8 +70,8 @@ const tail = `
           n: a.n, title: a.title, paras: a.paras, tags: a.tags,
           rows: on ? '1fr' : '0fr',
           rot: on ? 'rotate(180deg)' : 'rotate(0deg)',
-          rowbg: on ? '#1E2038' : 'transparent',
-          numcol: on ? 'var(--accent-lift)' : '#5C5E80',
+          rowbg: on ? '#FFFFFF' : 'transparent',
+          numcol: on ? 'var(--accent)' : '#9C9DB0',
           toggle: function () { self.toggleArea(k); }
         };
       })

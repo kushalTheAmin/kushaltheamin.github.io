@@ -31,37 +31,54 @@ Every one came from explicit feedback on the previous version:
 - **Nothing fires on scroll.** No reveals, no parallax, no progress bar.
 - **Nine chips, one card** instead of nine full-screen year panels.
 
-## The accent cycles
+## The whole page turns
 
-Asked for: a theme that moves every ten seconds, the way a string of diyas
-does, over the same white base.
+Asked for: a theme that moves every ten seconds like a string of diyas,
+smoothly, over the same white base, with the black Applied AI panel gone.
 
-    PALETTE = indigo #5B4BE8 · marigold #C2410C · peacock #0E7490
-              rangoli pink #BE185D · emerald #126B36
+**One angle, not a list of hexes.** `--hue` is the only thing that changes.
+Four hues hang off it at 0 / 100 / 190 / 280 degrees, and every colour on the
+page is `oklch()` at one of those four. Seven resting stops, ten seconds
+apart, three second eased sweep between them.
 
-- **What moves is chrome only.** Buttons, links, the hero highlight, arrows,
-  the active year chip, focus rings, and the three ambient blobs. Employer
-  colours in `years()` and industry tones in `projects()` come from the data
-  and stay put — cycle those and the page loses what they mean. That is why
-  the S&P Global year cards and the AI project cards stay indigo while the
-  rest of the page turns.
-- **One variable drives it.** `--accent`, with `--accent-lift` derived off it
-  by `color-mix` for the light-on-dark tags in the Applied AI panel. Swapping
-  the one property repaints everything.
-- **`@property` is what makes it ease.** Registering `--accent` as a
-  `<color>` makes it interpolable, so a `transition` on `:root` carries every
-  derived colour with it over 1.1s. Without the registration the swap is a
-  hard cut, which is the graceful degradation, not a bug.
-- **SVG strokes go through `currentColor`.** Presentation attributes take no
-  `var()`, so `stroke="#5B4BE8"` became `class="accs" stroke="currentColor"`
-  with `.accs { color: var(--accent) }`. Setting `color` on the svg itself
-  means it does not matter what the parent's colour is.
-- **Every entry clears AA.** White on the accent, accent on the ground, on
-  white, and the lift on the dark panel — all five palette entries measured
-  at or above 4.5:1 in the rendered page, sampled through a canvas so the
-  numbers are painted pixels rather than `color-mix()` expressions.
-- **`prefers-reduced-motion: reduce` freezes it** on indigo, and a
-  backgrounded tab stops the timer.
+    STEPS = [45, 45, 90, 45, 45, 45, 45]   START = 320
+
+Three decisions worth keeping:
+
+- **oklch, so the ride is smooth.** Holding lightness and chroma while only
+  the hue sweeps means the transit between two colours goes round the wheel
+  rather than through the grey a straight hex-to-hex fade passes through.
+  It also keeps contrast roughly flat as the hue moves.
+- **Offsets are 100/190/280, not 90/180/270.** At exactly a quarter turn the
+  set of four maps onto itself every other stop, so the page would only ever
+  wear two combinations. Ten degrees off the grid makes all seven different.
+- **The wide 90 degree step skips 70-110.** Anything in that band dark
+  enough to read on white comes out olive, so the accent never rests there.
+  The other three still cross it, which four hues covering a full circle
+  cannot avoid.
+
+**Lightness is not luminance.** The same oklch L reads much brighter at
+yellow than at blue, so contrast drifts as the hue turns. The token values
+came from sweeping all four hues right round the wheel in 5 degree steps and
+taking the worst ratio of every pairing — not from checking the seven stops,
+which would have missed what happens mid-sweep. Worst case anywhere is
+4.66:1; at the stops themselves it is 5.14:1. All measured through a canvas,
+so the numbers are painted pixels rather than `color-mix()` expressions.
+
+**Nothing is exempt any more.** Employer colours on the year cards and
+industry tones on the work cards used to be fixed, on the argument that
+cycling them loses what they mean. Holding them a fixed distance apart in
+hue keeps that meaning while letting them move: three chapters that are
+always different from each other, and always turning.
+
+**The dark panel is gone.** Applied AI is now `--accent-tint` with white
+rows inside it. `--accent-lift`, which existed only for light text on that
+black, went with it.
+
+**Degradation.** `prefers-reduced-motion: reduce` freezes it on 320 and a
+hidden tab stops the timer. Without `@property` the sweep becomes a hard cut
+every ten seconds; without `oklch` there is no page, so the floor is
+Chrome 111 / Safari 15.4 / Firefox 113.
 
 ## Motion
 

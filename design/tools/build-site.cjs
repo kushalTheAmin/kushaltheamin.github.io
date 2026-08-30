@@ -193,8 +193,8 @@ const SCRIPT = `
     function paint(open) {
       if (fold) fold.style.gridTemplateRows = open ? '1fr' : '0fr';
       if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-      if (num) num.style.color = open ? 'var(--accent-lift)' : '#5C5E80';
-      row.style.background = open ? '#1E2038' : 'transparent';
+      if (num) num.style.color = open ? 'var(--accent)' : '#9C9DB0';
+      row.style.background = open ? '#FFFFFF' : 'transparent';
       row.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
     function toggle() {
@@ -212,23 +212,27 @@ const SCRIPT = `
     paint(fold && fold.style.gridTemplateRows === '1fr');
   });
 
-  // A string of diya lights, not a strobe: five accents, ten seconds each,
-  // and the swap itself eases over a second because @property makes --accent
-  // an interpolable colour. Anyone who asks for less motion keeps the first
-  // one, and a backgrounded tab stops burning frames on it.
-  var PALETTE = ['#5B4BE8', '#C2410C', '#0E7490', '#BE185D', '#126B36'];
+  // Eight resting hues, ten seconds apart. The angle only ever counts upward,
+  // so every move is a forward sweep around the wheel; resetting it to stay
+  // inside 0-360 would make the next transition run the long way backwards.
+  // The steps are uneven on purpose: the wide one skips the 70-110 band,
+  // where anything dark enough to read on white comes out olive.
+  // Everything else on the page derives from this one angle.
+  var STEPS = [45, 45, 90, 45, 45, 45, 45];   // 360 in total
+  var START = 320;
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var root = document.documentElement, at = 0, timer = null;
+  var root = document.documentElement, at = 0, hue = START, timer = null;
 
-  function paintAccent() {
-    at = (at + 1) % PALETTE.length;
-    root.style.setProperty('--accent', PALETTE[at]);
+  function turn() {
+    hue += STEPS[at];
+    at = (at + 1) % STEPS.length;
+    root.style.setProperty('--hue', hue + 'deg');
   }
   function halt() { if (timer) { clearInterval(timer); timer = null; } }
   function run() {
     halt();
-    if (calm.matches) { at = 0; root.style.setProperty('--accent', PALETTE[0]); return; }
-    timer = setInterval(paintAccent, 10000);
+    if (calm.matches) { root.style.setProperty('--hue', START + 'deg'); return; }
+    timer = setInterval(turn, 10000);
   }
 
   document.addEventListener('visibilitychange', function () {
