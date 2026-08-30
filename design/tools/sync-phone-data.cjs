@@ -51,9 +51,9 @@ const tail = `
         var on = k === i;
         return {
           year: y.year,
-          bg: on ? 'var(--accent)' : '#FFFFFF',
+          bg: on ? 'var(--accent)' : 'var(--card)',
           fg: on ? '#FFFFFF' : '#55566E',
-          shadow: on ? '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' : '0 3px 12px rgba(21,22,43,.07)',
+          shadow: on ? '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' : '0 3px 12px color-mix(in srgb, var(--shadow) 7%, transparent)',
           pick: function () { self.pick(k); }
         };
       }),
@@ -70,8 +70,8 @@ const tail = `
           n: a.n, title: a.title, paras: a.paras, tags: a.tags,
           rows: on ? '1fr' : '0fr',
           rot: on ? 'rotate(180deg)' : 'rotate(0deg)',
-          rowbg: on ? '#FFFFFF' : 'transparent',
-          numcol: on ? 'var(--accent)' : '#9C9DB0',
+          rowbg: on ? 'var(--card)' : 'transparent',
+          numcol: on ? 'var(--accent)' : '#5E5E6E',
           toggle: function () { self.toggleArea(k); }
         };
       })

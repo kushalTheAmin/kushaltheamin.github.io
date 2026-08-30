@@ -31,54 +31,62 @@ Every one came from explicit feedback on the previous version:
 - **Nothing fires on scroll.** No reveals, no parallax, no progress bar.
 - **Nine chips, one card** instead of nine full-screen year panels.
 
-## The whole page turns
+## Eight palettes, one switch
 
-Asked for: a theme that moves every ten seconds like a string of diyas,
-smoothly, over the same white base, with the black Applied AI panel gone.
+Every colour on the page except the text greys is a token. Sixteen of them:
 
-**One angle, not a list of hexes.** `--hue` is the only thing that changes.
-Four hues hang off it at 0 / 100 / 190 / 280 degrees, and every colour on the
-page is `oklch()` at one of those four. Seven resting stops, ten seconds
-apart, three second eased sweep between them.
+    ground  card  surface  surface-2  line  shadow
+    accent  accent-soft  accent-tint  accent-line
+    tone-b  wash-b  tone-c  wash-c  tone-d  wash-d
 
-    STEPS = [45, 45, 90, 45, 45, 45, 45]   START = 320
+Eight palettes define all sixteen. `data-pal` on `<html>` picks one and the
+whole page follows: the background, the cards, the neutral pill behind a
+tech tag, the hairline under a stat, the colour the shadows are cast in.
+Ten seconds each, 2.4s crossfade.
 
-Three decisions worth keeping:
+    python3 tools/build-palette.py      # regenerates the CSS in both artboards
+    node tools/sync-phone-data.cjs && node tools/build-site.cjs
 
-- **oklch, so the ride is smooth.** Holding lightness and chroma while only
-  the hue sweeps means the transit between two colours goes round the wheel
-  rather than through the grey a straight hex-to-hex fade passes through.
-  It also keeps contrast roughly flat as the hue moves.
-- **Offsets are 100/190/280, not 90/180/270.** At exactly a quarter turn the
-  set of four maps onto itself every other stop, so the page would only ever
-  wear two combinations. Ten degrees off the grid makes all seven different.
-- **The wide 90 degree step skips 70-110.** Anything in that band dark
-  enough to read on white comes out olive, so the accent never rests there.
-  The other three still cross it, which four hues covering a full circle
-  cannot avoid.
+`tools/palette.py` is the source. It carries an oklch to sRGB conversion with
+the chroma-reduction gamut mapping browsers do, so the hex it prints is the
+hex that gets painted; a naive clamp would shift the hue instead. Change a
+seed hue there, rerun, and the eight blocks are rewritten in place between
+the `>>> palette` markers. Nothing else should be edited by hand.
 
-**Lightness is not luminance.** The same oklch L reads much brighter at
-yellow than at blue, so contrast drifts as the hue turns. The token values
-came from sweeping all four hues right round the wheel in 5 degree steps and
-taking the worst ratio of every pairing — not from checking the seven stops,
-which would have missed what happens mid-sweep. Worst case anywhere is
-4.66:1; at the stops themselves it is 5.14:1. All measured through a canvas,
-so the numbers are painted pixels rather than `color-mix()` expressions.
+Why generate them rather than hand-pick eight sets of sixteen: the contrast
+has to hold in all eight, and there are more than a hundred pairings once
+text, accents, washes and surfaces are crossed. Generating from a seed means
+one lightness decision applies everywhere and can be checked in a loop.
 
-**Nothing is exempt any more.** Employer colours on the year cards and
-industry tones on the work cards used to be fixed, on the argument that
-cycling them loses what they mean. Holding them a fixed distance apart in
-hue keeps that meaning while letting them move: three chapters that are
-always different from each other, and always turning.
+- **The seeds are ordered around the wheel** — rani pink, vermilion,
+  marigold, brass, emerald, peacock, cobalt, violet — so each switch is a
+  short hop and the crossfade never wanders somewhere muddy.
+- **Supporting hues sit 100/190/280 off the seed.** Near enough a quarter
+  turn to stay tellable apart; deliberately off it, because at exactly 90 the
+  set of four maps onto itself and only two distinct combinations exist.
+- **Every token is a registered custom property**, so it interpolates instead
+  of snapping. That is the whole reason the swap reads as a fade.
+- **Lightness is not luminance.** The same oklch L reads far brighter at
+  yellow than at blue, so contrast drifts hue to hue. The numbers were fixed
+  by checking every pairing in all eight rather than eyeballing one.
+  Worst measured pairing in the rendered page: 5.41:1.
 
-**The dark panel is gone.** Applied AI is now `--accent-tint` with white
-rows inside it. `--accent-lift`, which existed only for light text on that
-black, went with it.
+### The two greys
 
-**Degradation.** `prefers-reduced-motion: reduce` freezes it on 320 and a
-hidden tab stops the timer. Without `@property` the sweep becomes a hard cut
-every ten seconds; without `oklch` there is no page, so the floor is
-Chrome 111 / Safari 15.4 / Firefox 113.
+`#7A7B92` and `#9C9DB0` were below AA on the old page too, at 4.09 and 2.64
+on white. Nothing to do with the palette, but "every colour" is a reasonable
+moment to fix them. They are now `#5E5E6E` and `#676877`, which clear 4.5 on
+every surface in every palette. The ramp is tighter than it was — 7.1 / 6.4 /
+5.5 on white rather than 7.1 / 4.1 / 2.6 — because meta text that passes AA
+cannot be very light. That is the trade, and it is the right way round.
+
+### Degradation
+
+`prefers-reduced-motion: reduce` holds palette 0 and turns the transition
+off. A hidden tab stops the timer. Without `@property` the swap is a hard cut
+rather than a fade. The floor is Chrome 111 / Safari 15.4 / Firefox 113,
+which is what `oklch()` in the generator output needs — the emitted values
+are plain hex, so only the crossfade depends on `@property`.
 
 ## Motion
 

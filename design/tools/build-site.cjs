@@ -132,7 +132,7 @@ const phoneHtml = phone.html.replace(/\sid="[\w-]+"/g, '');
 const SCRIPT = `
 (function () {
   var ON = { bg: 'var(--accent)', fg: '#FFFFFF', shadow: '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' };
-  var OFF = { bg: '#FFFFFF', fg: '#55566E', shadow: '0 3px 12px rgba(21,22,43,.07)' };
+  var OFF = { bg: 'var(--card)', fg: '#55566E', shadow: '0 3px 12px color-mix(in srgb, var(--shadow) 7%, transparent)' };
 
   function paintChip(chip, on) {
     var s = on ? ON : OFF;
@@ -193,7 +193,7 @@ const SCRIPT = `
     function paint(open) {
       if (fold) fold.style.gridTemplateRows = open ? '1fr' : '0fr';
       if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-      if (num) num.style.color = open ? 'var(--accent)' : '#9C9DB0';
+      if (num) num.style.color = open ? 'var(--accent)' : '#5E5E6E';
       row.style.background = open ? '#FFFFFF' : 'transparent';
       row.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
@@ -212,33 +212,27 @@ const SCRIPT = `
     paint(fold && fold.style.gridTemplateRows === '1fr');
   });
 
-  // Eight resting hues, ten seconds apart. The angle only ever counts upward,
-  // so every move is a forward sweep around the wheel; resetting it to stay
-  // inside 0-360 would make the next transition run the long way backwards.
-  // The steps are uneven on purpose: the wide one skips the 70-110 band,
-  // where anything dark enough to read on white comes out olive.
-  // Everything else on the page derives from this one angle.
-  var STEPS = [45, 45, 90, 45, 45, 45, 45];   // 360 in total
-  var START = 320;
+  // One switch for the whole page: data-pal picks one of the eight palettes
+  // in the stylesheet, and every token in it is a registered custom property,
+  // so the swap eases instead of snapping. Nothing here knows what any of the
+  // colours are.
+  var COUNT = 8, HOLD = 10000;
   var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
-  var root = document.documentElement, at = 0, hue = START, timer = null;
+  var root = document.documentElement, at = 0, timer = null;
 
-  function turn() {
-    hue += STEPS[at];
-    at = (at + 1) % STEPS.length;
-    root.style.setProperty('--hue', hue + 'deg');
-  }
+  function wear(n) { at = ((n % COUNT) + COUNT) % COUNT; root.setAttribute('data-pal', at); }
   function halt() { if (timer) { clearInterval(timer); timer = null; } }
   function run() {
     halt();
-    if (calm.matches) { root.style.setProperty('--hue', START + 'deg'); return; }
-    timer = setInterval(turn, 10000);
+    if (calm.matches) { wear(0); return; }
+    timer = setInterval(function () { wear(at + 1); }, HOLD);
   }
 
   document.addEventListener('visibilitychange', function () {
     if (document.hidden) { halt(); } else { run(); }
   });
   if (calm.addEventListener) { calm.addEventListener('change', run); }
+  wear(0);
   run();
 })();
 `;
