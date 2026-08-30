@@ -15,7 +15,7 @@ Edit `Main.dc.html`, re-seed, republish. Never edit the generated
 Chosen from four options after the cream/orange/yellow system was rejected.
 
 - Ground `#F7F8FC` with slow-drifting tinted blobs; cards plain `#FFFFFF`
-- Accent `#5B4BE8`; text `#15162B` / `#55566E` / `#7A7B92`
+- Accent cycles (see below); text `#15162B` / `#55566E` / `#7A7B92`
 - Depth from shadow only. No borders, no hard edges, no rotations.
 - Radii 12–24px. Plus Jakarta Sans throughout.
 - Chapter washes on work cards: health `#E2F4EE`, cars `#FBEEDF`, AI `#EEECFD`
@@ -30,6 +30,38 @@ Every one came from explicit feedback on the previous version:
   footer. All sections carry `scroll-margin-top`.
 - **Nothing fires on scroll.** No reveals, no parallax, no progress bar.
 - **Nine chips, one card** instead of nine full-screen year panels.
+
+## The accent cycles
+
+Asked for: a theme that moves every ten seconds, the way a string of diyas
+does, over the same white base.
+
+    PALETTE = indigo #5B4BE8 · marigold #C2410C · peacock #0E7490
+              rangoli pink #BE185D · emerald #126B36
+
+- **What moves is chrome only.** Buttons, links, the hero highlight, arrows,
+  the active year chip, focus rings, and the three ambient blobs. Employer
+  colours in `years()` and industry tones in `projects()` come from the data
+  and stay put — cycle those and the page loses what they mean. That is why
+  the S&P Global year cards and the AI project cards stay indigo while the
+  rest of the page turns.
+- **One variable drives it.** `--accent`, with `--accent-lift` derived off it
+  by `color-mix` for the light-on-dark tags in the Applied AI panel. Swapping
+  the one property repaints everything.
+- **`@property` is what makes it ease.** Registering `--accent` as a
+  `<color>` makes it interpolable, so a `transition` on `:root` carries every
+  derived colour with it over 1.1s. Without the registration the swap is a
+  hard cut, which is the graceful degradation, not a bug.
+- **SVG strokes go through `currentColor`.** Presentation attributes take no
+  `var()`, so `stroke="#5B4BE8"` became `class="accs" stroke="currentColor"`
+  with `.accs { color: var(--accent) }`. Setting `color` on the svg itself
+  means it does not matter what the parent's colour is.
+- **Every entry clears AA.** White on the accent, accent on the ground, on
+  white, and the lift on the dark panel — all five palette entries measured
+  at or above 4.5:1 in the rendered page, sampled through a canvas so the
+  numbers are painted pixels rather than `color-mix()` expressions.
+- **`prefers-reduced-motion: reduce` freezes it** on indigo, and a
+  backgrounded tab stops the timer.
 
 ## Motion
 

@@ -131,7 +131,7 @@ const phoneHtml = phone.html.replace(/\sid="[\w-]+"/g, '');
 
 const SCRIPT = `
 (function () {
-  var ON = { bg: '#5B4BE8', fg: '#FFFFFF', shadow: '0 6px 16px rgba(91,75,232,.26)' };
+  var ON = { bg: 'var(--accent)', fg: '#FFFFFF', shadow: '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' };
   var OFF = { bg: '#FFFFFF', fg: '#55566E', shadow: '0 3px 12px rgba(21,22,43,.07)' };
 
   function paintChip(chip, on) {
@@ -193,7 +193,7 @@ const SCRIPT = `
     function paint(open) {
       if (fold) fold.style.gridTemplateRows = open ? '1fr' : '0fr';
       if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-      if (num) num.style.color = open ? '#A99BFF' : '#5C5E80';
+      if (num) num.style.color = open ? 'var(--accent-lift)' : '#5C5E80';
       row.style.background = open ? '#1E2038' : 'transparent';
       row.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
@@ -211,6 +211,31 @@ const SCRIPT = `
     });
     paint(fold && fold.style.gridTemplateRows === '1fr');
   });
+
+  // A string of diya lights, not a strobe: five accents, ten seconds each,
+  // and the swap itself eases over a second because @property makes --accent
+  // an interpolable colour. Anyone who asks for less motion keeps the first
+  // one, and a backgrounded tab stops burning frames on it.
+  var PALETTE = ['#5B4BE8', '#C2410C', '#0E7490', '#BE185D', '#126B36'];
+  var calm = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var root = document.documentElement, at = 0, timer = null;
+
+  function paintAccent() {
+    at = (at + 1) % PALETTE.length;
+    root.style.setProperty('--accent', PALETTE[at]);
+  }
+  function halt() { if (timer) { clearInterval(timer); timer = null; } }
+  function run() {
+    halt();
+    if (calm.matches) { at = 0; root.style.setProperty('--accent', PALETTE[0]); return; }
+    timer = setInterval(paintAccent, 10000);
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { halt(); } else { run(); }
+  });
+  if (calm.addEventListener) { calm.addEventListener('change', run); }
+  run();
 })();
 `;
 
@@ -220,9 +245,9 @@ const page = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kushal Amin — Product Engineer</title>
-<meta name="description" content="Product engineer. Eight years across healthcare, banking and automotive, from the database to the pixel, and lately the AI layer on top.">
+<meta name="description" content="Product engineer. Three industries in eight years, where the domain always took longer to learn than the stack.">
 <meta property="og:title" content="Kushal Amin — Product Engineer">
-<meta property="og:description" content="Eight years across healthcare, banking and automotive, from the database to the pixel.">
+<meta property="og:description" content="Three industries in eight years. Express Scripts, Bank of America, and automotiveMastermind at S&amp;P Global Mobility.">
 <meta property="og:image" content="https://kushaltheamin.github.io/img/kushal.jpg">
 <meta property="og:url" content="https://kushaltheamin.github.io/">
 <meta property="og:type" content="profile">
@@ -238,7 +263,7 @@ ${phone.css}
   .layout-phone { display: block; }
 }
 .chip, .foldrow { -webkit-tap-highlight-color: transparent; }
-.chip:focus-visible, .foldrow:focus-visible { outline: 2px solid #5B4BE8; outline-offset: 3px; }
+.chip:focus-visible, .foldrow:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }

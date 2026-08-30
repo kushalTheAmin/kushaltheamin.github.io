@@ -14,7 +14,7 @@
     * { box-sizing: border-box; }
     h1, h2, h3, h4 { margin: 0; font-weight: 400; }
     p { margin: 0; }
-    a { color: #5B4BE8; text-decoration: none; }
+    a { color: var(--accent); text-decoration: none; }
 
     @keyframes kxFloatA { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(70px,44px) scale(1.10); } }
     @keyframes kxFloatB { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-60px,54px) scale(1.07); } }
@@ -44,8 +44,22 @@
     .face { grid-area: 1 / 1; min-width: 0;
             backface-visibility: hidden; -webkit-backface-visibility: hidden; }
     .face.back { transform: rotateY(180deg); }
+
+    /* The accent walks a small palette on a timer, the way a string of diyas
+       does. Only chrome moves: employer and industry colours come from the
+       data and stay put, or the page would lose what they mean. Every entry
+       clears AA on white, on the ground and on the dark panel. */
+    @property --accent { syntax: '<color>'; inherits: true; initial-value: #5B4BE8; }
+    :root {
+      --accent: #5B4BE8;
+      --accent-lift: color-mix(in srgb, var(--accent) 52%, #FFFFFF);
+      transition: --accent 1.1s cubic-bezier(.4, 0, .2, 1);
+    }
+    .accs { color: var(--accent); }
+    .accl { color: var(--accent-lift); }
+    @media (prefers-reduced-motion: reduce) { :root { transition: none; } }
     .turn { cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none; }
-    .turn:focus-visible { outline: 2px solid #5B4BE8; outline-offset: 3px; }
+    .turn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
     /* accordion rows */
     .fold { display: grid; transition: grid-template-rows .42s cubic-bezier(.22,.9,.3,1); }
@@ -60,20 +74,20 @@
     .slide .tail { opacity: 0; transform: translateX(-14px); transition: opacity .3s ease, transform .3s cubic-bezier(.22,.9,.3,1); }
     .slide:hover .tail { opacity: 1; transform: none; }
     .slide .idx { transition: color .3s ease, opacity .3s ease; }
-    .slide:hover .idx { color: #5B4BE8; }
+    .slide:hover .idx { color: var(--accent); }
 
     @keyframes kxSwapA { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
     @keyframes kxSwapB { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 
     .btn { transition: transform .16s ease, box-shadow .16s ease; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(91,75,232,.34); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 26px color-mix(in srgb, var(--accent) 34%, transparent); }
     .ghost { transition: background .16s ease, transform .16s ease; }
     .ghost:hover { background: #E7E8F2; transform: translateY(-2px); }
     .chip { transition: background .18s ease, color .18s ease, box-shadow .18s ease, transform .18s ease; }
     .chip:hover { transform: translateY(-2px); }
     .navlink { position: relative; transition: color .15s ease; }
-    .navlink::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: #5B4BE8; transition: right .22s cubic-bezier(.22,.9,.3,1); }
-    .navlink:hover { color: #5B4BE8; }
+    .navlink::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -4px; height: 2px; background: var(--accent); transition: right .22s cubic-bezier(.22,.9,.3,1); }
+    .navlink:hover { color: var(--accent); }
     .navlink:hover::after { right: 0; }
     .go { display: inline-flex; align-items: center; gap: 6px; }
     .go svg { transition: transform .18s ease; }
@@ -113,9 +127,9 @@
 
 <div style="position: relative; width: 100%; color: #15162B; font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 17px; line-height: 1.6; background: #F7F8FC; overflow: hidden;">
 
-  <div class="blobA" style="position: absolute; top: -220px; left: -180px; width: 780px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, #DDE0FF, rgba(221,224,255,0)); pointer-events: none;"></div>
-  <div class="blobB" style="position: absolute; top: 140px; right: -240px; width: 720px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, #D3F0E6, rgba(211,240,230,0)); pointer-events: none;"></div>
-  <div class="blobA" style="position: absolute; top: 2100px; right: -170px; width: 640px; height: 540px; border-radius: 50%; background: radial-gradient(closest-side, #F5DEEA, rgba(245,222,234,0)); pointer-events: none;"></div>
+  <div class="blobA" style="position: absolute; top: -220px; left: -180px; width: 780px; height: 620px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 21%, transparent), transparent); pointer-events: none;"></div>
+  <div class="blobB" style="position: absolute; top: 140px; right: -240px; width: 720px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 16%, transparent), transparent); pointer-events: none;"></div>
+  <div class="blobA" style="position: absolute; top: 2100px; right: -170px; width: 640px; height: 540px; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 12%, transparent), transparent); pointer-events: none;"></div>
 
   <div style="position: relative;">
 
@@ -126,7 +140,7 @@
       <a class="navlink" href="#career" style="color: #55566E;">Career</a>
       <a class="navlink" href="#ai" style="color: #55566E;">Applied AI</a>
       <a class="navlink" href="#side" style="color: #55566E;">Side projects</a>
-      <a class="btn" href="#contact" style="background: #5B4BE8; color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 10px; box-shadow: 0 6px 16px rgba(91,75,232,.24);">Say hello</a>
+      <a class="btn" href="#contact" style="background: var(--accent); color: #FFFFFF; font-size: 14px; font-weight: 600; padding: 10px 20px; border-radius: 10px; box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 24%, transparent);">Say hello</a>
     </nav>
   </header>
 
@@ -134,13 +148,13 @@
   <section id="top" class="hero" style="scroll-margin-top: 76px; padding: 58px 5vw 64px; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(250px, 0.7fr); gap: 5vw; align-items: center;">
     <div style="display: flex; flex-direction: column; gap: 22px;">
       <span class="in1" style="align-self: flex-start; background: #FFFFFF; color: #55566E; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 100px; box-shadow: 0 3px 12px rgba(21,22,43,.07);">Product engineer &middot; Jersey City, NJ</span>
-      <h1 class="in2" style="font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800;">I build software people use at work every day. Lately a lot of that is <span style="color: #5B4BE8;">AI</span>.</h1>
-      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Eight years across healthcare, banking and automotive. Most of what I do sits between the database and the screen, and I&rsquo;ve spent enough time either side of that to be useful there too.</p>
-      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">The last two years have been mostly AI work: the assistant that drafts a salesperson&rsquo;s follow-up, and the harness that checks the output before it goes out.</p>
+      <h1 class="in2" style="font-size: clamp(38px, 4.6vw, 62px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 800;">Three industries in eight years. The code was <span style="color: var(--accent);">never the hard part</span>.</h1>
+      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Prescriptions at Express Scripts, a forecasting tool traders used at Bank of America, now dealership software at automotiveMastermind, part of S&amp;P Global Mobility. Each time, the domain took longer to learn than the stack did.</p>
+      <p class="in3" style="font-size: clamp(16px, 1.3vw, 19px); line-height: 1.62; color: #55566E; max-width: 580px;">Lately that has meant LLM systems in a regulated industry. Same job as it always was: work out what people actually do all day, then build the thing that helps.</p>
       <div class="in4" style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding-top: 4px;">
-        <a class="btn" href="#shipped" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">See what shipped</a>
+        <a class="btn" href="#shipped" style="background: var(--accent); color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 26%, transparent);">See what shipped</a>
         <a class="go" href="#career" style="font-size: 15px; font-weight: 500; color: #55566E; padding: 14px 4px;">or skim the eight years
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" class="accs" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"></path></svg>
         </a>
       </div>
     </div>
@@ -179,7 +193,7 @@
               </div>
               <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px; margin-top: auto; padding-top: 14px;">
                 <a class="go" href="{{ w.url }}" style="font-size: 14px; font-weight: 600;">{{ w.cta }}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="accs" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
                 </a>
                 <span class="turn" style="display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: #7A7B92; background: #F1F2F8; padding: 8px 13px; border-radius: 100px; white-space: nowrap;" onClick="{{ w.turn }}">
                   What it taught me
@@ -258,7 +272,7 @@
           <div style="display: flex; gap: 22px; flex-wrap: wrap; margin-top: auto; padding-top: 4px;">
             <sc-for list="{{ cur.links }}" as="l" hint-placeholder-count="2">
               <a class="go" href="{{ l.url }}" style="font-size: 14px; font-weight: 600;">{{ l.label }}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="accs" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
               </a>
             </sc-for>
           </div>
@@ -284,7 +298,7 @@
             <div class="foldhead" style="display: grid; grid-template-columns: 62px 1fr 30px; gap: 16px; align-items: center; padding: 20px 22px;">
               <span class="foldnum" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; color: {{a.numcol}}; transform: {{a.numscale}};">{{ a.n }}</span>
               <span style="font-size: clamp(17px, 1.6vw, 21px); font-weight: 700; letter-spacing: -0.02em;">{{ a.title }}</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#A99BFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: {{a.rot}}; transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="accl" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="transform: {{a.rot}}; transition: transform .34s cubic-bezier(.22,.9,.3,1);"><path d="M6 9l6 6 6-6"></path></svg>
             </div>
             <div class="fold" style="grid-template-rows: {{a.rows}};">
               <div>
@@ -296,7 +310,7 @@
                     </sc-for>
                     <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 2px;">
                       <sc-for list="{{ a.tags }}" as="t" hint-placeholder-count="4">
-                        <span style="font-size: 12px; font-weight: 600; color: #A99BFF; background: #262845; padding: 6px 11px; border-radius: 8px;">{{ t.t }}</span>
+                        <span style="font-size: 12px; font-weight: 600; color: var(--accent-lift); background: #262845; padding: 6px 11px; border-radius: 8px;">{{ t.t }}</span>
                       </sc-for>
                     </div>
                   </div>
@@ -327,7 +341,7 @@
           </span>
           <span class="sidestack" style="font-size: 12px; font-weight: 600; color: #7A7B92; background: #ECEDF5; padding: 6px 12px; border-radius: 100px; white-space: nowrap;">{{ s.stack }}</span>
           <span class="tail" style="display: flex;">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B4BE8" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="accs" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
           </span>
         </a>
       </sc-for>
@@ -340,7 +354,7 @@
       <h2 style="font-size: clamp(30px, 3.4vw, 46px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; max-width: 660px;">Got something that needs building?</h2>
       <p style="font-size: 17px; line-height: 1.62; color: #55566E; max-width: 640px;">The work I enjoy most sits in the middle, where a feature touches the database, the API and the screen at once, and lately where a model can take some of the repetitive part off someone&rsquo;s desk. If that sounds like your problem, I&rsquo;d like to hear about it.</p>
       <div style="display: flex; gap: 11px; flex-wrap: wrap; padding-top: 4px;">
-        <a class="btn" href="mailto:kushalamin0@gmail.com" style="background: #5B4BE8; color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px rgba(91,75,232,.26);">kushalamin0@gmail.com</a>
+        <a class="btn" href="mailto:kushalamin0@gmail.com" style="background: var(--accent); color: #FFFFFF; font-size: 15px; font-weight: 600; padding: 14px 26px; border-radius: 12px; box-shadow: 0 8px 20px color-mix(in srgb, var(--accent) 26%, transparent);">kushalamin0@gmail.com</a>
         <a class="ghost" href="https://www.linkedin.com/in/kushalamin39/" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">LinkedIn</a>
         <a class="ghost" href="https://github.com/kushalTheAmin" style="background: #F1F2F8; color: #15162B; font-size: 15px; font-weight: 600; padding: 14px 24px; border-radius: 12px;">GitHub</a>
       </div>
@@ -368,12 +382,12 @@ class Component extends DCLogic {
       { year: '2018', company: 'Express Scripts', role: 'Software Engineer, contract', color: '#0E9C87', awards: [], title: 'The year I learned a chart is mostly geometry', paras: [{ t: 'Started September 2018. Three months later Cigna bought the company, and what came out of it was Health Connect 360: prescriptions, medical records, lab work and wearable data, finally in one place.' }, { t: 'I was on the front end, and the part I worked on was the picture: a D3 view of who prescribes what, which pharmacy fills it, who pays for it. Plenty of weekends went into it, because the dates were real. It sounds simple until you try to lay it out. Where does each point go? How do you stop them piling on top of each other? I did more actual maths on that one feature than on anything since.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Front end' }], links: [{ label: 'Health Connect 360', url: 'https://www.evernorth.com/our-solutions/health-connect-360' }] },
       { year: '2019', company: 'Express Scripts', role: 'Software Engineer, contract', color: '#0E9C87', awards: [{ t: 'Recognised for getting a big piece of the platform over the line in a short window. We worked weekends to make the date.' }], title: 'Get in the room before the ticket exists', paras: [{ t: 'This was the year it went in front of real pharmacists, which changes things. A number nobody trusts is worse than no number.' }, { t: 'I picked up a habit here that stuck. Sit in the requirements meeting, argue in the design review, then build it. Skip that and you build the same screen twice.' }], stack: [{ t: 'JavaScript' }, { t: 'D3.js' }, { t: 'Responsive UI' }], links: [] },
       { year: '2020', company: 'Bank of America', role: 'Application Developer', color: '#2F5FE0', awards: [], title: 'Everything new at once', paras: [{ t: 'I finished at Express Scripts that January and started at Bank of America the same month, on a forecasting tool the bank’s traders used every day. New framework, new language, new industry, all in the same week. Angular, RxJS, Java, and a corner of finance I knew nothing about.' }, { t: 'RxJS is the one that changed how I think. You stop writing “when this happens, do that” and start describing a stream of values arriving over time, which is exactly what a screen full of moving numbers is.' }, { t: 'Honestly though, the framework was the easy part. Going from healthcare to trading was the hard bit.' }], stack: [{ t: 'Angular' }, { t: 'RxJS' }, { t: 'Java' }, { t: 'TypeScript' }], links: [] },
-      { year: '2021', company: 'S&P Global', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React' }], title: 'Third industry, and this time I started at the back', paras: [{ t: 'Bank of America until August, then automotiveMastermind, which is part of S&P Global. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. I got to take features across the whole slice rather than a piece of one, and picked up the habit of testing all three endings rather than only the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
-      { year: '2022', company: 'S&P Global', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2022, for Project Horizon' }, { t: 'Technology Excellence Award, Q2 2022' }], title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs between us, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects across the whole thing.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
-      { year: '2023', company: 'S&P Global', role: 'Software Engineer II', color: '#5B4BE8', awards: [], title: 'The screen they live in, and a product built sideways', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of the work rather than only doing my own.' }, { t: 'Then Turn, where I was one of the engineers. A car sitting on the lot for thirty days is losing the dealer money every morning, so we flipped it round: open the car, and it shows which of the dealer’s own customers are ready to trade into it. It launched that December.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
-      { year: '2024', company: 'S&P Global', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Technology Excellence Award, 2024' }], title: 'Head down, and a lot of small things that were quietly wrong', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
-      { year: '2025', company: 'S&P Global', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2025. The first one here for Gen AI.' }], title: 'A hackathon idea that turned into the product', paras: [{ t: 'Fritz began as an idea I pitched at the company hackathon that April. It didn’t win, but it finished in the top three and the judging panel backed taking it further.' }, { t: 'Most of the year then went into building it for real: a .NET service running streaming inference against Gemini on Vertex AI, with response caching and conversation archiving behind it.' }, { t: 'The interesting work wasn’t the model call. It was the rules keeping the model away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number out before any of it reaches the LLM.' }, { t: 'Command Center started that year too. I built a first version in the morning and deleted all of it by the afternoon, once it turned out adding one category meant touching six files. Better to notice on day one than in month three.' }, { t: 'Promoted to Senior in October, one of six across the whole technology organisation that cycle.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
-      { year: '2026', company: 'S&P Global', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Innovation Excellence Award for Fritz open chat' }, { t: 'Delivery Excellence Award for Command Center' }, { t: 'First place at the company hackathon, out of a field of more than a hundred engineers. I led our team.' }], title: 'All of it shipped', paras: [{ t: 'Fritz, the LLM assistant, went to every customer in January, in over a hundred languages. Command Center reached every dealership in March, daily suggestions written by a chain of agents. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I put together the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
+      { year: '2021', company: 'S&P Global Mobility', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Engineering Excellence Award, Q4 2021, for the Conquest dashboard and navigation in React' }], title: 'Third industry, and this time I started at the back', paras: [{ t: 'Bank of America until August, then automotiveMastermind, which is part of S&P Global Mobility. Healthcare, then banking, now automotive. Same story as last time: the domain took longer than the code.' }, { t: 'C# and .NET, on the gateway every screen talks to. I got to take features across the whole slice rather than a piece of one, and picked up the habit of testing all three endings rather than only the happy one. It works, it times out, it breaks.' }], stack: [{ t: 'C# / .NET' }, { t: 'SQL' }, { t: 'REST APIs' }], links: [] },
+      { year: '2022', company: 'S&P Global Mobility', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2022, for Project Horizon' }, { t: 'Technology Excellence Award, Q2 2022' }], title: '73 APIs, moved, nobody noticed', paras: [{ t: 'The whole service layer had to come off Azure and onto Google Cloud. Seventy-three APIs between us, plus the databases behind them onto Cloud SQL, including the one holding every dealership location.' }, { t: 'The best part isn’t the move. It’s that dealers opened the product the next morning and couldn’t tell anything had happened. Zero production defects across the whole thing.' }], stack: [{ t: 'Google Cloud' }, { t: 'Cloud SQL' }, { t: '.NET' }], links: [] },
+      { year: '2023', company: 'S&P Global Mobility', role: 'Software Engineer II', color: '#5B4BE8', awards: [], title: 'The screen they live in, and a product built sideways', paras: [{ t: 'The Deal Sheet is the page a salesperson has open all day. I worked on the redesign, in .NET microservices where a slow response is a real problem, and started leading pieces of the work rather than only doing my own.' }, { t: 'Then Turn, where I was one of the engineers. A car sitting on the lot for thirty days is losing the dealer money every morning, so we flipped it round: open the car, and it shows which of the dealer’s own customers are ready to trade into it. It launched that December.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Redux' }, { t: '.NET' }], links: [{ label: 'Turn announcement', url: 'https://www.automotivemastermind.com/blog/uncategorized/mastermind-turn/' }] },
+      { year: '2024', company: 'S&P Global Mobility', role: 'Software Engineer II', color: '#5B4BE8', awards: [{ t: 'Technology Excellence Award, 2024' }], title: 'Head down, and a lot of small things that were quietly wrong', paras: [{ t: 'Vehicle search. The money maths behind a lease, a finance deal, a cash deal. One schema-driven form that replaced three hand-written ones. Website tracking across sixty files in a single release.' }, { t: 'Much of the year was fixing things that looked fine. A cap on a money field that got smaller every time you used it. A maximum of zero, which quietly rejected every value including its own default. A date that said “expired” a day early if you lived west of London.' }], stack: [{ t: 'React' }, { t: 'TypeScript' }, { t: 'Vitest' }], links: [] },
+      { year: '2025', company: 'S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Delivery Excellence Award, Q1 2025. The first one here for Gen AI.' }], title: 'A hackathon idea that turned into the product', paras: [{ t: 'Fritz began as an idea I pitched at the company hackathon that April. It didn’t win, but it finished in the top three and the judging panel backed taking it further.' }, { t: 'Most of the year then went into building it for real: a .NET service running streaming inference against Gemini on Vertex AI, with response caching and conversation archiving behind it.' }, { t: 'The interesting work wasn’t the model call. It was the rules keeping the model away from claims a manufacturer’s lawyers would object to, and the step that strips the customer’s vehicle number out before any of it reaches the LLM.' }, { t: 'Command Center started that year too. I built a first version in the morning and deleted all of it by the afternoon, once it turned out adding one category meant touching six files. Better to notice on day one than in month three.' }, { t: 'Promoted to Senior in October, one of six across the whole technology organisation that cycle.' }], stack: [{ t: '.NET' }, { t: 'Gemini / Vertex AI' }, { t: 'React' }, { t: 'Redis' }], links: [] },
+      { year: '2026', company: 'S&P Global Mobility', role: 'Senior Software Engineer', color: '#5B4BE8', awards: [{ t: 'Innovation Excellence Award for Fritz open chat' }, { t: 'Delivery Excellence Award for Command Center' }, { t: 'First place at the company hackathon, out of a field of more than a hundred engineers. I led our team.' }], title: 'All of it shipped', paras: [{ t: 'Fritz, the LLM assistant, went to every customer in January, in over a hundred languages. Command Center reached every dealership in March, daily suggestions written by a chain of agents. FeeSync, where I was part of the database design, built the external API and shipped the registration app, opened to the whole industry in May.' }, { t: 'Somewhere in there I put together the plan and the tooling for moving 2,455 files onto React 19.' }], stack: [{ t: '.NET' }, { t: 'React 19' }, { t: 'Terraform' }, { t: 'Apigee' }], links: [{ label: 'Fritz announcement', url: 'https://www.automotivemastermind.com/automotivemastermind-introduces-full-conversational-capability/' }, { label: 'FeeSync', url: 'https://www.mobilityglobal.com/en-us/automotive-insights/blog/feesync-for-the-automotive-industry' }] }
     ];
   }
 
@@ -502,9 +516,9 @@ class Component extends DCLogic {
         var on = k === i;
         return {
           year: y.year,
-          bg: on ? '#5B4BE8' : '#FFFFFF',
+          bg: on ? 'var(--accent)' : '#FFFFFF',
           fg: on ? '#FFFFFF' : '#55566E',
-          shadow: on ? '0 6px 16px rgba(91,75,232,.26)' : '0 3px 12px rgba(21,22,43,.07)',
+          shadow: on ? '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' : '0 3px 12px rgba(21,22,43,.07)',
           pick: function () { self.pick(k); }
         };
       }),
@@ -527,7 +541,7 @@ class Component extends DCLogic {
           rows: on ? '1fr' : '0fr',
           rot: on ? 'rotate(180deg)' : 'rotate(0deg)',
           rowbg: on ? '#1E2038' : 'transparent',
-          numcol: on ? '#A99BFF' : '#5C5E80',
+          numcol: on ? 'var(--accent-lift)' : '#5C5E80',
           numscale: on ? 'scale(1.25)' : 'scale(1)',
           toggle: function () { self.toggleArea(k); }
         };

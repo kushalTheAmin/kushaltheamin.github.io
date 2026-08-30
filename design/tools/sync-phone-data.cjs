@@ -51,9 +51,9 @@ const tail = `
         var on = k === i;
         return {
           year: y.year,
-          bg: on ? '#5B4BE8' : '#FFFFFF',
+          bg: on ? 'var(--accent)' : '#FFFFFF',
           fg: on ? '#FFFFFF' : '#55566E',
-          shadow: on ? '0 6px 16px rgba(91,75,232,.26)' : '0 3px 12px rgba(21,22,43,.07)',
+          shadow: on ? '0 6px 16px color-mix(in srgb, var(--accent) 26%, transparent)' : '0 3px 12px rgba(21,22,43,.07)',
           pick: function () { self.pick(k); }
         };
       }),
@@ -71,7 +71,7 @@ const tail = `
           rows: on ? '1fr' : '0fr',
           rot: on ? 'rotate(180deg)' : 'rotate(0deg)',
           rowbg: on ? '#1E2038' : 'transparent',
-          numcol: on ? '#A99BFF' : '#5C5E80',
+          numcol: on ? 'var(--accent-lift)' : '#5C5E80',
           toggle: function () { self.toggleArea(k); }
         };
       })
